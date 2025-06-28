@@ -6,5 +6,4 @@ export default defineConfig({
   site: "https://cenaculonucleoeste.github.io",
   base: "/",
   integrations: [tailwind()],
-  output: "server",
 });

@@ -1,26 +1,30 @@
 ---
+// src/pages/ciclo/[ciclo].astro
 import Layout from "~/components/Layout.astro";
 import EpCard from "~/components/ep-card.astro";
 import ContentSection from "~/components/content-section.astro";
 import { DEPARTMENT_GRADIENTS} from "~/types";
-import ciclosData from "../../public/ciclos.json" assert { type: "json" };
+import ciclosData from "../../../public/ciclos.json" assert { type: "json" };
 
-// Get selected ciclo from query param or default to the first
-const url = new URL(Astro.request.url);
-const selectedCicloNumber = url.searchParams.get('ciclo') || ciclosData.ciclos[0].number;
-const selectedCiclo = ciclosData.ciclos.find(c => c.number === selectedCicloNumber) || ciclosData.ciclos[0];
+export async function getStaticPaths() {
+  return ciclosData.ciclos.map((ciclo) => ({
+    params: { ciclo: ciclo.number },
+    props: { ciclo, allCiclos: ciclosData.ciclos },
+  }));
+}
 
-// Convert image paths to actual imports
+const { ciclo, allCiclos } = Astro.props;
+
 const getImageSrc = (imagePath: string) => {
   return `/public/${imagePath}`;
 };
 ---
 
-<Layout title="Ciclos Passados" description="Conheça os ciclos passados do Núcleo Este">
+<Layout title={`${ciclo.number}º Ciclo - ${ciclo.lema}`} description={`Conheça o ${ciclo.number}º ciclo do Núcleo Este`}>
   <div class="space-y-24 px-8 py-16">
-    <ContentSection title={selectedCiclo.number} id="ciclo">
+    <ContentSection title={ciclo.number} id="ciclo">
       <Fragment slot="lead">
-        <span class="text-primary"> {selectedCiclo.lema} </span> - {selectedCiclo.year}
+        <span class="text-primary"> {ciclo.lema} </span> - {ciclo.year}
       </Fragment>
       
       <!-- Dropdown for ciclo selection -->
@@ -32,19 +36,18 @@ const getImageSrc = (imagePath: string) => {
           id="ciclo-select" 
           class="block w-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
         >
-          {ciclosData.ciclos.map((ciclo) => (
-            <option value={ciclo.number} selected={ciclo.number === selectedCiclo.number}>{ciclo.number}º Ciclo</option>
+          {allCiclos.map((c) => (
+            <option value={c.number} selected={c.number === ciclo.number}>{c.number}º Ciclo</option>
           ))}
         </select>
       </div>
-
+      
       <!-- Ciclo content -->
       <div class="mb-6">
-        <img src={getImageSrc(selectedCiclo.image)} alt={selectedCiclo.lema} class="w-2/3 mx-auto mb-8" />
+        <img src={getImageSrc(ciclo.image)} alt={ciclo.lema} class="w-2/3 mx-auto mb-8" />
       </div>
-
       <div>
-        {Object.entries(selectedCiclo.ep).map(([key, departamento]) => (
+        {Object.entries(ciclo.ep).map(([key, departamento]) => (
           <div class="flex flex-col items-center gap-4 mb-8">
             <span class="text-primary text-2xl font-bold">{departamento.name}</span>
             <div class="flex flex-row flex-wrap justify-center gap-6 w-full">
@@ -73,11 +76,8 @@ const getImageSrc = (imagePath: string) => {
     if (select) {
       select.addEventListener('change', function() {
         const selectedValue = this.value;
-        const currentUrl = new URL(window.location.href);
-        currentUrl.searchParams.set('ciclo', selectedValue);
-        
-        // Force a full page reload to ensure Astro re-renders
-        window.location.href = currentUrl.toString();
+        // Navigate to the specific ciclo page
+        window.location.href = `/ciclo/${selectedValue}/`;
       });
     }
   });
@@ -88,7 +88,6 @@ const getImageSrc = (imagePath: string) => {
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
   }
-
   img {
     transition: transform 0.3s ease-in-out;
   }
@@ -106,7 +105,6 @@ const getImageSrc = (imagePath: string) => {
     font-size: 0.875rem;
   }
   
-  /* Responsive font sizing for long names */
   .name-text:not(.truncated) {
     font-size: clamp(0.7rem, 4vw, 0.875rem);
   }
