@@ -1,0 +1,35 @@
+---
+import Layout from "~/components/Layout.astro";
+import ContentSection from "~/components/content-section.astro";
+import { Image } from 'astro:assets';
+import ricVit from "/public/ric-vit.jpeg"
+---
+
+<Layout
+  title="EP Atual - Cenáculo Núcleo Este"
+  description="Os meus objetivos e experiências no escutismo"
+>
+  <div class="space-y-24 px-8 py-16 flex flex-col items-center justify-center">
+
+    <ContentSection title="Equipa Projeto Atual" id="ep-atual">
+    <Image src={ricVit} alt="EP Atual" class="w-full md:w-1/3 lg:w-1/3 justify-center items-center" />
+      <Fragment slot="lead">
+        A EP do <span class="text-primary"> XVI Ciclo </span>
+        está em formação. Se queres 
+        <span class="text-primary"> ser mais</span>, se dentro de ti
+        <span class="text-primary"> o fogo do servYr</span>, se queres 
+        <span class="text-primary"> deixar uma marca</span>, então
+        <span class="text-primary"> arrisca, e junta-te a nós</span>.
+      </Fragment>
+      <div class="">
+        <a
+          href="https://www.instagram.com/cenaculo_nucleo_este/"
+          class="flex flex-col items-center justify-center gap-1 border-2 border-primary bg-primary px-6 py-4 text-white hover:bg-default hover:text-primary transition-colors"
+        >
+          <span class="font-bold">XVI Ciclo</span>
+        </a>
+      </div>
+    </ContentSection>
+  </div>
+</Layout>
+

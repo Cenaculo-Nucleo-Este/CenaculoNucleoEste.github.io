@@ -1,0 +1,311 @@
+{
+  "Santão": [
+    {
+      "name": "Clã 73",
+      "agrupamento": "680 Santão",
+      "description": "Somos búe baris",
+      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "instagram": "https://www.instagram.com/cla73_680santao",
+      "facebook": null,
+      "email": "caminheiros.680@escutismo.pt",
+      "coordinates": {
+        "latitude": 41.31344909495816,
+        "longitude": -8.168363346561064
+      }
+    }
+  ],
+  "Fornos": [
+    {
+      "name": "Clã São João Evangelista",
+      "agrupamento": "1371 Recarei",
+      "description": "Somos búe baris",
+      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "instagram": "https://www.instagram.com/cla.boanerges1371",
+      "facebook": null,
+      "email": "caminheiros.680@escutismo.pt",
+      "coordinates": {
+        "latitude": 41.147713993076856,
+        "longitude": -8.41579098879501
+      }
+    }
+  ],
+  "Recarei": [
+    {
+      "name": "Clã 122",
+      "agrupamento": "1173 Fornos",
+      "description": "ya",
+      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "instagram": "https://www.instagram.com/cla122_1173",
+      "facebook": null,
+      "email": "caminheiros.680@escutismo.pt",
+      "coordinates": {
+        "latitude": 41.188594,
+        "longitude": -8.145732
+      }
+    }
+  ],
+  "São Vicente de Pinheiro": [
+    {
+      "name": "Cla X",
+      "agrupamento": "369 São Vicente de Pinheiro",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.369@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Amarante": [
+    {
+      "name": "Cla X",
+      "agrupamento": "448 Amarante",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.448@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Paredes": [
+    {
+      "name": "Cla X",
+      "agrupamento": "519 Paredes",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.519@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Penafiel": [
+    {
+      "name": "Cla X",
+      "agrupamento": "557 Penafiel",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.557@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Parada de Todeia": [
+    {
+      "name": "Cla X",
+      "agrupamento": "609 Parada de Todeia",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.609@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Margaride": [
+    {
+      "name": "Cla X",
+      "agrupamento": "694 Margaride",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.694@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Seroa": [
+    {
+      "name": "Cla X",
+      "agrupamento": "765 Seroa",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.765@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Urrô": [
+    {
+      "name": "Cla X",
+      "agrupamento": "873 Urrô",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.873@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Irivo": [
+    {
+      "name": "Cla X",
+      "agrupamento": "912 Irivo",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.912@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Rebordosa": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1030 Rebordosa",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1030@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Vilela": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1039 Vilela",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1039@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Gondalães": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1061 Gondalães",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1061@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Macieira": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1069 Macieira",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1069@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Meinedo": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1095 Meinedo",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1095@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Silvares": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1253 Silvares",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1253@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Castelo de Paiva": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1258 Castelo de Paiva",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1258@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Sobrosa": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1267 Sobrosa",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1267@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Airães": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1275 Airães",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1275@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "Freamunde": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1341 Freamunde",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1341@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "São Martinho de Recesinhos": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1361 São Martinho de Recesinhos",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1361@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "São Miguel de Bustelo": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1410 São Miguel de Bustelo",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1410@escutismo.pt",
+      "coordinates": null
+    }
+  ],
+  "S. Tiago de Figueiró": [
+    {
+      "name": "Cla X",
+      "agrupamento": "1412 S. Tiago de Figueiró",
+      "description": null,
+      "image": null,
+      "instagram": null,
+      "facebook": null,
+      "email": "geral.1412@escutismo.pt",
+      "coordinates": null
+    }
+  ]
+}

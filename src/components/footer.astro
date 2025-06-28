@@ -1,0 +1,42 @@
+---
+import Icon from "~/components/Icon.astro";
+import type { FooterLink } from "~/types";
+
+const links: Array<FooterLink> = [
+  {
+    url: "https://www.instagram.com/cenaculo_nucleo_este/",
+    description: "Instagram",
+    icon: "fa-brands:instagram",
+  },
+  {
+    url: "https://www.youtube.com/channel/UCdfDCzbeJau4HoDpSLL8TSQ",
+    description: "YouTube",
+    icon: "fa-brands:youtube",
+  },
+  {
+    url: "mailto:cenaculo.este@escutismo.pt",
+    description: "Email",
+    icon: "mdi:email",
+  },
+];
+---
+
+<footer class="relative flex h-32 items-center justify-center bg-default border-t-2 border-opacity-20 border-secondary">
+  <ul class="flex flex-row gap-4">
+    {
+      links.map((link) => (
+        <li>
+          <a
+            class="flex size-16 items-center justify-center rounded-full border-2 border-primary p-4 text-primary hover:bg-primary hover:text-white transition-colors"
+            href={link.url}
+            target={link.url.startsWith('mailto:') ? undefined : '_blank'}
+            rel={link.url.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+          >
+            <span class="sr-only">{link.description}</span>
+            <Icon class="size-full" name={link.icon} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</footer>

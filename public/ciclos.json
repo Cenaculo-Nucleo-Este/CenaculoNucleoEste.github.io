@@ -1,0 +1,218 @@
+{
+  "ciclos": [
+    {
+      "number": "XV",
+      "year": "2024/2025",
+      "lema": "Conquista a tua marca",
+      "image": "xv.jpeg",
+      "carta": "A carta do ciclo",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.instagram.com/p/C0SPUzVLAgj/",
+      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "João Silva",
+              "image": "ric.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Vicente Vicente",
+              "image": "ric.png",
+              "agrupamento": "1371 Recarei"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Henrique Teixeira",
+              "image": "ric.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Ana Raquel",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Marco Paiva",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Gabriel Pacheco",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            },
+            {
+              "name": "Beatriz Lima",
+              "image": "ric.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Ângelo Gonçalves",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Marta Alves",
+              "image": "ric.png",
+              "agrupamento": "1371 Recarei"
+            },
+            {
+              "name": "Margarida Machado",
+              "image": "ric.png",
+              "agrupamento": "1253 Silvares"
+            },
+            {
+              "name": "Érica Sousa",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            }
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Filipe Soares",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            },
+            {
+              "name": "Vitória Ribeiro",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Francisco Teixeira",
+              "image": "ric.png",
+              "agrupamento": "1275 Airães"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "XIV",
+      "year": "2024/2025",
+      "lema": "Conquista a tua marca",
+      "image": "xiv.jpg",
+      "carta": "A carta do ciclo",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.instagram.com/p/C0SPUzVLAgj/",
+      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "João Silva",
+              "image": "ric.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Vicente Vicente",
+              "image": "ric.png",
+              "agrupamento": "1371 Recarei"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Henrique Teixeira",
+              "image": "ric.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Ana Raquel",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Marco Paiva",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Gabriel Pacheco",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            },
+            {
+              "name": "Beatriz Lima",
+              "image": "ric.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Ângelo Gonçalves",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Marta Alves",
+              "image": "ric.png",
+              "agrupamento": "1371 Recarei"
+            },
+            {
+              "name": "Margarida Machado",
+              "image": "ric.png",
+              "agrupamento": "1253 Silvares"
+            },
+            {
+              "name": "Érica Sousa",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            }
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Filipe Soares",
+              "image": "ric.png",
+              "agrupamento": "873 Urrô"
+            },
+            {
+              "name": "Vitória Ribeiro",
+              "image": "ric.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Francisco Teixeira",
+              "image": "ric.png",
+              "agrupamento": "1275 Airães"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

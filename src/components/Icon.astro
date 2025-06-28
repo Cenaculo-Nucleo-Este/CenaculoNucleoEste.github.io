@@ -1,0 +1,69 @@
+---
+// Simple icon component to replace astro-icon
+const { name, class: className } = Astro.props;
+
+// Map icon names to paths
+const iconMap: Record<string, string> = {
+  // Logo icons
+  "logomark": "/src/icons/logomark.svg",
+  "wordmark": "/src/icons/wordmark.svg",
+  
+  // Framework icons
+  "frameworks/react": "/src/icons/frameworks/react.svg",
+  "frameworks/preact": "/src/icons/frameworks/preact.svg",
+  "frameworks/svelte": "/src/icons/frameworks/svelte.svg",
+  "frameworks/vue": "/src/icons/frameworks/vue.svg",
+  "frameworks/solid": "/src/icons/frameworks/solid.svg",
+  "frameworks/lit": "/src/icons/frameworks/lit.svg",
+  
+  // Custom icons
+  "guitar-acoustic": "https://api.iconify.design/mdi/guitar-acoustic.svg",
+  "wave": "https://api.iconify.design/mdi/wave.svg",
+  "rock-on": "https://api.iconify.design/akar-icons/rock-on.svg",
+  "energy": "https://api.iconify.design/hugeicons/energy.svg",
+  "happy": "https://api.iconify.design/bx/happy.svg",
+  "octopus": "https://api.iconify.design/cbi/octopusenergy.svg",
+  
+  // Receber icons
+  "mdi:backpack": "https://api.iconify.design/mdi/backpack.svg",
+  "mdi:account-group": "https://api.iconify.design/mdi/account-group.svg",
+  "mdi:earth": "https://api.iconify.design/mdi/earth.svg",
+  "mdi:lightbulb": "https://api.iconify.design/mdi/lightbulb.svg",
+  "mdi:camera": "https://api.iconify.design/mdi/camera.svg",
+  "mdi:account-arrow-up": "https://api.iconify.design/mdi/account-arrow-up.svg",
+  
+  // MDI icons
+  "mdi:menu": "https://api.iconify.design/mdi/menu.svg",
+  "mdi:close": "https://api.iconify.design/mdi/close.svg",
+  "mdi:telescope": "https://api.iconify.design/mdi/telescope.svg",
+  "mdi:rocket": "https://api.iconify.design/mdi/rocket.svg",
+  "mdi:white-balance-sunny": "https://api.iconify.design/mdi/white-balance-sunny.svg",
+  "mdi:weather-night": "https://api.iconify.design/mdi/weather-night.svg",
+  "mdi:handshake": "https://api.iconify.design/mdi/handshake.svg",
+  "mdi:feather": "https://api.iconify.design/mdi/feather.svg",
+  "mdi:directions-fork": "https://api.iconify.design/mdi/directions-fork.svg",
+  "mdi:graph": "https://api.iconify.design/mdi/graph.svg",
+  "mdi:search-web": "https://api.iconify.design/mdi/search-web.svg",
+  "mdi:home": "https://api.iconify.design/mdi/home.svg",
+  "mdi:chevron-down": "https://api.iconify.design/mdi/chevron-down.svg",
+  "mdi:email": "https://api.iconify.design/mdi/email.svg",
+  "mdi:email-outline": "https://api.iconify.design/mdi/email-outline.svg",
+  "mdi:map-marker": "https://api.iconify.design/mdi/map-marker.svg",
+  
+  // Social media icons
+  "fa-brands:instagram": "https://api.iconify.design/fa-brands/instagram.svg",
+  "fa-brands:github-alt": "https://api.iconify.design/fa-brands/github-alt.svg",
+  "fa-brands:discord": "https://api.iconify.design/fa-brands/discord.svg",
+  "fa-brands:twitter": "https://api.iconify.design/fa-brands/twitter.svg",
+  "fa-brands:facebook": "https://api.iconify.design/fa-brands/facebook.svg",
+  "fa-brands:youtube": "https://api.iconify.design/fa-brands/youtube.svg",
+};
+
+const iconPath = iconMap[name] || "";
+---
+
+{iconPath.endsWith('.svg') ? (
+  <img src={iconPath} class={className} alt="" />
+) : (
+  <span class={className}></span>
+)} 

@@ -1,0 +1,51 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "~/components/compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+
+
+const frameworks: Array<CompatibilityItem> = [
+  {
+    title: "Boas Vibes",
+    icon: "wave",
+    url: "#dar",
+  },
+  {
+    title: "Guitarradas",
+    icon: "guitar-acoustic",
+    url: "#dar",
+  },
+  {
+    title: "Mais Vibes",
+    icon: "rock-on",
+    url: "#dar",
+  },
+  {
+    title: "Empenho",
+    icon: "energy",
+    url: "#dar",
+  },
+  {
+    title: "Boa Humor",
+    icon: "happy",
+    url: "#dar",
+  },
+  {
+    title: "Versatilidade",
+    icon: "octopus",
+    url: "#dar",
+  },
+];
+
+---
+
+<ContentSection title="Template" id="dar">
+  <Fragment slot="lead">
+    Página <span class="text-primary">versátil</span>.
+  </Fragment>
+  <CompatibilityList
+    items={frameworks}
+    title="O que tenho a dar?"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />
+</ContentSection>

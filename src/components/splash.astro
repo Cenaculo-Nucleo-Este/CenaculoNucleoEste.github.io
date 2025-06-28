@@ -1,0 +1,140 @@
+---
+import { Image } from "astro:assets";
+import Starfield from "~/components/starfield.astro";
+import Icon from "~/components/Icon.astro";
+import cenaculo from "~/../public/cenaculo.png";
+
+const widths = [450, 800];
+const sizes = "(min-width: 640px) 42vw, 67vw";
+---
+
+<section id="splash" class="relative min-h-screen bg-default transition-colors duration-300 flex items-center">
+  <Starfield />
+  <div class="relative grid w-full place-items-center sm:grid-cols-2 px-8 py-16">
+    <h1
+      class="flex flex-col items-center gap-2 self-end sm:gap-4 sm:self-auto sm:justify-self-end"
+    >
+      <div
+        class="text-center font-extrabold tracking-tighter text-6xl md:text-8xl text-primary transition-colors duration-300"
+      >
+        Cenáculo
+        <br /> Núcleo Este
+      </div>
+      <div
+        class="text-center tracking-tighter text-2xl md:text-4xl text-primary transition-colors duration-300"
+      >
+        Vive, Partilha Y Avança
+      </div>
+    </h2>
+    <div
+      id="astronaut"
+      class="w-2/3 max-w-6xl self-start sm:w-full sm:self-auto sm:justify-self-start"
+    >
+      <Image
+        class="h-full w-full object-cover"
+        src={cenaculo}
+        widths={widths}
+        sizes={sizes}
+        loading="eager"
+        alt="Cenáculo Núcleo Este"
+      />
+    </div>
+  </div>
+  
+  <!-- Scroll Down Arrow -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
+    <button id="scroll-down-btn" class="flex flex-col items-center text-primary hover:text-primary/70 transition-colors focus:outline-none">
+      <span class="text-sm mb-2">Saber mais</span>
+      <div class="scroll-arrow">
+        <Icon name="mdi:chevron-down" class="size-10" />
+      </div>
+    </button>
+  </div>
+</section>
+
+<script is:inline>
+  // Scroll down functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollDownBtn = document.getElementById('scroll-down-btn');
+    
+    if (scrollDownBtn) {
+      scrollDownBtn.addEventListener('click', function() {
+        // Target the div with class "space-y-24" which contains the next sections
+        const targetSection = document.querySelector('div.space-y-24');
+        
+        if (targetSection) {
+          // Scroll to the target section with smooth behavior
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          // Fallback: scroll down by viewport height
+          window.scrollTo({
+            top: window.innerHeight,
+            behavior: 'smooth'
+          });
+        }
+      });
+    }
+  });
+</script>
+
+<noscript>
+  <style>
+    #splash-bg-fallback {
+      display: block;
+    }
+  </style>
+</noscript>
+
+<style>
+  @keyframes float {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+      transform: translate3d(0, 30px, 0);
+    }
+  }
+
+  #astronaut {
+    animation: float linear 2.5s infinite alternate;
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  .scroll-arrow {
+    animation: bounce 2s infinite;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #astronaut, .scroll-arrow {
+      @apply animate-none;
+    }
+
+    :global(#starfield) {
+      @apply hidden;
+    }
+
+    #splash-bg-fallback {
+      @apply block;
+    }
+  }
+  
+  #scroll-down-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    font: inherit;
+  }
+</style>

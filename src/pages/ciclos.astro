@@ -1,0 +1,113 @@
+---
+import Layout from "~/components/Layout.astro";
+import EpCard from "~/components/ep-card.astro";
+import ContentSection from "~/components/content-section.astro";
+import { DEPARTMENT_GRADIENTS} from "~/types";
+import ciclosData from "../../public/ciclos.json" assert { type: "json" };
+
+// Get selected ciclo from query param or default to the first
+const url = new URL(Astro.request.url);
+const selectedCicloNumber = url.searchParams.get('ciclo') || ciclosData.ciclos[0].number;
+const selectedCiclo = ciclosData.ciclos.find(c => c.number === selectedCicloNumber) || ciclosData.ciclos[0];
+
+// Convert image paths to actual imports
+const getImageSrc = (imagePath: string) => {
+  return `/public/${imagePath}`;
+};
+---
+
+<Layout title="Ciclos Passados" description="Conheça os ciclos passados do Núcleo Este">
+  <div class="space-y-24 px-8 py-16">
+    <ContentSection title={selectedCiclo.number} id="ciclo">
+      <Fragment slot="lead">
+        <span class="text-primary"> {selectedCiclo.lema} </span> - {selectedCiclo.year}
+      </Fragment>
+      
+      <!-- Dropdown for ciclo selection -->
+      <div class="mb-8">
+        <label for="ciclo-select" class="block text-sm font-medium text-gray-700 mb-2">
+          Escolhe um Ciclo:
+        </label>
+        <select 
+          id="ciclo-select" 
+          class="block w-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+        >
+          {ciclosData.ciclos.map((ciclo) => (
+            <option value={ciclo.number} selected={ciclo.number === selectedCiclo.number}>{ciclo.number}º Ciclo</option>
+          ))}
+        </select>
+      </div>
+
+      <!-- Ciclo content -->
+      <div class="mb-6">
+        <img src={getImageSrc(selectedCiclo.image)} alt={selectedCiclo.lema} class="w-2/3 mx-auto mb-8" />
+      </div>
+
+      <div>
+        {Object.entries(selectedCiclo.ep).map(([key, departamento]) => (
+          <div class="flex flex-col items-center gap-4 mb-8">
+            <span class="text-primary text-2xl font-bold">{departamento.name}</span>
+            <div class="flex flex-row flex-wrap justify-center gap-6 w-full">
+              {departamento.members.map((member) => (
+                <EpCard 
+                  member={{
+                    name: member.name,
+                    agrupamento: member.agrupamento,
+                    image: getImageSrc(member.image)
+                  }} 
+                  gradientClass={DEPARTMENT_GRADIENTS[key]} 
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </ContentSection>
+  </div>
+</Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('ciclo-select') as HTMLSelectElement;
+    
+    if (select) {
+      select.addEventListener('change', function() {
+        const selectedValue = this.value;
+        const currentUrl = new URL(window.location.href);
+        currentUrl.searchParams.set('ciclo', selectedValue);
+        
+        // Force a full page reload to ensure Astro re-renders
+        window.location.href = currentUrl.toString();
+      });
+    }
+  });
+</script>
+
+<style>
+  .group:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .name-container {
+    max-width: 100%;
+  }
+  
+  .name-text {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive font sizing for long names */
+  .name-text:not(.truncated) {
+    font-size: clamp(0.7rem, 4vw, 0.875rem);
+  }
+</style>
