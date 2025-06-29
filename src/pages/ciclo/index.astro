@@ -1,8 +1,0 @@
----
-// src/pages/ciclo/index.astro
-import ciclosData from "../../../public/ciclos.json" assert { type: "json" };
-
-// Redirect to the first ciclo with correct base path
-const firstCiclo = ciclosData.ciclos[0].number;
-return Astro.redirect(`/CenaculoNucleoEste.github.io/ciclo/${firstCiclo}/`);
----

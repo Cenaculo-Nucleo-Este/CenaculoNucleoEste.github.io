@@ -1,0 +1,194 @@
+---
+import Layout from "~/components/Layout.astro";
+import EpCard from "~/components/ep-card.astro";
+import ContentSection from "~/components/content-section.astro";
+import { DEPARTMENT_GRADIENTS } from "~/types";
+import ciclosData from "../../public/ciclos.json" assert { type: "json" };
+
+// Get the first ciclo as default
+const defaultCiclo = ciclosData.ciclos[0];
+
+const getImageSrc = (imagePath: string) => {
+  return `${import.meta.env.BASE_URL}${imagePath}`;
+};
+---
+
+<Layout title="Ciclos - Cenáculo Núcleo Este" description="Conheça os ciclos do Núcleo Este">
+  <div class="space-y-24 px-8 py-16">
+    <ContentSection title="Ciclos" id="ciclos">
+      <Fragment slot="lead">
+        Conhece os nossos <span class="text-primary">ciclos</span>
+      </Fragment>
+      
+      <!-- Dropdown for ciclo selection -->
+      <div class="mb-8">
+        <label for="ciclo-select" class="block text-sm font-medium text-gray-700 mb-2">
+          Escolhe um Ciclo:
+        </label>
+        <select 
+          id="ciclo-select" 
+          class="block w-64 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary focus:border-primary"
+        >
+          {ciclosData.ciclos.map((ciclo) => (
+            <option value={ciclo.number}>{ciclo.number}º Ciclo</option>
+          ))}
+        </select>
+      </div>
+      
+      <!-- Ciclo content container -->
+      <div id="ciclo-content">
+        <!-- Content will be populated by JavaScript -->
+      </div>
+    </ContentSection>
+  </div>
+</Layout>
+
+<script define:vars={{ ciclosData, departmentGradients: DEPARTMENT_GRADIENTS, baseUrl: import.meta.env.BASE_URL }}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const select = document.getElementById('ciclo-select');
+    const contentContainer = document.getElementById('ciclo-content');
+    
+    // Function to fit text within container
+    function fitTextToContainer(element) {
+      const container = element.parentElement;
+      if (!container) return;
+      
+      const containerWidth = container.offsetWidth - 20; // Account for padding
+      let fontSize = 20; // Start with 20px (1.25rem = text-xl)
+      element.style.fontSize = fontSize + 'px';
+      
+      // Reduce font size until text fits
+      while (element.scrollWidth > containerWidth && fontSize > 12) {
+        fontSize -= 0.5;
+        element.style.fontSize = fontSize + 'px';
+      }
+    }
+    
+    // Function to add hover effects
+    function addHoverEffects() {
+      const cards = contentContainer.querySelectorAll('.group');
+      cards.forEach(card => {
+        const img = card.querySelector('img');
+        if (img) {
+          card.addEventListener('mouseenter', () => {
+            img.style.transform = 'scale(1.05)';
+          });
+          
+          card.addEventListener('mouseleave', () => {
+            img.style.transform = 'scale(1)';
+          });
+        }
+      });
+    }
+    
+    // Function to fit all text elements
+    function fitAllText() {
+      const nameElements = contentContainer.querySelectorAll('.name-text');
+      nameElements.forEach(element => {
+        // Reset font size first
+        element.style.fontSize = '';
+        // Then fit to container
+        setTimeout(() => fitTextToContainer(element), 10);
+      });
+    }
+    
+    function renderCiclo(ciclo) {
+      const departmentsHtml = Object.entries(ciclo.ep)
+        .filter(([key, departamento]) => departamento.members.length > 0)
+        .map(([key, departamento]) => `
+          <div class="flex flex-col items-center gap-4 mb-8">
+            <span class="text-primary text-2xl font-bold">${departamento.name}</span>
+            <div class="flex flex-row flex-wrap justify-center gap-6 w-full">
+              ${departamento.members.map(member => `
+                <div class="group relative w-full max-w-[300px] mb-10">
+                  <div class="relative overflow-hidden rounded-md aspect-[5/6] bg-gradient-to-br ${departmentGradients[key]}">
+                    <img
+                      src="${baseUrl}${member.image}"
+                      alt="${member.name}"
+                      class="w-full h-full object-cover transition-transform duration-300 ease-in-out"
+                    />
+                  </div>
+                  <div class="bg-white rounded-2xl p-3 mt-[-2rem] absolute left-0 right-0 mx-auto w-[80%] text-center shadow-md name-container">
+                    <h2 class="text-lg font-bold text-gray-900 mb-1 name-text" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      ${member.name}
+                    </h2>
+                    <p class="text-xs text-gray-500 mb-1" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                      ${member.agrupamento}
+                    </p>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+
+      contentContainer.innerHTML = `
+        <div class="mb-6">
+          <h2 class="text-3xl font-bold mb-4 text-center">
+            <span class="text-primary">${ciclo.number}º Ciclo</span>
+          </h2>
+          <p class="text-lg mb-6 text-center">
+            <span class="text-primary">${ciclo.lema}</span> - ${ciclo.year}
+          </p>
+          <img src="${baseUrl}${ciclo.image}" alt="${ciclo.lema}" class="w-2/3 mx-auto mb-8" />
+        </div>
+        <div>
+          ${departmentsHtml}
+        </div>
+      `;
+      
+      // Apply text fitting and hover effects after content is rendered
+      setTimeout(() => {
+        fitAllText();
+        addHoverEffects();
+      }, 50);
+    }
+
+    function updateCiclo() {
+      const selectedCicloNumber = select.value;
+      const selectedCiclo = ciclosData.ciclos.find(c => c.number === selectedCicloNumber);
+      if (selectedCiclo) {
+        renderCiclo(selectedCiclo);
+      }
+    }
+
+    // Initialize with first ciclo
+    updateCiclo();
+
+    // Handle dropdown change
+    select.addEventListener('change', updateCiclo);
+    
+    // Handle window resize to refit text
+    window.addEventListener('resize', () => {
+      setTimeout(fitAllText, 100);
+    });
+  });
+</script>
+
+<style>
+  .group:hover img {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  img {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .name-container {
+    max-width: 100%;
+  }
+  
+  .name-text {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    font-size: 0.875rem;
+  }
+  
+  .name-text:not(.truncated) {
+    font-size: clamp(0.7rem, 4vw, 0.875rem);
+  }
+</style> 
