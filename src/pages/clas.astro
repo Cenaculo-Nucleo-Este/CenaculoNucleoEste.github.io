@@ -60,7 +60,7 @@ const serializedClaList = JSON.stringify(cla_list);
   <!-- Leaflet JS -->
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <script define:vars={{ serializedClaList }}>
+  <script define:vars={{ serializedClaList, baseUrl: import.meta.env.BASE_URL }}>
     document.addEventListener('DOMContentLoaded', function() {
       const clas = JSON.parse(serializedClaList);
       let activeMarker = null;
@@ -117,14 +117,14 @@ const serializedClaList = JSON.stringify(cla_list);
         
         // Create custom marker icons
         const defaultIcon = L.icon({
-          iconUrl: '/map-marker.svg',
+          iconUrl: `${baseUrl}map-marker.svg`,
           iconSize: [36, 48],
           iconAnchor: [18, 48],
           popupAnchor: [0, -48]
         });
         
         const activeIcon = L.icon({
-          iconUrl: '/map-marker-active.svg',
+          iconUrl: `${baseUrl}map-marker-active.svg`,
           iconSize: [40, 53],
           iconAnchor: [20, 53],
           popupAnchor: [0, -53]
@@ -222,7 +222,7 @@ const serializedClaList = JSON.stringify(cla_list);
             marker.on('mouseover', function() {
               if (marker !== activeMarker) {
                 marker.setIcon(L.icon({
-                  iconUrl: '/map-marker.svg',
+                  iconUrl: `${baseUrl}map-marker.svg`,
                   iconSize: [40, 53],
                   iconAnchor: [20, 53],
                   popupAnchor: [0, -53]

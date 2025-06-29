@@ -46,12 +46,12 @@ function convertGoogleDriveUrl(url: string | null): string {
 // Function to get a random image from the simbologia folder
 function getRandomSymbolImage(): string {
   const symbolImages = [
-    '/simbologia/fogo.png',
-    '/simbologia/evangelho.png',
-    '/simbologia/pao.png',
-    '/simbologia/tenda.png',
-    '/simbologia/mochila.png',
-    '/simbologia/vara-bifurcada.png'
+    `${import.meta.env.BASE_URL}simbologia/fogo.png`,
+    `${import.meta.env.BASE_URL}simbologia/evangelho.png`,
+    `${import.meta.env.BASE_URL}simbologia/pao.png`,
+    `${import.meta.env.BASE_URL}simbologia/tenda.png`,
+    `${import.meta.env.BASE_URL}simbologia/mochila.png`,
+    `${import.meta.env.BASE_URL}simbologia/vara-bifurcada.png`
   ];
   
   // Get a random index
