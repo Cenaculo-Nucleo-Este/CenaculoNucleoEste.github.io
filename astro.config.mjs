@@ -5,5 +5,6 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://cenaculonucleoeste.github.io",
   base: "/CenaculoNucleoEste.github.io/",
+  output: 'static',
   integrations: [tailwind()],
 });
