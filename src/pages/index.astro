@@ -33,10 +33,8 @@ const description =
       if (themeSaved) {
         document.documentElement.dataset.theme = themeSaved;
       } else {
-        const prefersLight = window.matchMedia(
-          "(prefers-color-scheme: light)",
-        ).matches;
-        document.documentElement.dataset.theme = prefersLight ? "light" : "dark";
+        // Default to light theme
+        document.documentElement.dataset.theme = "light";
       }
 
       window
