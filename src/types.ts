@@ -4,6 +4,7 @@ export interface CompatibilityItem {
   url?: string;
 }
 
+
 export interface FeatureItem {
   description: string;
   icon: string;
@@ -64,6 +65,8 @@ export interface Ciclo {
   instagram: string | null;
   picturesLink: string | null;
   hino: string | null;
+  leftSidePictures: string[] | null;
+  rightSidePictures: string[] | null;
 }
 
 export const DEPARTMENT_GRADIENTS: Record<string, string> = {

@@ -4,11 +4,23 @@
       "number": "XV",
       "year": "2024/2025",
       "lema": "Conquista a tua marca",
-      "image": "xv.jpeg",
-      "carta": "A carta do ciclo",
+      "image": "pics/xv/xv.jpeg",
+      "carta": "https://drive.google.com/file/d/105Qx2CJgdhVjXD3NQ6O8Mz29n0iZW_bR/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "https://www.instagram.com/p/C0SPUzVLAgj/",
+      "picturesLink": "https://mega.nz/folder/JAZEFAZb#FLmqdEUd0IGq191WzKq-5A",
       "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "leftSidePictures": [
+        "pics/xv/l1.jpeg",
+        "pics/xv/l2.jpeg",
+        "pics/xv/l3.jpeg",
+        "pics/xv/l4.jpeg"
+      ],
+      "rightSidePictures": [
+        "pics/xv/r1.jpeg",
+        "pics/xv/r2.jpeg",
+        "pics/xv/r3.jpeg",
+        "pics/xv/r4.jpeg"
+      ],
       "ep": {
         "coordination": {
           "name": "Coordenação",
@@ -109,13 +121,25 @@
     },
     {
       "number": "XIV",
-      "year": "2024/2025",
-      "lema": "Conquista a tua marca",
-      "image": "xiv.jpg",
+      "year": "2023/2024",
+      "lema": "Sê o Elemento da Mudança",
+      "image": "pics/xiv/xiv.jpg",
       "carta": "A carta do ciclo",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://www.instagram.com/p/C0SPUzVLAgj/",
       "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "leftSidePictures": [
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg"
+      ],
+      "rightSidePictures": [
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg",
+        "pics/xv/l4.jpeg"
+      ],
       "ep": {
         "coordination": {
           "name": "Coordenação",

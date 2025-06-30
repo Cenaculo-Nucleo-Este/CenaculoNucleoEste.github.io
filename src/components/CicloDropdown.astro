@@ -1,0 +1,210 @@
+---
+interface Ciclo {
+  number: string;
+  year: string;
+  lema: string;
+}
+
+interface Props {
+  ciclos: Ciclo[];
+  defaultCiclo?: string;
+}
+
+const { ciclos, defaultCiclo } = Astro.props;
+---
+
+<div class="custom-dropdown">
+  <button class="dropdown-button" type="button">
+    <span class="dropdown-text">
+      {defaultCiclo ? `${defaultCiclo}º Ciclo` : 'Escolher Ciclo'}
+    </span>
+    <svg class="dropdown-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+    </svg>
+  </button>
+  
+  <div class="dropdown-menu">
+    {ciclos.map((ciclo) => (
+      <div class="dropdown-item" data-value={ciclo.number}>
+        <div class="dropdown-item-content">
+          <span class="dropdown-item-title">{ciclo.number}º Ciclo</span>
+          <span class="dropdown-item-subtitle">{ciclo.year}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.custom-dropdown');
+    
+    dropdowns.forEach(dropdown => {
+      const button = dropdown.querySelector('.dropdown-button');
+      const menu = dropdown.querySelector('.dropdown-menu');
+      const text = dropdown.querySelector('.dropdown-text');
+      const icon = dropdown.querySelector('.dropdown-icon');
+      const items = dropdown.querySelectorAll('.dropdown-item');
+      
+      let isOpen = false;
+      
+      // Toggle dropdown
+      button.addEventListener('click', function(e) {
+        e.stopPropagation();
+        isOpen = !isOpen;
+        
+        if (isOpen) {
+          menu.style.display = 'block';
+          icon.style.transform = 'rotate(180deg)';
+          dropdown.classList.add('open');
+        } else {
+          menu.style.display = 'none';
+          icon.style.transform = 'rotate(0deg)';
+          dropdown.classList.remove('open');
+        }
+      });
+      
+      // Handle item clicks
+      items.forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          
+          const value = this.getAttribute('data-value');
+          const title = this.querySelector('.dropdown-item-title').textContent;
+          
+          // Update button text
+          text.textContent = title;
+          
+          // Close dropdown
+          isOpen = false;
+          menu.style.display = 'none';
+          icon.style.transform = 'rotate(0deg)';
+          dropdown.classList.remove('open');
+          
+          // Dispatch event
+          document.dispatchEvent(new CustomEvent('cicloChanged', {
+            detail: { cicloNumber: value }
+          }));
+        });
+      });
+      
+      // Close on outside click
+      document.addEventListener('click', function() {
+        if (isOpen) {
+          isOpen = false;
+          menu.style.display = 'none';
+          icon.style.transform = 'rotate(0deg)';
+          dropdown.classList.remove('open');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .custom-dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .dropdown-button {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: white;
+    border: 2px solid #b71719;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #b71719;
+    transition: all 0.2s ease;
+  }
+  
+  .dropdown-button:hover {
+    background-color: #b71719;
+    color: white;
+  }
+  
+  .dropdown-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    display: none;
+    margin-top: 4px;
+    overflow: hidden;
+  }
+  
+  .dropdown-item {
+    padding: 12px 16px;
+    cursor: pointer;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.2s ease;
+  }
+  
+  .dropdown-item:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-item:hover {
+    background-color: rgba(183, 23, 25, 0.1);
+  }
+  
+  .dropdown-item-title {
+    display: block;
+    font-weight: bold;
+    color: #b71719;
+    font-size: 16px;
+  }
+  
+  .dropdown-item-subtitle {
+    display: block;
+    color: #666;
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  
+  /* Dark theme support */
+  [data-theme="dark"] .dropdown-button {
+    background-color: #1f2937;
+    border-color: #b71719;
+    color: #b71719;
+  }
+  
+  [data-theme="dark"] .dropdown-button:hover {
+    background-color: #b71719;
+    color: white;
+  }
+  
+  [data-theme="dark"] .dropdown-menu {
+    background-color: #1f2937;
+    border-color: #374151;
+  }
+  
+  [data-theme="dark"] .dropdown-item {
+    border-color: #374151;
+  }
+  
+  [data-theme="dark"] .dropdown-item:hover {
+    background-color: rgba(183, 23, 25, 0.2);
+  }
+  
+  [data-theme="dark"] .dropdown-item-subtitle {
+    color: #9ca3af;
+  }
+</style> 
