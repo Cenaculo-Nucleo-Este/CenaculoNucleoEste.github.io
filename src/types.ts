@@ -67,6 +67,8 @@ export interface Ciclo {
   hino: string | null;
   leftSidePictures: string[] | null;
   rightSidePictures: string[] | null;
+  scale: number | null;
+  translateY: number | null;
 }
 
 export const DEPARTMENT_GRADIENTS: Record<string, string> = {

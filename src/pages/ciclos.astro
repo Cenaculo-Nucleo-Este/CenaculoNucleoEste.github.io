@@ -152,24 +152,25 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       }
     }
 
-    // Function to add hover effects
-    function addHoverEffects() {
+        // Function to add hover effects
+    function addHoverEffects(ciclo) {
         const cards = contentContainer.querySelectorAll(".group");
         cards.forEach((card) => {
             const img = card.querySelector("img");
             if (img) {
-            card.addEventListener("mouseenter", () => {
-                img.style.transform = "scale(1.785) translateY(-2rem)"; // Scale up and move up
-                img.style.filter = "brightness(1.2)";
-                img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
-            });
+                          card.addEventListener("mouseenter", () => {
+                 const hoverScale = ciclo.scale * 1.05; // Scale up by 5%
+                 img.style.transform = `scale(${hoverScale})`;
+                 img.style.filter = "brightness(1.2)";
+                 img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
+              });
 
-            card.addEventListener("mouseleave", () => {
-                // Clear inline styles to return to original CSS classes
-                img.style.transform = "";
+                          card.addEventListener("mouseleave", () => {
+                // Return to original scale from ciclo data
+                img.style.transform = `scale(${ciclo.scale})`;
                 img.style.filter = "";
-                img.style.transition = "";
-            });
+                img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
+              });
             }
         });
     }
@@ -275,9 +276,10 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
                 <div class="group relative w-full max-w-[300px] mb-10">
                   <div class="relative overflow-hidden rounded-md aspect-[5/6] bg-gradient-to-br ${departmentGradients[key]}">
                     <img
-                        src="${baseUrl}${member.image}"
+                        src="${baseUrl}${member.image || 'pics/c_placeholder.png'}"
                         alt="${member.name}"
-                        class="w-full h-full object-cover scale-[1.7] -translate-y-8 transition-transform duration-300 ease-in-out"
+                        style="transform: scale(${ciclo.scale}); object-position: center ${ciclo.translateY > 0 ? (100 - ciclo.translateY) : (50 + Math.abs(ciclo.translateY))}%;"
+                        class="w-full h-full object-cover transition-transform duration-300 ease-in-out"
                     />
                   </div>
                   <div class="bg-white rounded-2xl p-3 mt-[-2rem] absolute left-0 right-0 mx-auto w-[80%] text-center shadow-md name-container">
@@ -316,7 +318,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       // Apply text fitting and hover effects after content is rendered
       setTimeout(() => {
         fitAllText();
-        addHoverEffects();
+        addHoverEffects(ciclo);
       }, 50);
     }
 
@@ -411,10 +413,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
 </script>
 
 <style>
-  .group:hover img {
-    transform: scale(1.785); 
-    transition: transform 0.3s ease-in-out;
-  }
+
 
   img {
     transition: transform 0.3s ease-in-out;

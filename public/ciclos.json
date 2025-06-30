@@ -9,6 +9,8 @@
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://mega.nz/folder/JAZEFAZb#FLmqdEUd0IGq191WzKq-5A",
       "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "scale": 1.785,
+      "translateY": -5,
       "leftSidePictures": [
         "pics/xv/l1.jpeg",
         "pics/xv/l2.jpeg",
@@ -128,7 +130,7 @@
             {
               "name": "Chefe Susete",
               "image": "pics/xv/ep/susete.png",
-              "agrupamento": "609 Parada"
+              "agrupamento": "609 Parada de Todeia"
             }
           ]
         },
@@ -149,35 +151,37 @@
       "year": "2023/2024",
       "lema": "Sê o Elemento da Mudança",
       "image": "pics/xiv/xiv.jpg",
-      "carta": "A carta do ciclo",
+      "carta": "https://drive.google.com/file/d/1M8-4DrRoVMvTaBcq5pbP-yMt51j0q_7a/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "https://www.instagram.com/p/C0SPUzVLAgj/",
+      "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
       "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "scale": 1,
+      "translateY": 110,
       "leftSidePictures": [
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg"
+        "pics/xiv/l1.jpeg",
+        "pics/xiv/l2.jpeg",
+        "pics/xiv/l3.jpeg",
+        "pics/xiv/l4.jpeg"
       ],
       "rightSidePictures": [
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg",
-        "pics/xv/l4.jpeg"
+        "pics/xiv/r1.jpeg",
+        "pics/xiv/r2.jpeg",
+        "pics/xiv/r3.jpeg",
+        "pics/xiv/r4.jpeg"
       ],
       "ep": {
         "coordination": {
           "name": "Coordenação",
           "members": [
             {
-              "name": "João Silva",
-              "image": "ric.png",
-              "agrupamento": "680 Santão"
+              "name": "Henrique Oliveira",
+              "image": "pics/xiv/ep/henrique.gif",
+              "agrupamento": "1341 Freamunde"
             },
             {
-              "name": "Vicente Vicente",
-              "image": "ric.png",
-              "agrupamento": "1371 Recarei"
+              "name": "Filipe Oliveira",
+              "image": "pics/xiv/ep/filipe.gif",
+              "agrupamento": "1061 Gondalães"
             }
           ]
         },
@@ -185,19 +189,19 @@
           "name": "Fórum",
           "members": [
             {
-              "name": "Henrique Teixeira",
-              "image": "ric.png",
+              "name": "Vitoria Ribeiro",
+              "image": "pics/xiv/ep/vit.gif",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Maria Martins",
+              "image": "pics/xiv/ep/maria.gif",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "João Silva",
+              "image": "pics/xiv/ep/joao.gif",
               "agrupamento": "680 Santão"
-            },
-            {
-              "name": "Ana Raquel",
-              "image": "ric.png",
-              "agrupamento": "1039 Vilela"
-            },
-            {
-              "name": "Marco Paiva",
-              "image": "ric.png",
-              "agrupamento": "1039 Vilela"
             }
           ]
         },
@@ -205,18 +209,13 @@
           "name": "Logística",
           "members": [
             {
-              "name": "Gabriel Pacheco",
-              "image": "ric.png",
-              "agrupamento": "873 Urrô"
+              "name": "Tiago Coelho",
+              "image": "pics/xiv/ep/tiago.gif",
+              "agrupamento": "609 Parada de Todeia"
             },
             {
-              "name": "Beatriz Lima",
-              "image": "ric.png",
-              "agrupamento": "1341 Freamunde"
-            },
-            {
-              "name": "Ângelo Gonçalves",
-              "image": "ric.png",
+              "name": "Ana Raquel",
+              "image": "pics/xiv/ep/Ana.gif",
               "agrupamento": "1039 Vilela"
             }
           ]
@@ -225,19 +224,14 @@
           "name": "Comunicação",
           "members": [
             {
-              "name": "Marta Alves",
-              "image": "ric.png",
-              "agrupamento": "1371 Recarei"
+              "name": "Beatriz Seabra",
+              "image": "pics/xiv/ep/seabra.gif",
+              "agrupamento": "1030 Rebordosa"
             },
             {
-              "name": "Margarida Machado",
-              "image": "ric.png",
-              "agrupamento": "1253 Silvares"
-            },
-            {
-              "name": "Érica Sousa",
-              "image": "ric.png",
-              "agrupamento": "873 Urrô"
+              "name": "Francisco Teixeira",
+              "image": "pics/xiv/ep/francisco.gif",
+              "agrupamento": "1275 Airães"
             }
           ]
         },
@@ -245,19 +239,44 @@
           "name": "Animação",
           "members": [
             {
-              "name": "Filipe Soares",
-              "image": "ric.png",
-              "agrupamento": "873 Urrô"
+              "name": "Henrique Teixeira",
+              "image": "pics/xiv/ep/ric.gif",
+              "agrupamento": "680 Santão"
             },
             {
-              "name": "Vitória Ribeiro",
-              "image": "ric.png",
+              "name": "Vicente Vicente",
+              "image": "pics/xiv/ep/vicente.gif",
+              "agrupamento": "1371 Recarei"
+            },
+            {
+              "name": "Érica Sousa",
+              "image": "pics/xiv/ep/erica.gif",
+              "agrupamento": "873 Urrô"
+            }
+          ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/xiv/ep/pardal.png",
               "agrupamento": "1039 Vilela"
             },
             {
-              "name": "Francisco Teixeira",
-              "image": "ric.png",
-              "agrupamento": "1275 Airães"
+              "name": "Chefe André Coelho",
+              "image": "",
+              "agrupamento": "609 Parada de Todeia"
+            }
+          ]
+        },
+        "embaixador": {
+          "name": "Embaixadores",
+          "members": [
+            {
+              "name": "Luísa Machado",
+              "image": "",
+              "agrupamento": "527 Nossa Senhora do Amparo"
             }
           ]
         }
