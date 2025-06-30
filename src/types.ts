@@ -75,4 +75,6 @@ export const DEPARTMENT_GRADIENTS: Record<string, string> = {
   communication: "bg-gradient-to-t from-[#cdb4db] to-rose-200",
   animation: "bg-gradient-to-t from-[#b7e4c7] to-rose-200",
   coordination: "bg-gradient-to-t from-[#d91e48] to-rose-200",
+  observadores: "bg-gradient-to-t from-[#fdf0d5] to-rose-200",
+  embaixador: "bg-gradient-to-t from-[#3cf6da] to-rose-200",
 };

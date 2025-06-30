@@ -27,12 +27,12 @@
           "members": [
             {
               "name": "João Silva",
-              "image": "ric.png",
+              "image": "pics/xv/ep/joao.png",
               "agrupamento": "680 Santão"
             },
             {
               "name": "Vicente Vicente",
-              "image": "ric.png",
+              "image": "pics/xv/ep/vicente.png",
               "agrupamento": "1371 Recarei"
             }
           ]
@@ -42,17 +42,17 @@
           "members": [
             {
               "name": "Henrique Teixeira",
-              "image": "ric.png",
+              "image": "pics/xv/ep/henrique.png",
               "agrupamento": "680 Santão"
             },
             {
               "name": "Ana Raquel",
-              "image": "ric.png",
+              "image": "pics/xv/ep/ana.png",
               "agrupamento": "1039 Vilela"
             },
             {
               "name": "Marco Paiva",
-              "image": "ric.png",
+              "image": "pics/xv/ep/marco.png",
               "agrupamento": "1039 Vilela"
             }
           ]
@@ -62,17 +62,17 @@
           "members": [
             {
               "name": "Gabriel Pacheco",
-              "image": "ric.png",
+              "image": "pics/xv/ep/gabi.png",
               "agrupamento": "873 Urrô"
             },
             {
               "name": "Beatriz Lima",
-              "image": "ric.png",
+              "image": "pics/xv/ep/bea.png",
               "agrupamento": "1341 Freamunde"
             },
             {
               "name": "Ângelo Gonçalves",
-              "image": "ric.png",
+              "image": "pics/xv/ep/angelo.png",
               "agrupamento": "1039 Vilela"
             }
           ]
@@ -82,17 +82,17 @@
           "members": [
             {
               "name": "Marta Alves",
-              "image": "ric.png",
+              "image": "pics/xv/ep/marta.png",
               "agrupamento": "1371 Recarei"
             },
             {
               "name": "Margarida Machado",
-              "image": "ric.png",
+              "image": "pics/xv/ep/guida.png",
               "agrupamento": "1253 Silvares"
             },
             {
               "name": "Érica Sousa",
-              "image": "ric.png",
+              "image": "pics/xv/ep/erica.png",
               "agrupamento": "873 Urrô"
             }
           ]
@@ -102,18 +102,43 @@
           "members": [
             {
               "name": "Filipe Soares",
-              "image": "ric.png",
+              "image": "pics/xv/ep/filipe.png",
               "agrupamento": "873 Urrô"
             },
             {
               "name": "Vitória Ribeiro",
-              "image": "ric.png",
+              "image": "pics/xv/ep/vit.png",
               "agrupamento": "1039 Vilela"
             },
             {
               "name": "Francisco Teixeira",
-              "image": "ric.png",
+              "image": "pics/xv/ep/xico.png",
               "agrupamento": "1275 Airães"
+            }
+          ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/xv/ep/pardal.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Chefe Susete",
+              "image": "pics/xv/ep/susete.png",
+              "agrupamento": "609 Parada"
+            }
+          ]
+        },
+        "embaixador": {
+          "name": "Embaixador",
+          "members": [
+            {
+              "name": "António Azeitona",
+              "image": "pics/xv/ep/azeitona.png",
+              "agrupamento": "142 Portalegre"
             }
           ]
         }

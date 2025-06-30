@@ -154,20 +154,26 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
 
     // Function to add hover effects
     function addHoverEffects() {
-      const cards = contentContainer.querySelectorAll(".group");
-      cards.forEach((card) => {
-        const img = card.querySelector("img");
-        if (img) {
-          card.addEventListener("mouseenter", () => {
-            img.style.transform = "scale(1.05)";
-          });
+        const cards = contentContainer.querySelectorAll(".group");
+        cards.forEach((card) => {
+            const img = card.querySelector("img");
+            if (img) {
+            card.addEventListener("mouseenter", () => {
+                img.style.transform = "scale(1.785) translateY(-2rem)"; // Scale up and move up
+                img.style.filter = "brightness(1.2)";
+                img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
+            });
 
-          card.addEventListener("mouseleave", () => {
-            img.style.transform = "scale(1)";
-          });
-        }
-      });
+            card.addEventListener("mouseleave", () => {
+                // Clear inline styles to return to original CSS classes
+                img.style.transform = "";
+                img.style.filter = "";
+                img.style.transition = "";
+            });
+            }
+        });
     }
+
 
     // Function to fit all text elements
     function fitAllText() {
@@ -269,9 +275,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
                 <div class="group relative w-full max-w-[300px] mb-10">
                   <div class="relative overflow-hidden rounded-md aspect-[5/6] bg-gradient-to-br ${departmentGradients[key]}">
                     <img
-                      src="${baseUrl}${member.image}"
-                      alt="${member.name}"
-                      class="w-full h-full object-cover transition-transform duration-300 ease-in-out"
+                        src="${baseUrl}${member.image}"
+                        alt="${member.name}"
+                        class="w-full h-full object-cover scale-[1.7] -translate-y-8 transition-transform duration-300 ease-in-out"
                     />
                   </div>
                   <div class="bg-white rounded-2xl p-3 mt-[-2rem] absolute left-0 right-0 mx-auto w-[80%] text-center shadow-md name-container">
@@ -406,7 +412,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
 
 <style>
   .group:hover img {
-    transform: scale(1.05);
+    transform: scale(1.785); 
     transition: transform 0.3s ease-in-out;
   }
 
