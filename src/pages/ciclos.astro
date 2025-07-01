@@ -90,6 +90,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
                 items={defaultCompatibilityItems}
                 title="Documentos"
                 url="https://docs.astro.build/core-concepts/framework-components/"
+                direction="row"
               />
             </div>
       </div>
@@ -308,7 +309,13 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
           <p class="text-lg mb-6 text-center">
             <span class="text-primary">${ciclo.lema}</span> - ${ciclo.year}
           </p>
-          <img src="${baseUrl}${ciclo.image}" alt="${ciclo.lema}" class="w-2/3 mx-auto mb-8" />
+          <div class="aspect-[20/9] w-2/3 overflow-hidden justify-center items-center mx-auto mb-4">
+            <Image
+                src="${baseUrl}${ciclo.image}"
+                alt="Fórum"
+                class="w-full h-full object-cover"
+            />
+          </div>
         </div>
         <div>
           ${departmentsHtml}

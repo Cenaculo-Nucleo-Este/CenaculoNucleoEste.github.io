@@ -1,0 +1,74 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+import Image from "astro/components/Image.astro";
+import animacaoImage from "../../public/animacao.jpeg";
+
+const animacao: Array<CompatibilityItem> = [
+  {
+    title: "Imaginário e Decoração",
+    icon: "palette",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Fogo de Concelho",
+    icon: "fire",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Aplausos e Quebra Gelos",
+    icon: "ice",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Dinâmicas e Reflexões",
+    icon: "lightbulb",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Hino",
+    icon: "music",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Fé",
+    icon: "cross",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+];
+
+---
+
+<ContentSection title="Animação" id="animacao" >
+    <div class="aspect-[20/10] w-3/5 overflow-hidden">
+        <Image
+            src={animacaoImage}
+            alt="Animação"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+
+    <div class="flex flex-row gap-8 items-center">
+    <CompatibilityList items={animacao} title="Animação" url="https://cenaculo.escutismo.pt/" direction="col" />
+    <div class="flex flex-col gap-8">
+        <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>
+        <ol class="list-disc list-inside">
+            <li>Escolher e Desenvolver um <span class="text-primary font-bold">Imaginário</span>;</li>
+            <li>Dinamizar o <span class="text-primary font-bold">Fogo de Concelho</span>;</li>
+            <li>Criar e preparar <span class="text-primary font-bold">Aplausos</span>;</li>
+            <li>Criar e preparar <span class="text-primary font-bold">Quebra Gelos</span>;</li>
+            <li>Criar e preparar <span class="text-primary font-bold">Reflexões</span>;</li>
+            <li>Planear como trazer <span class="text-primary font-bold">Deus e a Fé</span> ao Cenáculo;</li>
+            <li>Planear <span class="text-primary font-bold">Eucaristia</span> e ponderação de <span class="text-primary font-bold">Espaço Fé</span>;</li>
+            <li>Preparar <span class="text-primary font-bold">Orações</span> para os diversos momentos do Cenáculo;</li>
+            <li>Planear a <span class="text-primary font-bold">Decoração</span> de todas as salas e espaços do Cenáculo;</li>
+            <li>Fazer a <span class="text-primary font-bold">Separação das Equipas</span>:</li>
+            <li>Criar o <span class="text-primary font-bold">Guião de Caminho</span> e <span class="text-primary font-bold">Cancioneiro</span>;</li>
+            <li>Criar o <span class="text-primary font-bold">Hino do Ciclo de Cenáculo</span>;</li>
+        </ol>
+    </div>
+  </div>
+</ContentSection>
+

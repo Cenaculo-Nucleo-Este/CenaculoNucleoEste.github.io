@@ -1,0 +1,70 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+import Image from "astro/components/Image.astro";
+import comunicacaoImage from "../../public/comunicacao.jpeg"
+
+const comunicacao: Array<CompatibilityItem> = [
+  {
+    title: "Redes Sociais",
+    icon: "fa-brands:instagram",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Merchandising",
+    icon: "shirt",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Insígnia",
+    icon: "medal",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Fotografias e Vídeos",
+    icon: "camera",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Divulgação",
+    icon: "megaphone",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Templates",
+    icon: "template",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+];
+
+---
+
+<ContentSection title="Comunicação" id="comunicacao" >
+    <div class="aspect-[20/10] w-3/5 overflow-hidden">
+        <Image
+            src={comunicacaoImage}
+            alt="Comunicação"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+
+    <div class="flex flex-row gap-8 items-center">
+    <CompatibilityList items={comunicacao} title="Comunicação" url="https://cenaculo.escutismo.pt/" direction="col" />
+    <div class="flex flex-col gap-8">
+        <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>
+        <ol class="list-disc list-inside">
+            <li>Planear e editar o <span class="text-primary font-bold">feed das Redes Sociais</span>;</li>
+            <li>Design do <span class="text-primary font-bold">Merchandising</span>;</li>
+            <li>Criar o Design de <span class="text-primary font-bold">Formulários e Avaliação</span>;</li>
+            <li><span class="text-primary font-bold">Fotografar</span></span> e <span class="text-primary font-bold">Videografar</span> os momentos do Cenáculo;</li>
+            <li>Planear e <span class="text-primary font-bold">Estratégia de Divulgação da EP</span>;</li>
+            <li>Criar o <span class="text-primary font-bold">Template</span> de PPs para os plenários, circulares, etc;</li>
+            <li>Criar a <span class="text-primary font-bold">Insígnia</span> do Ciclo;</li>
+            <li>Planear <span class="text-primary font-bold"> Canto da Fotografia;</span></li>
+        </ol>
+    </div>
+  </div>
+</ContentSection>
+

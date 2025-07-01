@@ -1,0 +1,65 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+import Image from "astro/components/Image.astro";
+import logisticaImage from "../../public/logistica.jpeg";
+
+const logistica: Array<CompatibilityItem> = [
+  {
+    title: "Orçamento",
+    icon: "cash",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Local & Transportes",
+    icon: "map-marker",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Patrocínios",
+    icon: "handshake",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Opções B",
+    icon: "octopus",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Refeições",
+    icon: "food",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+];
+
+---
+
+<ContentSection title="Logística" id="logistica" >
+    <div class="aspect-[20/10] w-3/5 overflow-hidden">
+        <Image
+            src={logisticaImage}
+            alt="Logística"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+
+    <div class="flex flex-row gap-8 items-center">
+    <CompatibilityList items={logistica} title="Logística" url="https://cenaculo.escutismo.pt/" direction="col" />
+    <div class="flex flex-col gap-8">
+        <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>
+        <ol class="list-disc list-inside">
+            <li><span class="text-primary font-bold">Orçamento</span> para local, alimentação, materiais, etc;</li>
+            <li>Arranjar <span class="text-primary font-bold">Local</span>;</li>
+            <li>Conseguir e conciliar <span class="text-primary font-bold">Patrocínios</span>;</li>
+            <li><span class="text-primary font-bold">Opções B</span> para locais, refeições, espaço de plenários e outros espaços, etc;</li>
+            <li>Arranjar <span class="text-primary font-bold">Boa disposição e alegria</span>;</li>
+            <li>Planear e Preparar <span class="text-primary font-bold">Refeições</span>;</li>
+            <li>Conciliar <span class="text-primary font-bold">Transportes</span>;</li>
+            <li>Preparar <span class="text-primary font-bold">Lembranças de participantes</span>;</li>
+        </ol>
+    </div>
+  </div>
+</ContentSection>
+

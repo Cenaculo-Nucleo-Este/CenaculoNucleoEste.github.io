@@ -6,9 +6,10 @@ export interface Props {
   items: Array<CompatibilityItem>;
   title: string;
   url: string;
+  direction: "row" | "col";
 }
 
-const { items, title, url } = Astro.props;
+const { items, title, url, direction } = Astro.props;
 ---
 
 <div class="w-full max-w-fit  space-y-2">
@@ -18,12 +19,12 @@ const { items, title, url } = Astro.props;
     >
       {title}
     </h3>
-    <ul class="flex flex-row justify-center gap-10">
+    <ul class={`flex ${direction === 'row' ? 'flex-row' : 'flex-col'} justify-center gap-6`}>
       {
         items.map((item) => (
           <li>
             {item.url ? (
-              <a class="flex flex-col items-center gap-2 text-default hover:text-primary transition-colors" href={item.url}>
+              <a class="flex flex-col justify-center items-center text-center text-default hover:text-primary transition-colors" href={item.url}>
                 <Icon class="size-8 text-primary" name={item.icon} />
                 <span>{item.title}</span>
               </a>

@@ -1,0 +1,75 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+import Image from "astro/components/Image.astro";
+import forumImage from "../../public/forum.jpeg";
+
+const forum: Array<CompatibilityItem> = [
+  {
+    title: "Carta",
+    icon: "book",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Temas & Oradores",
+    icon: "search",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Forma de Debate",
+    icon: "directions-fork",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Trabalhos de Tribo",
+    icon: "account-group",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Moderação da Sala de Fórum",
+    icon: "handshake",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+  {
+    title: "Garantir o debate do TAN",
+    icon: "earth",
+    url: "https://cenaculo.escutismo.pt/",
+  },
+];
+
+---
+
+<ContentSection title="Fórum" id="forum" >
+    <div class="aspect-[20/10] w-3/5 overflow-hidden">
+        <Image
+            src={forumImage}
+            alt="Fórum"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+
+    <div class="flex flex-row gap-8 items-center">
+    <CompatibilityList items={forum} title="Fórum" url="https://cenaculo.escutismo.pt/" direction="col" />
+    <div class="flex flex-col gap-8">
+        <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>
+        <ol class="list-disc list-inside">
+            <li>Criar a <span class="text-primary font-bold">Carta de Cenáculo</span>;</li>
+            <li>Criar a <span class="text-primary font-bold">Vela do Ciclo de Cenáculo</span>;</li>
+            <li>Escolher quais os <span class="text-primary font-bold">temas</span> que serão debatidos ao longo do ciclo;</li>
+            <li>Escolher <span class="text-primary font-bold">moderadores/oradores</span>;</li>
+            <li>Definir o modo de <span class="text-primary font-bold">abordagem</span> aos temas;</li>
+            <li>Dinamizar os <span class="text-primary font-bold">trabalhos de tribo</span>;</li>
+            <li>Registar as <span class="text-primary font-bold">conclusões</span> de todas as problemáticas abordadas;</li>
+            <li><span class="text-primary font-bold">Gerir e moderar</span> o comportamento e postura na <span class="text-primary font-bold">sala de fórum</span>;</li>
+            <li>Elaborar, em conjunto com todos os participantes, a <span class="text-primary font-bold">Carta de Cenáculo</span>.</li>
+            <li>Garantir o debate do <span class="text-primary font-bold">Tema de Auscultação Nacional</span>;</li>
+            <li>Preparar o <span class="text-primary font-bold">sistema de votação</span></li>
+            <li>Definir a <span class="text-primary font-bold">postura em Mesa de Fórum</span></li>
+            <li>Preparar <span class="text-primary font-bold">lembranças</span> para os oradores;</li>
+        </ol>
+    </div>
+  </div>
+</ContentSection>
+

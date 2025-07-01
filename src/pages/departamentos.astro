@@ -1,9 +1,33 @@
 ---
 import Layout from "~/components/Layout.astro";
+import ContentSection from "~/components/content-section.astro";
+import Forum from "~/components/forum.astro";
+import Animacao from "~/components/animacao.astro";
+import Logistica from "~/components/logistica.astro";
+import Comunicacao from "~/components/comunicacao.astro";
 ---
 
-<Layout title="Departamentos - Cenáculo Núcleo Este" description="O que faz cada departamento">
+<Layout
+  title="Departamentos - Cenáculo Núcleo Este"
+  description="O que faz cada departamento"
+>
   <div class="space-y-24 px-8 py-16">
-    Departamentos
+    <ContentSection title="Departamentos" id="departamentos">
+      <Fragment slot="lead">
+        O <span class="text-primary font-bold">Cenáculo</span> é composto por 
+        <span class="text-primary font-bold">4 departamentos</span>, 
+        todos são <span class="text-primary font-bold">especiais e mágicos</span> 
+        e, cada um na sua uma maneira única, representa uma
+        <span class="text-primary font-bold">peça fundamental</span>
+        para o sucesso do <span class="text-primary font-bold">Cenáculo</span>. Mas afinal, o que faz cada departamento?
+      </Fragment>
+    <div class="space-y-24 px-8 py-10">
+      <Forum />
+      <Animacao />
+      <Logistica />
+      <Comunicacao />
+    </div>
+    </ContentSection>
   </div>
-</Layout> 
+</Layout>
+
