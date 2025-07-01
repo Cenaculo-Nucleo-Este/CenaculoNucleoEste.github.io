@@ -1,14 +1,47 @@
 ---
+import type { imageConfig } from "astro:assets";
 import Layout from "~/components/Layout.astro";
+import CompatibilityList from "~/components/compatibility-list.astro";
 import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+import Icon from "~/components/Icon.astro";
+import { Image } from "astro:assets";
+import recursos from "../../public/recursos.jpeg";
+
+const items: CompatibilityItem[] = [
+  {
+    title: "Regulamento",
+    icon: "book",
+    url: "https://drive.google.com/file/d/1rQsj0k6i2e7WExhl3mzCvuYHJ85q8R88/view?usp=sharing",
+  },
+  {
+    title: "Hino de Cenáculo",
+    icon: "music",
+    url: "https://drive.google.com/file/d/1bxEEvoSIuSSBWwMRQkvXmbkjF0tWJoET/view?usp=sharing",
+  },
+  {
+    title: "Regras da Sala de Fórum",
+    icon: "music",
+    url: "https://www.instagram.com/p/DHGvAoFt4bJ/",
+  },
+  {
+    title: "LinkTree",
+    icon: "link",
+    url: "https://linktr.ee/cenaculo_nucleo_este",
+  },
+];
+
+
 ---
 
 <Layout title="O que tenho a Dar - Cenáculo Núcleo Este" description="As minhas qualidades e contribuições">
   <div class="space-y-24 px-8 py-16">
     <ContentSection title="Recursos" id="recursos">
+      <Image src={recursos} alt="Recursos" class="w-1/4 object-cover" />
       <Fragment slot="lead">
-          Aqui tens acesso aos recursos do Cenáculo Núcleo Este.
+        Todos os recursos oficiais do <span class="text-primary font-bold">Cenáculo</span> e informações úteis para o <span class="text-primary font-bold">Núcleo</span>
       </Fragment>
+      <CompatibilityList items={items} title="Recursos" url="/regulamento.pdf" direction="row" />
     </ContentSection>
   </div>
 </Layout> 
