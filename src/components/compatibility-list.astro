@@ -29,7 +29,7 @@ const { items, title, url, direction } = Astro.props;
                 <span>{item.title}</span>
               </a>
             ) : (
-              <div class="flex flex-col items-center gap-2 text-default">
+              <div class="flex flex-col items-center gap-2 text-default hover:text-primary transition-colors cursor-pointer">
                 <Icon class="size-8 text-primary" name={item.icon} />
                 <span>{item.title}</span>
               </div>
