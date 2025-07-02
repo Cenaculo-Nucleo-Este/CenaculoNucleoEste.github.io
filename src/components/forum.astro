@@ -35,7 +35,7 @@ const forum: Array<CompatibilityItem> = [
 ---
 
 <ContentSection title="Fórum" id="forum" >
-    <div class="aspect-[20/10] w-3/5 overflow-hidden">
+    <div class="aspect-[20/10] w-full md:w-3/5 overflow-hidden">
         <Image
             src={forumImage}
             alt="Fórum"
@@ -44,7 +44,7 @@ const forum: Array<CompatibilityItem> = [
     </div>
 
 
-    <div class="flex flex-row gap-8 items-center">
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
     <CompatibilityList items={forum} title="Fórum" url="https://cenaculo.escutismo.pt/" direction="col" />
     <div class="flex flex-col gap-8">
         <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>

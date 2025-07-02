@@ -6,7 +6,7 @@ export interface Props {
   items: Array<CompatibilityItem>;
   title: string;
   url: string;
-  direction: "row" | "col";
+  direction: "row" | "col" | "responsive";
 }
 
 const { items, title, url, direction } = Astro.props;
@@ -19,7 +19,13 @@ const { items, title, url, direction } = Astro.props;
     >
       {title}
     </h3>
-    <ul class={`flex ${direction === 'row' ? 'flex-row' : 'flex-col'} justify-center gap-6`}>
+    <ul class={`flex ${
+      direction === 'responsive' 
+        ? 'flex-col md:flex-row' 
+        : direction === 'row' 
+          ? 'flex-row' 
+          : 'flex-col'
+    } justify-center gap-6`}>
       {
         items.map((item) => (
           <li>
