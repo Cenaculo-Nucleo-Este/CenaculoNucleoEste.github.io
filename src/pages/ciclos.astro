@@ -329,49 +329,69 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       }, 50);
     }
 
-    // Function to update side pictures
-    function updateSidePictures(ciclo) {
-      const leftSidePictures = ciclo.leftSidePictures || [];
-      const rightSidePictures = ciclo.rightSidePictures || [];
-      
-      // Update left gallery images only
-      const leftGallery = document.querySelector('.left-gallery');
-      if (leftGallery) {
-        const leftImages = leftGallery.querySelectorAll('.aesthetic-image');
-        leftImages.forEach((img, index) => {
-          if (leftSidePictures[index]) {
-            // Fade out current image
-            img.style.opacity = '0.3';
-            img.style.filter = 'blur(2px)';
-            
-            setTimeout(() => {
-              img.src = baseUrl + leftSidePictures[index].replace('../public/', '');
-              img.style.opacity = '';
-              img.style.filter = '';
-            }, 200);
-          }
-        });
-      }
-      
-      // Update right gallery images only
-      const rightGallery = document.querySelector('.right-gallery');
+    // COMPLETE FIX: Replace your updateSidePictures function with this one
+  function updateSidePictures(ciclo) {
+    const leftSidePictures = ciclo.leftSidePictures || [];
+    const rightSidePictures = ciclo.rightSidePictures || [];
+    
+    // Update left gallery images
+    const leftGallery = document.querySelector('.left-gallery');
+    if (leftGallery) {
+      const leftFrames = leftGallery.querySelectorAll('.aesthetic-frame');
+      leftFrames.forEach((frame, index) => {
+        const img = frame.querySelector('.aesthetic-image');
+        if (img && leftSidePictures[index]) {
+          // Reset ALL inline styles first
+          img.style.cssText = '';
+          
+          // Apply fade effect
+          img.style.opacity = '0.3';
+          img.style.filter = 'blur(2px)';
+          img.style.transition = 'all 0.4s ease';
+          
+          setTimeout(() => {
+            img.src = baseUrl + leftSidePictures[index].replace('../public/', '');
+            // Reset to original state with only necessary styles
+            img.style.cssText = 'width: 100%; height: 150px; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
+          }, 200);
+        }
+      });
+    }
+  
+    // Update right gallery images
+    const rightGallery = document.querySelector('.right-gallery');
       if (rightGallery) {
-        const rightImages = rightGallery.querySelectorAll('.aesthetic-image');
-        rightImages.forEach((img, index) => {
-          if (rightSidePictures[index]) {
-            // Fade out current image
+        const rightFrames = rightGallery.querySelectorAll('.aesthetic-frame');
+        rightFrames.forEach((frame, index) => {
+          const img = frame.querySelector('.aesthetic-image');
+          if (img && rightSidePictures[index]) {
+            // Reset ALL inline styles first
+            img.style.cssText = '';
+            
+            // Apply fade effect
             img.style.opacity = '0.3';
             img.style.filter = 'blur(2px)';
+            img.style.transition = 'all 0.4s ease';
             
             setTimeout(() => {
               img.src = baseUrl + rightSidePictures[index].replace('../public/', '');
-              img.style.opacity = '';
-              img.style.filter = '';
+              // Reset to original state with only necessary styles
+              img.style.cssText = 'width: 100%; height: 150px; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
             }, 300 + (index * 50));
           }
-        });
-      }
+      });
     }
+    
+    // Force layout recalculation after image updates
+    setTimeout(() => {
+      const mainContainer = document.querySelector('.flex.flex-col.lg\\:flex-row.gap-4');
+      if (mainContainer) {
+        // Trigger a reflow to ensure layout is recalculated
+        mainContainer.style.display = 'flex';
+        mainContainer.offsetHeight; // Force reflow
+      }
+    }, 600);
+  }
 
     function updateCiclo(cicloNumber) {
       const selectedCiclo = ciclosData.ciclos.find(
@@ -449,6 +469,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     flex-direction: column;
     gap: 2rem;
     padding: 1rem 0;
+    width: 100%;
+    min-height: 400px; /* Ensure minimum height */
+    contain: layout; /* Prevent layout shifts */
   }
 
   .aesthetic-frame {
@@ -462,6 +485,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .aesthetic-frame:hover {
@@ -470,15 +496,24 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
   }
 
   .aesthetic-image {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
+    width: 100% !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    display: block;
+    flex-shrink: 0;
     transition: all 0.4s ease;
     filter: brightness(0.9) contrast(1.1);
   }
 
   .aesthetic-frame:hover .aesthetic-image {
     filter: brightness(1) contrast(1.2);
+    transform-origin: center center;
+    will-change: transform;
+  }
+
+  .flex.flex-col.lg\\:flex-row.gap-4 {
+    align-items: flex-start;
+    width: 100%;
   }
 
   .image-overlay {
@@ -563,6 +598,12 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     animation-delay: var(--delay, 0s);
   }
 
+  @container (max-width: 1024px) {
+    .aesthetic-gallery {
+      display: none;
+    }
+  }
+
   /* Add some CSS custom properties for the rotations */
   .left-gallery .frame-1 { --rotation: -3deg; --delay: 0s; }
   .left-gallery .frame-2 { --rotation: 2deg; --delay: 1s; }
@@ -573,4 +614,6 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
   .right-gallery .frame-2 { --rotation: -3deg; --delay: 1.5s; }
   .right-gallery .frame-3 { --rotation: 1deg; --delay: 2.5s; }
   .right-gallery .frame-4 { --rotation: -2deg; --delay: 3.5s; }
+
+
 </style>
