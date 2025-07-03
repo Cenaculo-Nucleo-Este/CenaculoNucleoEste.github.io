@@ -53,6 +53,8 @@ export interface EP {
   communication: Departamento;
   animation: Departamento;
   coordination: Departamento;
+  observadores: Departamento;
+  embaixador: Departamento | null;
 }
 
 export interface Ciclo {

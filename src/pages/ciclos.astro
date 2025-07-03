@@ -161,14 +161,14 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             if (img) {
                           card.addEventListener("mouseenter", () => {
                  const hoverScale = ciclo.scale * 1.05; // Scale up by 5%
-                 img.style.transform = `scale(${hoverScale})`;
+                 img.style.transform = `scale(${hoverScale}) translateY(${ciclo.translateY}px)`;
                  img.style.filter = "brightness(1.2)";
                  img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
               });
 
                           card.addEventListener("mouseleave", () => {
-                // Return to original scale from ciclo data
-                img.style.transform = `scale(${ciclo.scale})`;
+                // Return to original scale and translateY from ciclo data
+                img.style.transform = `scale(${ciclo.scale}) translateY(${ciclo.translateY}px)`;
                 img.style.filter = "";
                 img.style.transition = "transform 0.3s ease-in-out, filter 0.3s ease-in-out";
               });
@@ -279,7 +279,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
                     <img
                         src="${baseUrl}${member.image || 'pics/c_placeholder.png'}"
                         alt="${member.name}"
-                        style="transform: scale(${ciclo.scale}); object-position: center ${ciclo.translateY > 0 ? (100 - ciclo.translateY) : (50 + Math.abs(ciclo.translateY))}%;"
+                        style="transform: scale(${ciclo.scale}) translateY(${ciclo.translateY}px); object-position: center center;"
                         class="w-full h-full object-cover transition-transform duration-300 ease-in-out"
                     />
                   </div>

@@ -8,8 +8,7 @@
       "carta": "https://drive.google.com/file/d/105Qx2CJgdhVjXD3NQ6O8Mz29n0iZW_bR/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://mega.nz/folder/JAZEFAZb#FLmqdEUd0IGq191WzKq-5A",
-      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "scale": 1.785,
+      "scale": 2,
       "translateY": -5,
       "leftSidePictures": [
         "pics/xv/l1.jpeg",
@@ -189,7 +188,7 @@
           "name": "Fórum",
           "members": [
             {
-              "name": "Vitoria Ribeiro",
+              "name": "Vitória Ribeiro",
               "image": "pics/xiv/ep/vit.gif",
               "agrupamento": "1039 Vilela"
             },
@@ -290,20 +289,20 @@
       "carta": "https://drive.google.com/file/d/1lusXYjpGuDqKB91GWnrhC2Cg2Ucii6To/view",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
-      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "hino": "https://drive.google.com/file/d/1QePATkpOgVbSLFgydZdo2_jAFl02Lvty/view?usp=sharing",
       "scale": 1,
       "translateY": 0,
       "leftSidePictures": [
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg"
+        "pics/xiii/l1.png",
+        "pics/xiii/l2.jpg",
+        "pics/xiii/l3.jpg",
+        "pics/xiii/l4.jpg"
       ],
       "rightSidePictures": [
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg"
+        "pics/xiii/r1.jpg",
+        "pics/xiii/r2.jpg",
+        "pics/xiii/r3.jpg",
+        "pics/xiii/r4.jpg"
       ],
       "ep": {
         "coordination": {
@@ -557,39 +556,39 @@
     {
       "number": "XI",
       "year": "2020/2021",
-      "lema": "O Verdadeiro Dom és Tu!",
-      "image": "pics/xi/xi.jpg",
-      "carta": "https://drive.google.com/file/d/1M8-4DrRoVMvTaBcq5pbP-yMt51j0q_7a/view?usp=sharing",
+      "lema": "Basta a Magia de Acreditar",
+      "image": "pics/xi/xi.png",
+      "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
-      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "picturesLink": "",
+      "hino": "",
       "scale": 1,
-      "translateY": 110,
+      "translateY": 0,
       "leftSidePictures": [
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg"
+        "pics/xi/l1.png",
+        "pics/xi/l2.png",
+        "pics/xi/l3.png",
+        "pics/xi/l4.png"
       ],
       "rightSidePictures": [
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg",
-        "pics/xv/l1.jpeg"
+        "pics/xi/r1.png",
+        "pics/xi/r2.png",
+        "pics/xi/r3.png",
+        "pics/xi/r4.png"
       ],
       "ep": {
         "coordination": {
           "name": "Coordenação",
           "members": [
             {
-              "name": "João Gomes",
-              "image": "pics/xiii/ep/joao_gomes.png",
-              "agrupamento": "1341 Freamunde"
+              "name": "Marta Barros",
+              "image": "pics/xi/ep/marta.png",
+              "agrupamento": "1155 Lordelo"
             },
             {
-              "name": "Bia",
-              "image": "pics/xiii/ep/bia.png",
-              "agrupamento": "1253 Silvares"
+              "name": "Zé Luís",
+              "image": "pics/xi/ep/ze.png",
+              "agrupamento": "1039 Vilela"
             }
           ]
         },
@@ -597,19 +596,19 @@
           "name": "Fórum",
           "members": [
             {
-              "name": "Beatriz Macedo",
-              "image": "pics/xiii/ep/bea.png",
-              "agrupamento": "680 Santão"
+              "name": "Rui Costa",
+              "image": "pics/xi/ep/rui.png",
+              "agrupamento": "1039 Vilela"
             },
             {
-              "name": "Henrique Oliveira",
-              "image": "pics/xiii/ep/henrique.png",
-              "agrupamento": "1341 Freamunde"
+              "name": "Maria Moreira",
+              "image": "pics/xi/ep/maria.png",
+              "agrupamento": "1371 Recarei"
             },
             {
-              "name": "Maria Oliveira",
-              "image": "pics/xiii/ep/maria.png",
-              "agrupamento": "1061 Gondalães"
+              "name": "Ana Rocha",
+              "image": "pics/xi/ep/ana.png",
+              "agrupamento": "1039 Vilela"
             }
           ]
         },
@@ -617,19 +616,19 @@
           "name": "Logística",
           "members": [
             {
-              "name": "Joana Rocha",
-              "image": "pics/xiii/ep/joana.png",
-              "agrupamento": "1267 Sobrosa"
-            },
-            {
-              "name": "João Silva",
-              "image": "pics/xiii/ep/joao.png",
+              "name": "Hugo Mendes",
+              "image": "pics/xi/ep/hugo.png",
               "agrupamento": "680 Santão"
             },
             {
-              "name": "Margarida Machado",
-              "image": "pics/xiii/ep/guida.png",
-              "agrupamento": "1253 Silvares"
+              "name": "Inês Miranda",
+              "image": "pics/xi/ep/ines.png",
+              "agrupamento": "1061 Gondalães"
+            },
+            {
+              "name": "Henrique Pinto",
+              "image": "pics/xi/ep/henrique.png",
+              "agrupamento": "1173 Fornos"
             }
           ]
         },
@@ -637,19 +636,19 @@
           "name": "Comunicação",
           "members": [
             {
-              "name": "Filipe Oliveira",
-              "image": "pics/xiii/ep/filipe.png",
-              "agrupamento": "1061 Gondalães"
+              "name": "Sara Neto",
+              "image": "pics/xi/ep/sara.png",
+              "agrupamento": "1155 Lordelo"
             },
             {
-              "name": "Inês Madureira",
-              "image": "pics/xiii/ep/ines.png",
-              "agrupamento": "1173 Fornos"
+              "name": "João Gomes",
+              "image": "pics/xi/ep/joao.png",
+              "agrupamento": "1341 Freamunde"
             },
             {
-              "name": "Marta Machado",
-              "image": "pics/xiii/ep/marta.png",
-              "agrupamento": "1253 Silvares"
+              "name": "Quim",
+              "image": "pics/xi/ep/quim.png",
+              "agrupamento": "873 Urrô"
             }
           ]
         },
@@ -657,19 +656,19 @@
           "name": "Animação",
           "members": [
             {
-              "name": "Quim",
-              "image": "pics/xiii/ep/quim.png",
-              "agrupamento": "873 Urrô"
+              "name": "João Gutierres",
+              "image": "pics/xi/ep/guti.png",
+              "agrupamento": "1371 Recarei"
             },
             {
-              "name": "Nuno Leão",
-              "image": "pics/xiii/ep/nuno.png",
-              "agrupamento": "1341 Freamunde"
+              "name": "Isabel João",
+              "image": "pics/xi/ep/ijoao.png",
+              "agrupamento": "1155 Lordelo"
             },
             {
-              "name": "Sara Neto",
-              "image": "pics/xiii/ep/sara.png",
-              "agrupamento": "765 Seroa"
+              "name": "Bia Moreira",
+              "image": "pics/xi/ep/bia.png",
+              "agrupamento": "1253 Silvares"
             }          
           ]
         },
@@ -678,7 +677,7 @@
           "members": [
             {
               "name": "Chefe Pardal",
-              "image": "pics/xiii/ep/pardal.png",
+              "image": "pics/xi/ep/pardal.png",
               "agrupamento": "1039 Vilela"
             }
           ]
@@ -687,9 +686,256 @@
           "name": "Embaixadores",
           "members": [
             {
-              "name": "Hugo Mendes",
-              "image": "pics/xiii/ep/hugo.png",
+              "name": "Daniel Correia",
+              "image": "pics/xi/ep/daniel.png",
+              "agrupamento": "577 S. José"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "X",
+      "year": "2019/2020",
+      "lema": "",
+      "image": "pics/x/x.png",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "",
+      "hino": "",
+      "scale": 1,
+      "translateY": 20,
+      "leftSidePictures": [
+        "pics/x/l1.png",
+        "pics/x/l2.png",
+        "pics/x/l3.png",
+        "pics/x/l4.png"
+      ],
+      "rightSidePictures": [
+        "pics/x/r1.png",
+        "pics/x/r2.png",
+        "pics/x/r3.png",
+        "pics/x/r4.png"
+      ],
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "André Macedo",
+              "image": "pics/x/ep/andre.png",
               "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Eduardo Cunha",
+              "image": "pics/x/ep/eduardo.png",
+              "agrupamento": "1258 Castelo de Paiva"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Beatriz Madureira",
+              "image": "pics/x/ep/beatriz.png",
+              "agrupamento": "1173 Fornos"
+            },
+            {
+              "name": "João Pinto",
+              "image": "pics/x/ep/joao.png",
+              "agrupamento": "1253 Silvares"
+            },
+            {
+              "name": "José Pacheco",
+              "image": "pics/x/ep/jose.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Inês Miranda",
+              "image": "pics/x/ep/ines.png",
+              "agrupamento": "1061 Gondalães"
+            },
+            {
+              "name": "Naná",
+              "image": "pics/x/ep/nana.png",
+              "agrupamento": "1371 Recarei"
+            },
+            {
+              "name": "Sofia Pinto",
+              "image": "pics/x/ep/sofia.png",
+              "agrupamento": "1173 Fornos"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Hugo Mendes",
+              "image": "pics/x/ep/hugo.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Marta Barros",
+              "image": "pics/x/ep/marta.png",
+              "agrupamento": "1155 Lordelo"
+            } 
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Ana Beatriz Ribeiro",
+              "image": "pics/x/ep/bea.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Filipe Constante",
+              "image": "pics/x/ep/filipe.png",
+              "agrupamento": "1361 São Martinho de Recesinhos"
+            },
+            {
+              "name": "José Pedro Leão",
+              "image": "pics/x/ep/leao.png",
+              "agrupamento": "609 Parada de Todeia"
+            }          
+          ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/x/ep/pardal.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "IX",
+      "year": "2018/2019",
+      "lema": "",
+      "image": "pics/ix/ix.jpeg",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "",
+      "hino": "",
+      "scale": 1,
+      "translateY": 40,
+      "leftSidePictures": [
+        "pics/ix/l1.png",
+        "pics/ix/l2.jpeg",
+        "pics/ix/l3.jpeg",
+        "pics/ix/l4.jpeg"
+      ],
+      "rightSidePictures": [
+        "pics/ix/r1.jpeg",
+        "pics/ix/r2.png",
+        "pics/ix/r3.jpeg",
+        "pics/ix/r4.png"
+      ],
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Joana Martins",
+              "image": "pics/ix/ep/joanam.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Francisco",
+              "image": "pics/ix/ep/francisco.png",
+              "agrupamento": "1341 Freamunde"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Henrique Pinto",
+              "image": "pics/ix/ep/henrique.png",
+              "agrupamento": "1173 Fornos"
+            },
+            {
+              "name": "Isabel João",
+              "image": "pics/ix/ep/ijoao.png",
+              "agrupamento": "1155 Lordelo"
+            } 
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Joana",
+              "image": "pics/ix/ep/joana.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Eduardo Cunha",
+              "image": "pics/ix/ep/eduardo.png",
+              "agrupamento": "1258 Castelo de Paiva"
+            },
+            {
+              "name": "Beatriz",
+              "image": "pics/ix/ep/bea.png",
+              "agrupamento": "1341 Freamunde"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Joana Ferraz",
+              "image": "pics/ix/ep/ferraz.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Sofia",
+              "image": "pics/ix/ep/sofia.png",
+              "agrupamento": "1173 Fornos"
+            }
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Marta Barros",
+              "image": "pics/ix/ep/marta.png",
+              "agrupamento": "1155 Lordelo"
+            },
+            {
+              "name": "Zé Luís",
+              "image": "pics/ix/ep/ze.png",
+              "agrupamento": "1039 Vilela"
+            },
+            {
+              "name": "Helena Coelho",
+              "image": "pics/ix/ep/helena.png",
+              "agrupamento": "1341 Freamunde"
+            }          
+          ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/xi/ep/pardal.png",
+              "agrupamento": "1039 Vilela"
             }
           ]
         }
