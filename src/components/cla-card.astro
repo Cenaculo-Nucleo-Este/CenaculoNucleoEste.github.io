@@ -18,6 +18,11 @@ const {
 function convertGoogleDriveUrl(url: string | null): string {
   if (!url) return getRandomSymbolImage();
   
+  // Check if it's a local file path (starts with 'clas/' or similar)
+  if (url.startsWith('clas/') || (!url.startsWith('http') && (url.includes('.jpg') || url.includes('.jpeg') || url.includes('.png') || url.includes('.webp')))) {
+    return `${import.meta.env.BASE_URL}${url}`;
+  }
+  
   let fileId = '';
   
   if (!url.startsWith('http')) {

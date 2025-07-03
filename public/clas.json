@@ -4,7 +4,7 @@
       "name": "Clã 73",
       "agrupamento": "680 Santão",
       "description": "Somos búe baris",
-      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "image": "clas/santao.jpeg",
       "instagram": "https://www.instagram.com/cla73_680santao",
       "facebook": null,
       "email": "caminheiros.680@escutismo.pt",
@@ -19,7 +19,7 @@
       "name": "Clã São João Evangelista",
       "agrupamento": "1371 Recarei",
       "description": "Somos búe baris",
-      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "image": "",
       "instagram": "https://www.instagram.com/cla.boanerges1371",
       "facebook": null,
       "email": "caminheiros.680@escutismo.pt",
@@ -31,16 +31,16 @@
   ],
   "Recarei": [
     {
-      "name": "Clã 122",
+      "name": "Clã 112 - José Mouro Pinto",
       "agrupamento": "1173 Fornos",
       "description": "ya",
-      "image": "1QujOW46qmiE0UAcZuT1T9cz6yODBIWQ7",
+      "image": "clas/fornos.jpeg",
       "instagram": "https://www.instagram.com/cla122_1173",
       "facebook": null,
       "email": "caminheiros.680@escutismo.pt",
       "coordinates": {
-        "latitude": 41.188594,
-        "longitude": -8.145732
+        "latitude": 41.190054281596886,
+        "longitude": -8.142926244792484
       }
     }
   ],
@@ -166,14 +166,17 @@
   ],
   "Vilela": [
     {
-      "name": "Cla X",
+      "name": "Clã 105 Santo Agostinho",
       "agrupamento": "1039 Vilela",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/vilela.jpeg",
+      "instagram": "https://www.instagram.com/cla105.vilela?igsh=MTRpMWk3bDFueHppNg==",
       "facebook": null,
       "email": "geral.1039@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.242107,
+        "longitude": -8.407787
+      }
     }
   ],
   "Gondalães": [
