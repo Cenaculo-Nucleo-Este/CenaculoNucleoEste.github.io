@@ -154,14 +154,17 @@
   ],
   "Rebordosa": [
     {
-      "name": "Cla X",
+      "name": "Cla 104",
       "agrupamento": "1030 Rebordosa",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/rebordosa.jpeg",
+      "instagram": "https://www.instagram.com/cla.104_1030?igsh=bzlvZGg1NDR4cHht",
       "facebook": null,
       "email": "geral.1030@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.22241493260047,
+        "longitude": -8.405158639088635
+      }
     }
   ],
   "Vilela": [
@@ -277,14 +280,17 @@
   ],
   "São Martinho de Recesinhos": [
     {
-      "name": "Cla X",
-      "agrupamento": "1361 São Martinho de Recesinhos",
+      "name": "Clã 1361",
+      "agrupamento": "1361 S. Martinho de Recesinhos",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/recesinhos.jpeg",
+      "instagram": "https://www.instagram.com/iv_caminheiros.1361?igsh=aGI1Znp0ZDNnbW9x",
       "facebook": null,
       "email": "geral.1361@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.224886,
+        "longitude": -8.214883
+      }
     }
   ],
   "São Miguel de Bustelo": [

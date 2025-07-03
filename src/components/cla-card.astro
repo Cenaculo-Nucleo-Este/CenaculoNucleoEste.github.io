@@ -82,7 +82,8 @@ if (facebook) socialLinks.push({ name: "Facebook", url: facebook, icon: "faceboo
 const imageUrl = convertGoogleDriveUrl(image);
 ---
 <div class="card w-64 h-72">
-  <div class="action-buttons">
+  
+<div class="action-buttons">
     {email && email.trim() !== "" && (
       <a href={`mailto:${email}`} class="action-button mail" title={`Email ${name}`}>
         <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round">
@@ -118,14 +119,19 @@ const imageUrl = convertGoogleDriveUrl(image);
     )}
   </div>
   
-  <div class="profile-pic">
+  <div class="profile-pic clickable-image" data-image-src={imageUrl} data-title={name} data-description={`${agrupamento} - ${description || ''}`}>
     <img src={imageUrl} alt={name} class="profile-image" />
+    <div class="image-overlay-click">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon">
+        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+      </svg>
+    </div>
   </div>
   
   <div class="bottom">
     <div class="content">
       <span class="name">{name}</span>
-      <span class="name">{agrupamento}</span>
+      <span class="font-normal text-white text-sm ">{agrupamento}</span>
       <div class="about-me-container">
         <span class="about-me">{description}</span>
       </div>
@@ -330,4 +336,69 @@ const imageUrl = convertGoogleDriveUrl(image);
     object-position: center center;
     transition: all 0.5s ease-in-out 0.5s;
   }
+
+  /* Clickable image styles */
+  .clickable-image {
+    cursor: pointer;
+    position: relative;
+  }
+
+  .image-overlay-click {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: inherit;
+  }
+
+  .clickable-image:hover .image-overlay-click {
+    opacity: 1;
+  }
+
+  .expand-icon {
+    color: white;
+    width: 32px;
+    height: 32px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+  }
+
+  /* When card is hovered and showing small profile pic */
+  .card:hover .clickable-image .image-overlay-click {
+    border-radius: 50%;
+  }
+
+  .card:hover .clickable-image:hover .image-overlay-click {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+  }
 </style>
+
+<script>
+  // Add click handler for image modal
+  document.addEventListener('DOMContentLoaded', function() {
+    const clickableImages = document.querySelectorAll('.clickable-image');
+    
+    clickableImages.forEach(image => {
+      image.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const target = e.currentTarget as HTMLElement;
+        const imageSrc = target.getAttribute('data-image-src');
+        const title = target.getAttribute('data-title');
+        const description = target.getAttribute('data-description');
+        
+        if (imageSrc && title && (window as any).openImageModal) {
+          (window as any).openImageModal(imageSrc, title, description);
+        }
+      });
+    });
+  });
+</script>

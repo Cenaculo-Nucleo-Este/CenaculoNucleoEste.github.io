@@ -2,6 +2,7 @@
 import Layout from "~/components/Layout.astro";
 import ClaCard from "~/components/cla-card.astro";
 import ContentSection from "~/components/content-section.astro";
+import ImageModal from "~/components/ImageModal.astro";
 import cla_list_json from "~/../public/clas.json";
 import type { Cla } from "~/types";
 
@@ -69,6 +70,9 @@ const serializedClaList = JSON.stringify(cla_list);
       </button>
     </div>
   </div>
+
+  <!-- Image Modal -->
+  <ImageModal />
 
   <!-- Leaflet JS -->
   <script is:inline src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>

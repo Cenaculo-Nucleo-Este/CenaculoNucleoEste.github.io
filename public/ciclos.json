@@ -153,9 +153,9 @@
       "carta": "https://drive.google.com/file/d/1M8-4DrRoVMvTaBcq5pbP-yMt51j0q_7a/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
-      "hino": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "hino": "https://drive.google.com/file/d/1yN_KxuubQ4poGu9Ap7VV2e_Vkd2BLYKY/view?usp=sharing",
       "scale": 1,
-      "translateY": 110,
+      "translateY": -210,
       "leftSidePictures": [
         "pics/xiv/l1.jpeg",
         "pics/xiv/l2.jpeg",
@@ -288,7 +288,7 @@
       "image": "pics/xiii/xiii.jpg",
       "carta": "https://drive.google.com/file/d/1lusXYjpGuDqKB91GWnrhC2Cg2Ucii6To/view",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
+      "picturesLink": "https://drive.google.com/drive/folders/1zzGiM5IIrbcvd5Smo3mkdE2sE0rkOake?usp=sharing",
       "hino": "https://drive.google.com/file/d/1QePATkpOgVbSLFgydZdo2_jAFl02Lvty/view?usp=sharing",
       "scale": 1,
       "translateY": 0,
@@ -427,7 +427,7 @@
       "year": "2021/2022",
       "lema": "O Universo é todo Teu!",
       "image": "pics/xii/xii.jpg",
-      "carta": "https://drive.google.com/file/d/1M8-4DrRoVMvTaBcq5pbP-yMt51j0q_7a/view?usp=sharing",
+      "carta": "https://drive.google.com/file/d/1yvy_M5qD94fuOIttZFOkTPJO8nX9f8OF/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://drive.google.com/drive/folders/1SpijgB2vCSuviPTaCKBkxRTsBXVENeeG?usp=sharing",
       "hino": "https://drive.google.com/file/d/1GLMb5TPaQp7VU3tfG8K8azrU8ORvS-V8/view?usp=sharing",
@@ -558,10 +558,10 @@
       "year": "2020/2021",
       "lema": "Basta a Magia de Acreditar",
       "image": "pics/xi/xi.png",
-      "carta": "",
+      "carta": "https://drive.google.com/file/d/1M0buW1rpl_ZmJJrGbDseu4koR57Bm5TG/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "",
-      "hino": "",
+      "hino": "https://video.wixstatic.com/video/7c50de_bee17d65734e4f95a96446563a47221d/1080p/mp4/file.mp4",
       "scale": 1,
       "translateY": 0,
       "leftSidePictures": [
@@ -699,12 +699,12 @@
       "year": "2019/2020",
       "lema": "",
       "image": "pics/x/x.png",
-      "carta": "",
+      "carta": "https://drive.google.com/file/d/1xLGekGkoPhBRWp9-mjMxYuzl_S41GcNc/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "",
+      "picturesLink": "https://drive.google.com/drive/folders/1Vxndlx0yDCBNIi1z8BFScmic8WdU9JRI?usp=sharing",
       "hino": "",
-      "scale": 1,
-      "translateY": 20,
+      "scale": 1.15,
+      "translateY": -210,
       "leftSidePictures": [
         "pics/x/l1.png",
         "pics/x/l2.png",
@@ -827,10 +827,10 @@
       "image": "pics/ix/ix.jpeg",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
-      "picturesLink": "",
+      "picturesLink": "https://drive.google.com/drive/folders/1wiMGt5c_ser9Ft4ugByy_Z2aif-2NWtc?usp=sharing",
       "hino": "",
-      "scale": 1,
-      "translateY": 40,
+      "scale": 1.15,
+      "translateY": -210,
       "leftSidePictures": [
         "pics/ix/l1.png",
         "pics/ix/l2.jpeg",
@@ -890,7 +890,7 @@
             {
               "name": "Beatriz",
               "image": "pics/ix/ep/bea.png",
-              "agrupamento": "1341 Freamunde"
+              "agrupamento": "1253 Silvares"
             }
           ]
         },
@@ -900,12 +900,12 @@
             {
               "name": "Joana Ferraz",
               "image": "pics/ix/ep/ferraz.png",
-              "agrupamento": "1039 Vilela"
+              "agrupamento": "577 Penafiel"
             },
             {
               "name": "Sofia",
               "image": "pics/ix/ep/sofia.png",
-              "agrupamento": "1173 Fornos"
+              "agrupamento": "1030 Rebordosa"
             }
           ]
         },
@@ -925,7 +925,7 @@
             {
               "name": "Helena Coelho",
               "image": "pics/ix/ep/helena.png",
-              "agrupamento": "1341 Freamunde"
+              "agrupamento": "873 Urrô"
             }          
           ]
         },

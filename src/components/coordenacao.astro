@@ -1,0 +1,66 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+import Image from "astro/components/Image.astro";
+import coordImage from "../../public/coordenacao.jpg";
+
+const coordenacao: Array<CompatibilityItem> = [
+  {
+    title: "Voz Ativa",
+    icon: "megaphone",
+  },
+  {
+    title: "Participação",
+    icon: "account-arrow-up",
+  },
+  {
+    title: "Criação e Gestão EP",
+    icon: "account-group",
+  },
+  {
+    title: "Auscultação",
+    icon: "volume-up",
+  },
+  {
+    title: "Representação",
+    icon: "earth",
+  },
+  {
+    title: "Ponto de União",
+    icon: "handshake",
+  },
+];
+
+---
+
+<ContentSection title="Coordenação" id="coordenacao" >
+    <div class="aspect-[20/10] w-full md:w-3/5 overflow-hidden">
+        <Image
+            src={coordImage}
+            alt="Coordenação"
+            class="w-full h-full object-cover"
+        />
+    </div>
+
+
+    <div class="flex flex-col lg:flex-row gap-8 items-center">
+    <CompatibilityList items={coordenacao} title="Coordenação" url="https://cenaculo.escutismo.pt/" direction="col" />
+    <div class="flex flex-col gap-8">
+        <h3 class="text-2xl font-bold text-primary">Responsabilidades</h3>
+        <ol class="list-disc list-inside">
+            <li>Ser a <span class="text-primary font-bold">voz ativa </span> de todos os caminheiros de um núcleo;</li>
+            <li>Participar nos <span class="text-primary font-bold">Encontros de Cenáculo Nacional</span>;</li>
+            <li>Participar proativamente nas propostas da <span class="text-primary font-bold">EP Nacional</span>;</li>
+            <li>Dar voz <span class="text-primary font-bold">a todos os Caminheiros</span> do Núcleo;</li>
+            <li>Garantir a realização do <span class="text-primary font-bold">Encontro Local</span>;</li>
+            <li>Envolver toda a <span class="text-primary font-bold">EP </span> nas <span class="text-primary font-bold">tomadas de decisão</span>;</li>
+            <li><span class="text-primary font-bold">Divulgar</span> todas as informações transmitidas pela <span class="text-primary font-bold">EP Nacional</span> a todos os Caminheiros do <span class="text-primary font-bold">Núcleo</span>;</li>
+            <li><span class="text-primary font-bold">Gerir e moderar</span> o comportamento e postura na <span class="text-primary font-bold">sala de fórum</span> e <span class="text-primary font-bold">sala de debate</span>;</li>
+            <li>Garantir o bom funcionamento da <span class="text-primary font-bold">EP Local</span>, procurando <span class="text-primary font-bold">proporcionar um bom ambiente</span> entre as várias equipas;</li>
+            <li>Construir uma EP Local consciente das suas <span class="text-primary font-bold">qualidades</span> e <span class="text-primary font-bold">limitações</span>;</li>
+        </ol>
+    </div>
+  </div>
+</ContentSection>
+

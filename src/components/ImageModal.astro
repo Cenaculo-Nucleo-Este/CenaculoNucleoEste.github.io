@@ -1,0 +1,207 @@
+---
+// ImageModal.astro - A reusable modal component for displaying images
+---
+
+<div id="image-modal" class="modal-overlay hidden">
+  <div class="modal-container">
+    <button id="close-modal" class="close-button" aria-label="Close modal">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <div class="modal-content">
+      <img id="modal-image" src="" alt="" class="modal-image" />
+      <div class="modal-info">
+        <h3 id="modal-title" class="modal-title"></h3>
+        <p id="modal-description" class="modal-description"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('image-modal');
+    const closeBtn = document.getElementById('close-modal');
+    const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+
+    // Function to open modal
+    (window as any).openImageModal = function(imageSrc: string, title: string, description: string = '') {
+      if (modal && modalImage && modalTitle && modalDescription) {
+        modalImage.src = imageSrc;
+        modalImage.alt = title;
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden'; // Prevent background scroll
+      }
+    };
+
+    // Function to close modal
+    function closeModal() {
+      if (modal) {
+        modal.classList.add('hidden');
+        document.body.style.overflow = ''; // Restore scroll
+      }
+    }
+
+    // Close button click
+    closeBtn?.addEventListener('click', closeModal);
+
+    // Click outside modal to close
+    modal?.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Escape key to close
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal?.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  });
+</script>
+
+<style>
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 1rem;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  .modal-overlay.hidden {
+    display: none;
+  }
+
+  .modal-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 10;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(8px);
+  }
+
+  .close-button:hover {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+  }
+
+  .close-button svg {
+    color: #374151;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+  }
+
+  .modal-info {
+    padding: 1.5rem;
+    background: var(--color-primary, #3b82f6);
+    color: white;
+  }
+
+  .modal-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .modal-container {
+      max-width: 95vw;
+      max-height: 95vh;
+    }
+
+    .modal-info {
+      padding: 1rem;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+    }
+
+    .modal-description {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<!-- Add global type declaration for TypeScript -->
+<script is:inline>
+  if (typeof window !== 'undefined') {
+    window.openImageModal = window.openImageModal || function() {};
+  }
+</script> 
