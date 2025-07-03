@@ -698,7 +698,7 @@
       "number": "X",
       "year": "2019/2020",
       "lema": "",
-      "image": "pics/x/x.png",
+      "image": "pics/x/x.jpg",
       "carta": "https://drive.google.com/file/d/1xLGekGkoPhBRWp9-mjMxYuzl_S41GcNc/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://drive.google.com/drive/folders/1Vxndlx0yDCBNIi1z8BFScmic8WdU9JRI?usp=sharing",
@@ -706,16 +706,16 @@
       "scale": 1.15,
       "translateY": -210,
       "leftSidePictures": [
-        "pics/x/l1.png",
-        "pics/x/l2.png",
-        "pics/x/l3.png",
-        "pics/x/l4.png"
+        "pics/x/l1.jpg",
+        "pics/x/l2.jpg",
+        "pics/x/l3.jpg",
+        "pics/x/l4.jpg"
       ],
       "rightSidePictures": [
-        "pics/x/r1.png",
-        "pics/x/r2.png",
-        "pics/x/r3.png",
-        "pics/x/r4.png"
+        "pics/x/r1.jpg",
+        "pics/x/r2.jpg",
+        "pics/x/r3.jpg",
+        "pics/x/r4.jpg"
       ],
       "ep": {
         "coordination": {
