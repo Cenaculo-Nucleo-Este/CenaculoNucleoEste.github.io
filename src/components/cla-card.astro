@@ -12,39 +12,47 @@ const {
   instagram,
   facebook,
   email,
-  coordinates
+  coordinates,
 } = Astro.props;
 
 function convertGoogleDriveUrl(url: string | null): string {
   if (!url) return getRandomSymbolImage();
-  
+
   // Check if it's a local file path (starts with 'clas/' or similar)
-  if (url.startsWith('clas/') || (!url.startsWith('http') && (url.includes('.jpg') || url.includes('.jpeg') || url.includes('.png') || url.includes('.webp')))) {
+  if (
+    url.startsWith("clas/") ||
+    (!url.startsWith("http") &&
+      (url.includes(".jpg") ||
+        url.includes(".jpeg") ||
+        url.includes(".png") ||
+        url.includes(".webp")))
+  ) {
     return `${import.meta.env.BASE_URL}${url}`;
   }
-  
-  let fileId = '';
-  
-  if (!url.startsWith('http')) {
+
+  let fileId = "";
+
+  if (!url.startsWith("http")) {
     fileId = url;
-  }
-  else if (url.includes('drive.google.com') && url.includes('drive-viewer/')) {
+  } else if (
+    url.includes("drive.google.com") &&
+    url.includes("drive-viewer/")
+  ) {
     const match = url.match(/drive-viewer\/([A-Za-z0-9_-]+)/);
     if (match && match[1]) {
       fileId = match[1];
     }
-  }
-  else if (url.includes('drive.google.com') && url.includes('/file/d/')) {
+  } else if (url.includes("drive.google.com") && url.includes("/file/d/")) {
     const match = url.match(/\/file\/d\/([A-Za-z0-9_-]+)/);
     if (match && match[1]) {
       fileId = match[1];
     }
   }
-  
+
   if (fileId) {
     return `https://drive.google.com/thumbnail?id=${fileId}&sz=w400-h400`;
   }
-  
+
   return url;
 }
 
@@ -56,19 +64,21 @@ function getRandomSymbolImage(): string {
     `${import.meta.env.BASE_URL}simbologia/pao.png`,
     `${import.meta.env.BASE_URL}simbologia/tenda.png`,
     `${import.meta.env.BASE_URL}simbologia/mochila.png`,
-    `${import.meta.env.BASE_URL}simbologia/vara-bifurcada.png`
+    `${import.meta.env.BASE_URL}simbologia/vara-bifurcada.png`,
   ];
-  
+
   // Get a random index
   const randomIndex = Math.floor(Math.random() * symbolImages.length);
-  
+
   // Return the random image path
   return symbolImages[randomIndex];
 }
 
 const socialIcons = {
-  instagram: "M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z",
-  facebook: "M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+  instagram:
+    "M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z",
+  facebook:
+    "M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z",
 };
 
 function getSocialIcon(iconName: string) {
@@ -76,62 +86,142 @@ function getSocialIcon(iconName: string) {
 }
 
 const socialLinks = [];
-if (instagram) socialLinks.push({ name: "Instagram", url: instagram, icon: "instagram" });
-if (facebook) socialLinks.push({ name: "Facebook", url: facebook, icon: "facebook" });
+if (instagram)
+  socialLinks.push({ name: "Instagram", url: instagram, icon: "instagram" });
+if (facebook)
+  socialLinks.push({ name: "Facebook", url: facebook, icon: "facebook" });
 
 const imageUrl = convertGoogleDriveUrl(image);
 ---
-<div class="card w-64 h-72">
-  
-<div class="action-buttons">
-    {email && email.trim() !== "" && (
-      <a href={`mailto:${email}`} class="action-button mail" title={`Email ${name}`}>
-        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round">
-          <rect width={20} height={16} x={2} y={4} rx={2}></rect>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-        </svg>
-      </a>
-    )}
-    
-    {instagram && (
-      <a href={instagram} target="_blank" rel="noopener noreferrer" class="action-button instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 448 512">
-          <path d={socialIcons.instagram}></path>
-        </svg>
-      </a>
-    )}
-    
-    {facebook && (
-      <a href={facebook} target="_blank" rel="noopener noreferrer" class="action-button facebook">
-        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 448 512">
-          <path d={socialIcons.facebook}></path>
-        </svg>
-      </a>
-    )}
-    
-    {coordinates && (
-      <a href={`https://www.google.com/maps/search/?api=1&query=${coordinates.latitude},${coordinates.longitude}`} target="_blank" rel="noopener noreferrer" class="action-button maps">
-        <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width={2} stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z"></path>
-          <circle cx="12" cy="10" r="3"></circle>
-        </svg>
-      </a>
-    )}
+
+<div class="card w-64 h-72" data-cla-name={name}>
+  <div class="agrupamento-label">
+    {agrupamento}
   </div>
-  
-  <div class="profile-pic clickable-image" data-image-src={imageUrl} data-title={name} data-description={`${agrupamento} - ${description || ''}`}>
+  <div class="action-buttons">
+    {
+      email && email.trim() !== "" && (
+        <a
+          href={`mailto:${email}`}
+          class="action-button mail"
+          title={`Email ${name}`}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width={2}
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <rect width={20} height={16} x={2} y={4} rx={2} />
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+          </svg>
+        </a>
+      )
+    }
+
+    {
+      instagram && (
+        <a
+          href={instagram}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-button instagram"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 448 512"
+          >
+            <path d={socialIcons.instagram} />
+          </svg>
+        </a>
+      )
+    }
+
+    {
+      facebook && (
+        <a
+          href={facebook}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-button facebook"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 448 512"
+          >
+            <path d={socialIcons.facebook} />
+          </svg>
+        </a>
+      )
+    }
+
+    {
+      coordinates && (
+        <a
+          href={`https://www.google.com/maps/search/?api=1&query=${coordinates.latitude},${coordinates.longitude}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="action-button maps"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={24}
+            height={24}
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width={2}
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 2a8 8 0 0 0-8 8c0 5 8 12 8 12s8-7 8-12a8 8 0 0 0-8-8z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </a>
+      )
+    }
+  </div>
+
+  <div
+    class="profile-pic clickable-image"
+    data-image-src={imageUrl}
+    data-title={name}
+    data-description={`${agrupamento} - ${description || ""}`}
+  >
     <img src={imageUrl} alt={name} class="profile-image" />
     <div class="image-overlay-click">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="expand-icon">
-        <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="expand-icon"
+      >
+        <path
+          d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"
+        ></path>
       </svg>
     </div>
   </div>
-  
+
   <div class="bottom">
     <div class="content">
       <span class="name">{name}</span>
-      <span class="font-normal text-white text-sm ">{agrupamento}</span>
+      <span class="font-normal text-white text-sm">{agrupamento}</span>
       <div class="about-me-container">
         <span class="about-me">{description}</span>
       </div>
@@ -152,6 +242,30 @@ const imageUrl = convertGoogleDriveUrl(image);
     position: relative;
     box-shadow: #604b4a30 0px 70px 30px -50px;
     transition: all 0.5s ease-in-out;
+  }
+
+  .card .agrupamento-label {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    color: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 3;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    max-width: calc(100% - 6rem);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card:hover .agrupamento-label {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   }
 
   .card .action-buttons {
@@ -209,7 +323,9 @@ const imageUrl = convertGoogleDriveUrl(image);
     z-index: 1;
     border: 0px solid var(--color-primary);
     overflow: hidden;
-    transition: all 0.5s ease-in-out 0.2s, z-index 0.5s ease-in-out 0.2s;
+    transition:
+      all 0.5s ease-in-out 0.2s,
+      z-index 0.5s ease-in-out 0.2s;
   }
 
   .card .profile-pic img {
@@ -257,13 +373,13 @@ const imageUrl = convertGoogleDriveUrl(image);
     overflow: hidden;
     transition: height 0.5s ease-in-out;
   }
-  
+
   .card:hover .bottom .content .about-me-container {
     height: auto;
     max-height: 100px;
     overflow-y: auto;
   }
-  
+
   .card .bottom .content .about-me {
     display: block;
     font-size: 0.9rem;
@@ -291,7 +407,7 @@ const imageUrl = convertGoogleDriveUrl(image);
     text-overflow: ellipsis;
     transform-origin: left center;
   }
-  
+
   /* Apply text scaling using JavaScript */
   .card .bottom .bottom-bottom .scaled-text {
     display: inline-block;
@@ -323,7 +439,9 @@ const imageUrl = convertGoogleDriveUrl(image);
     z-index: 3;
     border: 7px solid var(--color-primary);
     box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
-    transition: all 0.5s ease-in-out, z-index 0.5s ease-in-out 0.1s;
+    transition:
+      all 0.5s ease-in-out,
+      z-index 0.5s ease-in-out 0.1s;
   }
 
   .card:hover .profile-pic:hover {
@@ -378,27 +496,176 @@ const imageUrl = convertGoogleDriveUrl(image);
     opacity: 1;
     background: rgba(0, 0, 0, 0.6);
   }
+
+  /* Mobile expanded state - mimics hover behavior */
+  @media (max-width: 1023px) {
+    .card.mobile-expanded {
+      border-top-left-radius: 55px;
+    }
+
+    .card.mobile-expanded .bottom {
+      top: 20%;
+      border-radius: 80px 29px 29px 29px;
+      transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+    }
+
+    .card.mobile-expanded .hover-hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .card.mobile-expanded .profile-pic {
+      width: 100px;
+      height: 100px;
+      aspect-ratio: 1;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+      z-index: 3;
+      border: 7px solid var(--color-primary);
+      box-shadow: rgba(96, 75, 74, 0.1882352941) 0px 5px 5px 0px;
+      transition:
+        all 0.5s ease-in-out,
+        z-index 0.5s ease-in-out 0.1s;
+    }
+
+    .card.mobile-expanded .profile-pic img {
+      transform: scale(1.5);
+      object-position: center center;
+      transition: all 0.5s ease-in-out 0.5s;
+    }
+
+    .card.mobile-expanded .bottom .content .about-me-container {
+      height: auto;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+
+    .card.mobile-expanded .agrupamento-label {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  }
 </style>
 
 <script>
-  // Add click handler for image modal
-  document.addEventListener('DOMContentLoaded', function() {
-    const clickableImages = document.querySelectorAll('.clickable-image');
-    
-    clickableImages.forEach(image => {
-      image.addEventListener('click', function(e) {
+  // Add click handler for image modal and map interaction
+  document.addEventListener("DOMContentLoaded", function () {
+    const clickableImages = document.querySelectorAll(".clickable-image");
+    const cards = document.querySelectorAll(".card");
+
+    // Check if device is mobile
+    function isMobile() {
+      return window.innerWidth < 1024;
+    }
+
+    // Handle image modal clicks
+    clickableImages.forEach((image) => {
+      image.addEventListener("click", function (e) {
+        const card = (e.currentTarget as HTMLElement).closest('.card') as HTMLElement;
+        
+        // On mobile, check if card is already in hover state
+        if (isMobile() && card && !card.classList.contains('mobile-expanded')) {
+          e.preventDefault();
+          e.stopPropagation();
+          
+          // First click on mobile: expand the card instead of opening modal
+          card.classList.add('mobile-expanded');
+          return;
+        }
+
         e.preventDefault();
         e.stopPropagation();
-        
+
         const target = e.currentTarget as HTMLElement;
-        const imageSrc = target.getAttribute('data-image-src');
-        const title = target.getAttribute('data-title');
-        const description = target.getAttribute('data-description');
-        
+        const imageSrc = target.getAttribute("data-image-src");
+        const title = target.getAttribute("data-title");
+        const description = target.getAttribute("data-description");
+
         if (imageSrc && title && (window as any).openImageModal) {
           (window as any).openImageModal(imageSrc, title, description);
         }
+
+        // Also trigger map selection when clicking the image
+        const claName = card?.getAttribute('data-cla-name');
+        if (claName) {
+          const selectEvent = new CustomEvent('claSelected', {
+            detail: { claName },
+            bubbles: true
+          });
+          document.dispatchEvent(selectEvent);
+        }
       });
+    });
+
+    // Handle card hover events for map interaction
+    cards.forEach((card) => {
+      const claName = card.getAttribute('data-cla-name');
+      
+      if (claName) {
+        card.addEventListener('mouseenter', function() {
+          const hoverEvent = new CustomEvent('claHovered', {
+            detail: { claName },
+            bubbles: true
+          });
+          document.dispatchEvent(hoverEvent);
+        });
+
+        card.addEventListener('mouseleave', function() {
+          const leaveEvent = new CustomEvent('claHoverLeft', {
+            detail: { claName },
+            bubbles: true
+          });
+          document.dispatchEvent(leaveEvent);
+        });
+
+        // Also handle card clicks (not just image clicks)
+        card.addEventListener('click', function(e) {
+          // Don't trigger if clicking on action buttons
+          const target = e.target as HTMLElement;
+          if (target && !target.closest('.action-button')) {
+            
+            // On mobile, first click should expand the card
+            if (isMobile() && !card.classList.contains('mobile-expanded')) {
+              card.classList.add('mobile-expanded');
+              return;
+            }
+
+            // If not clicking on the clickable image area, trigger map selection
+            if (!target.closest('.clickable-image')) {
+              const selectEvent = new CustomEvent('claSelected', {
+                detail: { claName },
+                bubbles: true
+              });
+              document.dispatchEvent(selectEvent);
+            }
+          }
+        });
+      }
+    });
+
+    // Handle clicking outside to collapse mobile expanded cards
+    document.addEventListener('click', function(e) {
+      if (isMobile()) {
+        const target = e.target as HTMLElement;
+        const expandedCards = document.querySelectorAll('.card.mobile-expanded');
+        
+        expandedCards.forEach(card => {
+          if (!card.contains(target)) {
+            card.classList.remove('mobile-expanded');
+          }
+        });
+      }
+    });
+
+    // Handle window resize to clean up mobile classes
+    window.addEventListener('resize', function() {
+      if (!isMobile()) {
+        const expandedCards = document.querySelectorAll('.card.mobile-expanded');
+        expandedCards.forEach(card => {
+          card.classList.remove('mobile-expanded');
+        });
+      }
     });
   });
 </script>

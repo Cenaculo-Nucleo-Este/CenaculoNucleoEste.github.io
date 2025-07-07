@@ -361,6 +361,80 @@ const serializedClaList = JSON.stringify(cla_list);
       
       // Initialize the map
       initMap();
+
+      // Listen for CLA card interactions
+      document.addEventListener('claHovered', function(event) {
+        const claName = event.detail.claName;
+        highlightMarker(claName, true);
+      });
+
+      document.addEventListener('claHoverLeft', function(event) {
+        const claName = event.detail.claName;
+        highlightMarker(claName, false);
+      });
+
+      document.addEventListener('claSelected', function(event) {
+        const claName = event.detail.claName;
+        selectMarker(claName);
+      });
+
+      // Function to highlight marker on hover
+      function highlightMarker(claName, highlight) {
+        const markerData = markers.find(m => m.name === claName);
+        if (markerData && markerData.marker !== activeMarker) {
+          if (highlight) {
+            markerData.marker.setIcon(L.icon({
+              iconUrl: `${baseUrl}map-marker.svg`,
+              iconSize: [50, 63],
+              iconAnchor: [20, 53],
+              popupAnchor: [0, -53]
+            }));
+          } else {
+            markerData.marker.setIcon(L.icon({
+              iconUrl: `${baseUrl}map-marker.svg`,
+              iconSize: [36, 48],
+              iconAnchor: [18, 48],
+              popupAnchor: [0, -48]
+            }));
+          }
+        }
+      }
+
+      // Function to select marker and activate it
+      function selectMarker(claName) {
+        const markerData = markers.find(m => m.name === claName);
+        if (markerData) {
+          // Reset previous active marker
+          if (activeMarker) {
+            activeMarker.setIcon(L.icon({
+              iconUrl: `${baseUrl}map-marker.svg`,
+              iconSize: [36, 48],
+              iconAnchor: [18, 48],
+              popupAnchor: [0, -48]
+            }));
+          }
+
+          // Set this marker as active
+          const activeIcon = L.icon({
+            iconUrl: `${baseUrl}map-marker-active.svg`,
+            iconSize: [40, 53],
+            iconAnchor: [20, 53],
+            popupAnchor: [0, -53]
+          });
+          
+          markerData.marker.setIcon(activeIcon);
+          activeMarker = markerData.marker;
+
+          // Center map on marker and open popup
+          map.setView(markerData.marker.getLatLng(), Math.max(map.getZoom(), 12));
+          markerData.marker.openPopup();
+
+          // On desktop, scroll to the clan card if we're selecting from map
+          if (window.innerWidth >= 1024) {
+            scrollToClanCard(claName);
+          }
+        }
+      }
     });
   </script>
 
