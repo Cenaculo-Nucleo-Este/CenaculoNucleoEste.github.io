@@ -6,6 +6,7 @@ import ciclosData from "../../public/ciclos.json" assert { type: "json" };
 import CiclosInfo from "~/components/ciclos-info.astro";
 import CompatibilityList from "~/components/compatibility-list.astro";
 import CicloDropdown from "~/components/CicloDropdown.astro";
+import ImageModal from "~/components/ImageModal.astro";
 import type { CompatibilityItem } from "~/types";
 
 // Get the first ciclo as default
@@ -72,8 +73,10 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             <div class="aesthetic-gallery left-gallery">
               {leftSidePictures.map((pic, index) => (
                 <div 
-                  class={`aesthetic-frame frame-${index + 1}`}
+                  class={`aesthetic-frame frame-${index + 1} clickable-frame`}
                   style={`animation-delay: ${index * 0.2}s`}
+                  data-image={getImageSrc(pic)}
+                  data-title={`Ciclo ${defaultCiclo.number} - Imagem ${index + 1}`}
                 >
                   <img 
                     src={getImageSrc(pic)} 
@@ -119,8 +122,10 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             <div class="aesthetic-gallery right-gallery">
               {rightSidePictures.map((pic, index) => (
                 <div 
-                  class={`aesthetic-frame frame-${index + 1}`}
+                  class={`aesthetic-frame frame-${index + 1} clickable-frame`}
                   style={`animation-delay: ${(index + 2) * 0.2}s`}
+                  data-image={getImageSrc(pic)}
+                  data-title={`Ciclo ${defaultCiclo.number} - Imagem ${index + 1}`}
                 >
                   <img 
                     src={getImageSrc(pic)} 
@@ -136,6 +141,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       </div>
     </ContentSection>
   </div>
+
+  <!-- Image Modal -->
+  <ImageModal />
 </Layout>
 
 <script
@@ -415,6 +423,10 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             // Reset ALL inline styles first
             img.style.cssText = '';
             
+            // Update data attributes for modal
+            frame.setAttribute('data-image', baseUrl + leftSidePictures[index].replace('../public/', ''));
+            frame.setAttribute('data-title', `Ciclo ${ciclo.number} - Imagem ${index + 1}`);
+            
             // Apply fade effect
             img.style.opacity = '0.3';
             img.style.filter = 'blur(2px)';
@@ -456,6 +468,10 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             // Reset ALL inline styles first
             img.style.cssText = '';
             
+            // Update data attributes for modal
+            frame.setAttribute('data-image', baseUrl + rightSidePictures[index].replace('../public/', ''));
+            frame.setAttribute('data-title', `Ciclo ${ciclo.number} - Imagem ${index + 1}`);
+            
             // Apply fade effect
             img.style.opacity = '0.3';
             img.style.filter = 'blur(2px)';
@@ -484,6 +500,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
         mainContainer.style.display = 'flex';
         mainContainer.offsetHeight; // Force reflow
       }
+      
+      // Re-add click listeners after updating the pictures
+      addFrameClickListeners();
     }, 600);
   }
 
@@ -530,6 +549,23 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
 
     // Initialize galleries after a short delay
     setTimeout(initAestheticGalleries, 300);
+
+    // Add click event listeners to aesthetic frames for modal functionality
+    function addFrameClickListeners() {
+      const clickableFrames = document.querySelectorAll('.clickable-frame');
+      clickableFrames.forEach(frame => {
+        frame.addEventListener('click', function() {
+          const imageSrc = frame.getAttribute('data-image');
+          const title = frame.getAttribute('data-title');
+          if (imageSrc && title && window.openImageModal) {
+            window.openImageModal(imageSrc, title);
+          }
+        });
+      });
+    }
+
+    // Initialize click listeners
+    addFrameClickListeners();
   });
 </script>
 
@@ -709,5 +745,20 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
   .right-gallery .frame-3 { --rotation: 1deg; --delay: 2.5s; }
   .right-gallery .frame-4 { --rotation: -2deg; --delay: 3.5s; }
 
+  /* Clickable frame styles */
+  .clickable-frame {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .clickable-frame:hover {
+    transform: translateY(-8px) rotate(0deg) scale(1.08) !important;
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2) !important;
+    z-index: 10;
+  }
+
+  .clickable-frame:active {
+    transform: translateY(-5px) rotate(0deg) scale(1.05) !important;
+  }
 
 </style>
