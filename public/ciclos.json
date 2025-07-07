@@ -1067,7 +1067,7 @@
       "number": "VII",
       "year": "2016/2017",
       "lema": "",
-      "image": "pics/vii/vii.png",
+      "image": "pics/vii/vii.jpg",
       "image_description": "Participantes",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
@@ -1124,17 +1124,17 @@
             {
               "name": "João Loureiro",
               "image": "",
-              "agrupamento": ""
+              "agrupamento": "912 Irivo"
             },
             {
               "name": "Daniel Silva",
-              "image": "",
-              "agrupamento": ""
+              "image": "pics/vii/ep/daniel.png",
+              "agrupamento": "1341 Freamunde"
             },
             {
               "name": "Ana Gomes",
-              "image": "",
-              "agrupamento": ""
+              "image": "pics/vii/ep/ana.png",
+              "agrupamento": "1341 Freamunde"
             }
           ]
         },
@@ -1142,6 +1142,9 @@
           "name": "Comunicação",
           "members": [
             {
+              "name": "João Moreira",
+              "image": "pics/vii/ep/joao.png",
+              "agrupamento": "912 Irivo"
             }
           ]
         },
@@ -1150,13 +1153,13 @@
           "members": [
             {
               "name": "Luis Leal",
-              "image": "",
+              "image": "pics/vii/ep/luis.png",
               "agrupamento": "1341 Freamunde"
             },
             {
               "name": "Helena Coelho",
               "image": "pics/vii/ep/helena.png",
-              "agrupamento": "873 Urrô"
+              "agrupamento": "1341 Freamunde"
             }
           ]
         }
