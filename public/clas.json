@@ -80,7 +80,8 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.519@escutismo.pt",
-      "coordinates": null
+      "coordinates": null,
+      "ativo": false
     }
   ],
   "Penafiel": [
@@ -131,19 +132,23 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.765@escutismo.pt",
+      "ativo": false,
       "coordinates": null
     }
   ],
   "Urrô": [
     {
-      "name": "Cla X",
-      "agrupamento": "873 Urrô",
+      "name": "Clã 88 S.Paulo",
+      "agrupamento": "873 Urrô 🤘🏻",
       "description": null,
       "image": null,
-      "instagram": null,
+      "instagram": "https://www.instagram.com/cla_88_urro",
       "facebook": null,
       "email": "geral.873@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.1856078,
+        "longitude": -8.3257025
+      }
     }
   ],
   "Irivo": [
@@ -262,26 +267,32 @@
   ],
   "Sobrosa": [
     {
-      "name": "Cla X",
+      "name": "Clã Sobrosa",
       "agrupamento": "1267 Sobrosa",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/sobrosa.jpeg",
+      "instagram": "https://www.instagram.com/caminheiros.do.1267",
       "facebook": null,
       "email": "geral.1267@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2557809,
+        "longitude": -8.3518856
+      }
     }
   ],
   "Airães": [
     {
-      "name": "Cla X",
+      "name": "Clã Padre Azemiro",
       "agrupamento": "1275 Airães",
       "description": null,
       "image": "clas/airaes.jpeg",
       "instagram": "https://www.instagram.com/agrupamento1275_airaes",
       "facebook": null,
       "email": "geral.1275@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.3247916,
+        "longitude": -8.1999668
+      }
     }
   ],
   "Freamunde": [

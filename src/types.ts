@@ -27,6 +27,7 @@ export interface Cla {
   agrupamento: string;
   description: string | null;
   image: string | null;
+  ativo: boolean | null;
   instagram: string | null;
   facebook: string | null;
   email: string | null;
@@ -40,6 +41,7 @@ export interface EpMember {
   name: string;
   agrupamento: string;
   image: ImageMetadata | string;
+  cargo: string | null;
 }
 
 export interface Departamento {

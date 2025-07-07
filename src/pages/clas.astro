@@ -6,7 +6,7 @@ import ImageModal from "~/components/ImageModal.astro";
 import cla_list_json from "~/../public/clas.json";
 import type { Cla } from "~/types";
 
-const cla_list: Array<Cla> = Object.values(cla_list_json).flat().map((cla: Cla) => ({
+const cla_list: Array<Cla> = Object.values(cla_list_json).flat().map((cla) => ({
   name: cla.name,
   agrupamento: cla.agrupamento,
   description: cla.description,
@@ -14,7 +14,8 @@ const cla_list: Array<Cla> = Object.values(cla_list_json).flat().map((cla: Cla) 
   instagram: cla.instagram,
   facebook: cla.facebook,
   email: cla.email,
-  coordinates: cla.coordinates
+  coordinates: cla.coordinates,
+  ativo: (cla as any).ativo ?? true
 })).sort((a, b) => {
   // Extract the numeric part from agrupamento (e.g., "680 Santão" -> 680)
   const getAgrupamentoNumber = (agrupamento: string): number => {
@@ -40,12 +41,13 @@ const serializedClaList = JSON.stringify(cla_list);
     <div class="lg:w-1/2 px-8 py-16">
       <ContentSection title="Os Nossos Clãs" id="clas">
         <Fragment slot="lead">
-          Embora pareçamos todos <span class="text-primary">grande clã</span>, somos 
+          Embora pareçamos todos um <span class="text-primary">grande clã</span>, somos 
           <span class="text-primary">muitos clãs</span> que fazem deste núcleo 
           <span class="text-primary">incrível Y unido</span>
         </Fragment>
         <div id="cla-cards-container" class="flex flex-wrap gap-4 justify-center">
           {cla_list.map((cla) => (
+            cla.ativo ? (
             <ClaCard
               name={cla.name}
               agrupamento={cla.agrupamento}
@@ -55,7 +57,9 @@ const serializedClaList = JSON.stringify(cla_list);
               facebook={cla.facebook}
               email={cla.email}
               coordinates={cla.coordinates}
+              ativo={cla.ativo}
             />
+            ) : null
           ))}
         </div>
       </ContentSection>

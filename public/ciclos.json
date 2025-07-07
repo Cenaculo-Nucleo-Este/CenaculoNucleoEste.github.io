@@ -931,7 +931,7 @@
             {
               "name": "Helena Coelho",
               "image": "pics/ix/ep/helena.png",
-              "agrupamento": "873 Urrô"
+              "agrupamento": "1341 Freamunde"
             }          
           ]
         },
@@ -975,26 +975,10 @@
           "name": "Coordenação",
           "members": [
             {
-              "name": "Henrique Pinto",
-              "image": "pics/viii/ep/henrique.png",
+              "name": "Zé",
+              "image": "pics/viii/ep/ze.png",
               "agrupamento": "1173 Fornos"
-            },
-            {
-              "name": "Beatriz Madureira",
-              "image": "pics/viii/ep/bea.png",
-              "agrupamento": "1173 Fornos"
-            },
-            {
-              "name": "Vicente Coelho",
-              "image": "pics/viii/ep/vicente.png",
-              "agrupamento": "1155 Lordelo"
-            },
-            {
-              "name": "Jorge Queirós",
-              "image": "pics/viii/ep/jorge.png",
-              "agrupamento": "1341 Freamunde"
-            }
-          ]
+            }          ]
         },
         "forum": {
           "name": "Fórum",
@@ -1007,7 +991,8 @@
             {
               "name": "Beatriz Madureira",
               "image": "pics/viii/ep/bea.png",
-              "agrupamento": "1173 Fornos"
+              "agrupamento": "1173 Fornos",
+              "cargo": "Coordenadora"
             }
           ]
         },
@@ -1022,7 +1007,8 @@
             {
               "name": "Vicente Coelho",
               "image": "pics/viii/ep/vicente.png",
-              "agrupamento": "1155 Lordelo"
+              "agrupamento": "1155 Lordelo",
+              "cargo": "Coordenador"
             },
             {
               "name": "Eduardo Cunha",
@@ -1037,7 +1023,8 @@
             {
               "name": "Henrique Pinto",
               "image": "pics/viii/ep/henrique.png",
-              "agrupamento": "1173 Fornos"
+              "agrupamento": "1173 Fornos",
+              "cargo": "Coordenador"
             },
             {
               "name": "Ana Silva",
@@ -1052,7 +1039,8 @@
             {
               "name": "Jorge Queirós",
               "image": "pics/viii/ep/jorge.png",
-              "agrupamento": "1341 Freamunde"
+              "agrupamento": "1341 Freamunde",
+              "cargo": "Coordenador"
             },
             {
               "name": "Telma Pinto",
