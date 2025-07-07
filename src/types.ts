@@ -68,6 +68,7 @@ export interface Ciclo {
   picturesLink: string | null;
   hino: string | null;
   letra: string | null;
+  site: string | null;
   leftSidePictures: string[] | null;
   rightSidePictures: string[] | null;
   scale: number | null;
