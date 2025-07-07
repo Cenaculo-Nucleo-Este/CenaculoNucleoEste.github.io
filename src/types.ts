@@ -67,6 +67,7 @@ export interface Ciclo {
   instagram: string | null;
   picturesLink: string | null;
   hino: string | null;
+  letra: string | null;
   leftSidePictures: string[] | null;
   rightSidePictures: string[] | null;
   scale: number | null;

@@ -154,6 +154,7 @@
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://mega.nz/folder/8ncgwQyC#JEvE_GpO6C7dUDMWBPpfVA/folder/gi8DkZYT",
       "hino": "https://drive.google.com/file/d/1yN_KxuubQ4poGu9Ap7VV2e_Vkd2BLYKY/view?usp=sharing",
+      "letra": "https://drive.google.com/file/d/1noeekWegRiQ4JY8KsItQaN99fe5G-aLS/view?usp=sharing",
       "scale": 1,
       "translateY": -210,
       "leftSidePictures": [
@@ -290,6 +291,7 @@
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://drive.google.com/drive/folders/1zzGiM5IIrbcvd5Smo3mkdE2sE0rkOake?usp=sharing",
       "hino": "https://drive.google.com/file/d/1QePATkpOgVbSLFgydZdo2_jAFl02Lvty/view?usp=sharing",
+      "letra": "https://drive.google.com/file/d/1KtPkFA21UN3PIJw_yi8MIS-DFbI2wMbE/view?usp=sharing",
       "scale": 1,
       "translateY": 0,
       "leftSidePictures": [
@@ -823,8 +825,8 @@
     {
       "number": "IX",
       "year": "2018/2019",
-      "lema": "",
-      "image": "pics/ix/ix.jpeg",
+      "lema": "Supera-Te",
+      "image": "pics/ix/ix.png",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://drive.google.com/drive/folders/1wiMGt5c_ser9Ft4ugByy_Z2aif-2NWtc?usp=sharing",
@@ -939,6 +941,363 @@
             }
           ]
         }
+      }
+    },
+    {
+      "number": "VIII",
+      "year": "2017/2018",
+      "lema": "",
+      "image": "pics/viii/viii.jpg",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/media/set/?set=a.1445931345530321&type=3",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": -210,
+      "leftSidePictures": [
+        "pics/viii/l1.jpg",
+        "pics/viii/l2.jpg",
+        "pics/viii/l3.jpg",
+        "pics/viii/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/viii/r1.jpg",
+        "pics/viii/r2.jpg",
+        "pics/viii/r3.jpg",
+        "pics/viii/r4.jpg"
+      ],
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Henrique Pinto",
+              "image": "pics/viii/ep/henrique.png",
+              "agrupamento": "1173 Fornos"
+            },
+            {
+              "name": "Beatriz Madureira",
+              "image": "pics/viii/ep/bea.png",
+              "agrupamento": "1173 Fornos"
+            },
+            {
+              "name": "Vicente Coelho",
+              "image": "pics/viii/ep/vicente.png",
+              "agrupamento": "1155 Lordelo"
+            },
+            {
+              "name": "Jorge Queirós",
+              "image": "pics/viii/ep/jorge.png",
+              "agrupamento": "1341 Freamunde"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Ana Freire",
+              "image": "pics/viii/ep/ana.png",
+              "agrupamento": "1253 Silvares"
+            },
+            {
+              "name": "Beatriz Madureira",
+              "image": "pics/viii/ep/bea.png",
+              "agrupamento": "1173 Fornos"
+            }
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Francisco Cunha",
+              "image": "pics/viii/ep/francisco.png",
+              "agrupamento": "1258 Castelo de Paiva"
+            },
+            {
+              "name": "Vicente Coelho",
+              "image": "pics/viii/ep/vicente.png",
+              "agrupamento": "1155 Lordelo"
+            },
+            {
+              "name": "Eduardo Cunha",
+              "image": "pics/viii/ep/eduardo.png",
+              "agrupamento": "1258 Castelo de Paiva"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Henrique Pinto",
+              "image": "pics/viii/ep/henrique.png",
+              "agrupamento": "1173 Fornos"
+            },
+            {
+              "name": "Ana Silva",
+              "image": "pics/viii/ep/ana_s.png",
+              "agrupamento": "1253 Silvares"
+            }
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Jorge Queirós",
+              "image": "pics/viii/ep/jorge.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Telma Pinto",
+              "image": "pics/viii/ep/telma.png",
+              "agrupamento": "557 Penafiel"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "VII",
+      "year": "2016/2017",
+      "lema": "",
+      "image": "pics/vii/vii.png",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/media/set/?set=a.1121553691301423&type=3",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": 0,
+      "leftSidePictures": [
+        "pics/vii/l1.jpg",
+        "pics/vii/l2.jpg",
+        "pics/vii/l3.jpg",
+        "pics/vii/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/vii/r1.jpg",
+        "pics/vii/r2.jpg",
+        "pics/vii/r3.jpg",
+        "pics/vii/r4.jpg"
+      ],
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Fátima Rocha",
+              "image": "pics/vii/ep/fatima.png",
+              "agrupamento": "557 Penafiel"
+            },
+            {
+              "name": "João Moreira",
+              "image": "pics/vii/ep/joao.png",
+              "agrupamento": "912 Irivo"
+            }
+          ]
+        },
+        "forum": {
+          "name": "Fórum",
+          "members": [
+            {
+              "name": "Joana Martins",
+              "image": "pics/vii/ep/joana.png",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Fórum 2",
+              "image": "pics/vii/ep/forum2.png",
+              "agrupamento": "1341 Freamunde"
+            }
+          ]
+        },
+        "logistica": {
+          "name": "Logística",
+          "members": [
+            {
+              "name": "Eduardo Cunha",
+              "image": "pics/vii/ep/eduardo.png",
+              "agrupamento": "1258 Castelo de Paiva"
+            }
+          ]
+        },
+        "communication": {
+          "name": "Comunicação",
+          "members": [
+            {
+              "name": "Jorge Queirós",
+              "image": "pics/vii/ep/jorge.png",
+              "agrupamento": "1341 Freamunde"
+            }
+          ]
+        },
+        "animation": {
+          "name": "Animação",
+          "members": [
+            {
+              "name": "Zé Ribeiro",
+              "image": "pics/vii/ep/ze.png",
+              "agrupamento": "680 Santão"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "VI",
+      "year": "2015/2016",
+      "lema": "Caminheiro, Faz a Diferença!",
+      "image": "pics/vi/vi.png",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/media/set/?set=a.846533438803451&type=3",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": -210,
+      "leftSidePictures": [
+        "pics/vi/l1.jpg",
+        "pics/vi/l2.jpg",
+        "pics/vi/l3.jpg",
+        "pics/vi/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/vi/r1.jpg",
+        "pics/vi/r2.jpg",
+        "pics/vi/r3.jpg",
+        "pics/vi/r4.jpg"
+      ],
+      "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Joana Teixeira",
+              "image": "pics/vi/ep/joana.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Pedro Machado",
+              "image": "pics/vi/ep/pedro.png",
+              "agrupamento": "680 Santão"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "number": "V",
+      "year": "2014/2015",
+      "lema": "",
+      "image": "",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": -210,
+      "leftSidePictures": [
+      ],
+      "rightSidePictures": [
+      ],
+      "ep": {
+        }
+    },
+    {
+      "number": "IV",
+      "year": "2013/2014",
+      "lema": "",
+      "image": "pics/iv/iv.jpg",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/permalink.php?story_fbid=pfbid0DYAeR78h6ozDh3bXaTiyfM7ouskX4o13HFd2XoYreoEQ4zL7fwgK3EfkQk5qLsrbl&id=100064203594532&rdid=XMm7jrz7nBqBLcms",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": 0,
+      "leftSidePictures": [
+        "pics/iv/l1.jpg",
+        "pics/iv/l2.jpg",
+        "pics/iv/l3.jpg",
+        "pics/iv/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/iv/r1.jpg",
+        "pics/iv/r2.jpg",
+        "pics/iv/r3.jpg",
+        "pics/iv/r4.jpg"
+      ],
+      "ep": {
+      }
+    },
+    {
+      "number": "III",
+      "year": "2012/2013",
+      "lema": "Alcança o Impossível",
+      "image": "",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": 0,
+      "leftSidePictures": [
+      ],
+      "rightSidePictures": [
+      ],
+      "ep": {
+        }
+    },
+    {
+      "number": "II",
+      "year": "2011/2012",
+      "lema": "A vida é como uma caixa de chocolates. Nunca sabes o que te vai sair",
+      "image": "pics/ii/ii.jpg",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/media/set/?set=a.278945482228919&type=3&rdid=QqfFK4EWVEOODREy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CCyDdo4vF",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": 0,
+      "leftSidePictures": [
+        "pics/ii/l1.jpg",
+        "pics/ii/l2.jpg",
+        "pics/ii/l3.jpg",
+        "pics/ii/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/ii/r1.jpg",
+        "pics/ii/r2.jpg",
+        "pics/ii/r3.jpg",
+        "pics/ii/r4.jpg"
+      ],
+      "ep": {
+      }
+    },
+    {
+      "number": "I",
+      "year": "2010/2011",
+      "lema": "",
+      "image": "pics/i/i.jpg",
+      "carta": "",
+      "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
+      "picturesLink": "https://www.facebook.com/media/set/?set=a.111216222286257&type=3&rdid=EYtDl0Hct7crR7Vz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AcBsrS5om",
+      "hino": "",
+      "scale": 1.15,
+      "translateY": 0,
+      "leftSidePictures": [
+        "pics/i/l1.jpg",
+        "pics/i/l2.jpg",
+        "pics/i/l3.jpg",
+        "pics/i/l4.jpg"
+      ],
+      "rightSidePictures": [
+        "pics/i/r1.jpg",
+        "pics/i/r2.jpg",
+        "pics/i/r3.jpg",
+        "pics/i/r4.jpg"
+      ],
+      "ep": {
       }
     }
   ]

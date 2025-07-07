@@ -19,13 +19,13 @@
       "name": "Clã São João Evangelista",
       "agrupamento": "1371 Recarei",
       "description": "Somos búe baris",
-      "image": "",
+      "image": "clas/recarei.jpeg",
       "instagram": "https://www.instagram.com/cla.boanerges1371",
       "facebook": null,
       "email": "caminheiros.680@escutismo.pt",
       "coordinates": {
-        "latitude": 41.147713993076856,
-        "longitude": -8.41579098879501
+        "latitude": 41.1543874,
+        "longitude": -8.4196926
       }
     }
   ],
@@ -58,14 +58,17 @@
   ],
   "Amarante": [
     {
-      "name": "Cla X",
+      "name": "Tribo São Gonçalo",
       "agrupamento": "448 Amarante",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/amarante.jpeg",
+      "instagram": "https://www.instagram.com/cla__xv",
       "facebook": null,
       "email": "geral.448@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2720569,
+        "longitude": -8.088597
+      }
     }
   ],
   "Paredes": [
@@ -94,14 +97,17 @@
   ],
   "Parada de Todeia": [
     {
-      "name": "Cla X",
+      "name": "Clã São João Paulo II",
       "agrupamento": "609 Parada de Todeia",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/parada.JPG",
+      "instagram": "https://www.instagram.com/caminheiros_parados",
       "facebook": null,
       "email": "geral.609@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.168588,
+        "longitude": -8.372553
+      }
     }
   ],
   "Margaride": [
@@ -142,14 +148,17 @@
   ],
   "Irivo": [
     {
-      "name": "Cla X",
-      "agrupamento": "912 Irivo",
+      "name": "Clã 92 Carlos Acutis ",
+      "agrupamento": "912 S. Vicente de Irivo",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/irivo.jpeg",
+      "instagram": "https://www.instagram.com/cla_912irivo",
       "facebook": null,
       "email": "geral.912@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.1760647,
+        "longitude": -8.3323754
+      }
     }
   ],
   "Rebordosa": [
@@ -158,7 +167,7 @@
       "agrupamento": "1030 Rebordosa",
       "description": null,
       "image": "clas/rebordosa.jpeg",
-      "instagram": "https://www.instagram.com/cla.104_1030?igsh=bzlvZGg1NDR4cHht",
+      "instagram": "https://www.instagram.com/cla.104_1030",
       "facebook": null,
       "email": "geral.1030@escutismo.pt",
       "coordinates": {
@@ -173,7 +182,7 @@
       "agrupamento": "1039 Vilela",
       "description": null,
       "image": "clas/vilela.jpeg",
-      "instagram": "https://www.instagram.com/cla105.vilela?igsh=MTRpMWk3bDFueHppNg==",
+      "instagram": "https://www.instagram.com/cla105.vilela",
       "facebook": null,
       "email": "geral.1039@escutismo.pt",
       "coordinates": {
@@ -184,14 +193,17 @@
   ],
   "Gondalães": [
     {
-      "name": "Cla X",
+      "name": "Clã 70",
       "agrupamento": "1061 Gondalães",
       "description": null,
-      "image": null,
-      "instagram": null,
-      "facebook": null,
+      "image": "clas/gondalaes.jpeg",
+      "instagram": "https://www.instagram.com/1061_gondalaes",
+      "facebook": "https://www.facebook.com/share/173UFoBfuh/?mibextid=wwXIfr",
       "email": "geral.1061@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2288007,
+        "longitude": -8.3353697
+      }
     }
   ],
   "Macieira": [
@@ -208,26 +220,32 @@
   ],
   "Meinedo": [
     {
-      "name": "Cla X",
+      "name": "Clã 111",
       "agrupamento": "1095 Meinedo",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/meinedo.jpeg",
+      "instagram": "https://www.instagram.com/agrup.1095",
       "facebook": null,
       "email": "geral.1095@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2459311,
+        "longitude": -8.2591798
+      }
     }
   ],
   "Silvares": [
     {
-      "name": "Cla X",
+      "name": "Clã 53 - Dr. Mário Fonseca",
       "agrupamento": "1253 Silvares",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/silvares.jpeg",
+      "instagram": "https://www.instagram.com/cla53_silvares/",
       "facebook": null,
       "email": "geral.1253@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2787683,
+        "longitude": -8.2947289
+      }
     }
   ],
   "Castelo de Paiva": [
@@ -268,14 +286,17 @@
   ],
   "Freamunde": [
     {
-      "name": "Cla X",
+      "name": "Clã S. João Paulo II",
       "agrupamento": "1341 Freamunde",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/freamunde.jpeg",
+      "instagram": "https://www.instagram.com/caminheiros.freamunde",
       "facebook": null,
       "email": "geral.1341@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.2886095,
+        "longitude": -8.3420718
+      }
     }
   ],
   "São Martinho de Recesinhos": [
@@ -284,7 +305,7 @@
       "agrupamento": "1361 S. Martinho de Recesinhos",
       "description": null,
       "image": "clas/recesinhos.jpeg",
-      "instagram": "https://www.instagram.com/iv_caminheiros.1361?igsh=aGI1Znp0ZDNnbW9x",
+      "instagram": "https://www.instagram.com/iv_caminheiros.1361",
       "facebook": null,
       "email": "geral.1361@escutismo.pt",
       "coordinates": {
