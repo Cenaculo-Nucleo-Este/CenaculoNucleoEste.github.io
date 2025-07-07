@@ -357,12 +357,22 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
         .join("");
 
       const mainImageHtml = ciclo.image && ciclo.image.trim() !== "" ? `
-        <div class="aspect-[20/9] w-2/3 overflow-hidden justify-center items-center mx-auto mb-4">
+        <div class="aspect-[20/9] w-2/3 overflow-hidden justify-center items-center mx-auto mb-4 relative group">
           <img
               src="${baseUrl}${ciclo.image}"
               alt="${ciclo.number}º Ciclo"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
+          <button 
+            class="expand-ciclo-image absolute top-2 right-2 bg-white/80 hover:bg-white text-gray-700 hover:text-gray-900 p-2 rounded-full shadow-lg transition-all duration-200 opacity-0 group-hover:opacity-100 z-10"
+            data-image="${baseUrl}${ciclo.image}"
+            data-title="${ciclo.image_description ? `${ciclo.image_description} do ${ciclo.number}º Ciclo - ${ciclo.lema}` : `EP do ${ciclo.number}º Ciclo - ${ciclo.lema}`}"
+            aria-label="Expandir imagem"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+            </svg>
+          </button>
         </div>
       ` : '';
 
@@ -503,6 +513,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       
       // Re-add click listeners after updating the pictures
       addFrameClickListeners();
+      addCicloImageClickListeners();
     }, 600);
   }
 
@@ -564,8 +575,24 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       });
     }
 
+    // Add click event listeners to ciclo image expand buttons
+    function addCicloImageClickListeners() {
+      const expandButtons = document.querySelectorAll('.expand-ciclo-image');
+      expandButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent any parent click events
+          const imageSrc = button.getAttribute('data-image');
+          const title = button.getAttribute('data-title');
+          if (imageSrc && title && window.openImageModal) {
+            window.openImageModal(imageSrc, title);
+          }
+        });
+      });
+    }
+
     // Initialize click listeners
     addFrameClickListeners();
+    addCicloImageClickListeners();
   });
 </script>
 
@@ -620,10 +647,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     box-sizing: border-box;
   }
 
-  .aesthetic-frame:hover {
-    transform: translateY(-5px) rotate(0deg) scale(1.05);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  }
+  /* Removed - will be handled by clickable-frame:hover */
 
   .aesthetic-image {
     width: 100% !important;
@@ -712,18 +736,18 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     }
   }
 
-  /* Floating animation for subtle movement */
+  /* Floating animation for subtle movement - disabled on hover */
   @keyframes float {
     0%, 100% { transform: translateY(0px) rotate(var(--rotation, 0deg)); }
     50% { transform: translateY(-10px) rotate(var(--rotation, 0deg)); }
   }
 
-  .aesthetic-frame:nth-child(odd) {
+  .aesthetic-frame:nth-child(odd):not(:hover) {
     animation: float 6s ease-in-out infinite;
     animation-delay: var(--delay, 0s);
   }
 
-  .aesthetic-frame:nth-child(even) {
+  .aesthetic-frame:nth-child(even):not(:hover) {
     animation: float 8s ease-in-out infinite reverse;
     animation-delay: var(--delay, 0s);
   }
@@ -755,10 +779,12 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     transform: translateY(-8px) rotate(0deg) scale(1.08) !important;
     box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2) !important;
     z-index: 10;
+    animation: none !important; /* Disable floating animation on hover */
   }
 
   .clickable-frame:active {
     transform: translateY(-5px) rotate(0deg) scale(1.05) !important;
+    animation: none !important;
   }
 
 </style>

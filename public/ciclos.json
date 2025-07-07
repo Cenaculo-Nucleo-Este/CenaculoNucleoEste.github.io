@@ -704,6 +704,7 @@
       "year": "2019/2020",
       "lema": "",
       "image": "pics/x/x.jpg",
+      "image_description": "Participantes",
       "carta": "https://drive.google.com/file/d/1xLGekGkoPhBRWp9-mjMxYuzl_S41GcNc/view?usp=sharing",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://drive.google.com/drive/folders/1Vxndlx0yDCBNIi1z8BFScmic8WdU9JRI?usp=sharing",
@@ -1067,6 +1068,7 @@
       "year": "2016/2017",
       "lema": "",
       "image": "pics/vii/vii.png",
+      "image_description": "Participantes",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://www.facebook.com/media/set/?set=a.1121553691301423&type=3",
@@ -1076,7 +1078,7 @@
       "leftSidePictures": [
         "pics/vii/l1.jpg",
         "pics/vii/l2.jpg",
-        "pics/vii/l3.jpg",
+        "pics/vii/l3.png",
         "pics/vii/l4.jpg"
       ],
       "rightSidePictures": [
@@ -1092,7 +1094,7 @@
             {
               "name": "Fátima Rocha",
               "image": "pics/vii/ep/fatima.png",
-              "agrupamento": "557 Penafiel"
+              "agrupamento": "912 Irivo"
             },
             {
               "name": "João Moreira",
@@ -1110,7 +1112,7 @@
               "agrupamento": "1341 Freamunde"
             },
             {
-              "name": "Fórum 2",
+              "name": "Ana Paula Silva",
               "image": "pics/vii/ep/forum2.png",
               "agrupamento": "1341 Freamunde"
             }
@@ -1120,9 +1122,19 @@
           "name": "Logística",
           "members": [
             {
-              "name": "Eduardo Cunha",
-              "image": "pics/vii/ep/eduardo.png",
-              "agrupamento": "1258 Castelo de Paiva"
+              "name": "João Loureiro",
+              "image": "",
+              "agrupamento": ""
+            },
+            {
+              "name": "Daniel Silva",
+              "image": "",
+              "agrupamento": ""
+            },
+            {
+              "name": "Ana Gomes",
+              "image": "",
+              "agrupamento": ""
             }
           ]
         },
@@ -1130,9 +1142,6 @@
           "name": "Comunicação",
           "members": [
             {
-              "name": "Jorge Queirós",
-              "image": "pics/vii/ep/jorge.png",
-              "agrupamento": "1341 Freamunde"
             }
           ]
         },
@@ -1140,9 +1149,14 @@
           "name": "Animação",
           "members": [
             {
-              "name": "Zé Ribeiro",
-              "image": "pics/vii/ep/ze.png",
-              "agrupamento": "680 Santão"
+              "name": "Luis Leal",
+              "image": "",
+              "agrupamento": "1341 Freamunde"
+            },
+            {
+              "name": "Helena Coelho",
+              "image": "pics/vii/ep/helena.png",
+              "agrupamento": "873 Urrô"
             }
           ]
         }
@@ -1212,6 +1226,7 @@
       "year": "2013/2014",
       "lema": "",
       "image": "pics/iv/iv.jpg",
+      "image_description": "Participantes",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://www.facebook.com/permalink.php?story_fbid=pfbid0DYAeR78h6ozDh3bXaTiyfM7ouskX4o13HFd2XoYreoEQ4zL7fwgK3EfkQk5qLsrbl&id=100064203594532&rdid=XMm7jrz7nBqBLcms",
