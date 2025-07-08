@@ -1210,7 +1210,22 @@
       "rightSidePictures": [
       ],
       "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Sara",
+              "image": "",
+              "agrupamento": "512 Paredes"
+            },
+            {
+              "name": "Joana",
+              "image": "",
+              "agrupamento": "512 Paredes"
+            }
+          ]
         }
+      }
     },
     {
       "number": "IV",
