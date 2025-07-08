@@ -93,6 +93,7 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.557@escutismo.pt",
+      "ativo": false,
       "coordinates": null
     }
   ],
@@ -220,7 +221,8 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.1069@escutismo.pt",
-      "coordinates": null
+      "coordinates": null,
+      "ativo": false
     }
   ],
   "Meinedo": [
@@ -255,14 +257,17 @@
   ],
   "Castelo de Paiva": [
     {
-      "name": "Cla X",
+      "name": "Cla Aristides de Sousa Mendes",
       "agrupamento": "1258 Castelo de Paiva",
       "description": null,
-      "image": null,
-      "instagram": null,
+      "image": "clas/castelo.jpeg",
+      "instagram": "https://www.instagram.com/cla1258_",
       "facebook": null,
       "email": "geral.1258@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.055466,
+        "longitude": -8.254354
+      }
     }
   ],
   "Sobrosa": [
@@ -334,7 +339,8 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.1410@escutismo.pt",
-      "coordinates": null
+      "coordinates": null,
+      "ativo": false
     }
   ],
   "S. Tiago de Figueiró": [
@@ -346,7 +352,8 @@
       "instagram": null,
       "facebook": null,
       "email": "geral.1412@escutismo.pt",
-      "coordinates": null
+      "coordinates": null,
+      "ativo": false
     }
   ]
 }
