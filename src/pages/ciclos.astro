@@ -69,7 +69,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
       <div class="flex flex-col lg:flex-row gap-4 mt-8 relative">
         <!-- Left column - Aesthetic Pictures -->
         {leftSidePictures.length > 0 && (
-          <div class="hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 h-fit">
+          <div class="hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 self-start">
             <div class="aesthetic-gallery left-gallery">
               {leftSidePictures.map((pic, index) => (
                 <div 
@@ -118,7 +118,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
 
         <!-- Right column - Aesthetic Pictures -->
         {rightSidePictures.length > 0 && (
-          <div class="hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 h-fit">
+          <div class="hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 self-start">
             <div class="aesthetic-gallery right-gallery">
               {rightSidePictures.map((pic, index) => (
                 <div 
@@ -431,6 +431,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
         leftGalleryContainer.style.display = '';
         leftGalleryContainer.classList.remove('hidden');
         leftGalleryContainer.classList.add('hidden', 'lg:flex');
+        leftGalleryContainer.className = 'hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 self-start';
       }
       
       if (leftGallery) {
@@ -453,7 +454,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             setTimeout(() => {
               img.src = baseUrl + leftSidePictures[index].replace('../public/', '');
               // Reset to original state with only necessary styles
-              img.style.cssText = 'width: 100%; height: 150px; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
+              img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
             }, 200);
           }
         });
@@ -476,6 +477,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
         rightGalleryContainer.style.display = '';
         rightGalleryContainer.classList.remove('hidden');
         rightGalleryContainer.classList.add('hidden', 'lg:flex');
+        rightGalleryContainer.className = 'hidden lg:flex w-1/6 flex-col gap-4 sticky top-8 self-start';
       }
       
       if (rightGallery) {
@@ -498,7 +500,7 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
             setTimeout(() => {
               img.src = baseUrl + rightSidePictures[index].replace('../public/', '');
               // Reset to original state with only necessary styles
-              img.style.cssText = 'width: 100%; height: 150px; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
+              img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; transition: all 0.4s ease; filter: brightness(0.9) contrast(1.1);';
             }, 300 + (index * 50));
           }
         });
@@ -635,8 +637,9 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     gap: 2rem;
     padding: 1rem 0;
     width: 100%;
-    min-height: 400px; /* Ensure minimum height */
     contain: layout; /* Prevent layout shifts */
+    justify-content: flex-start; /* Keep images at top */
+    padding-left: 3rem;
   }
 
   .aesthetic-frame {
@@ -653,13 +656,15 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     width: 100%;
     max-width: 100%;
     box-sizing: border-box;
+    flex-shrink: 0; /* Prevent shrinking */
+    aspect-ratio: 4/3; /* Maintain consistent aspect ratio */
   }
 
   /* Removed - will be handled by clickable-frame:hover */
 
   .aesthetic-image {
     width: 100% !important;
-    height: 150px !important;
+    height: 100% !important;
     object-fit: cover !important;
     display: block;
     flex-shrink: 0;
@@ -764,6 +769,13 @@ const rightSidePictures = defaultCiclo.rightSidePictures || [];
     .aesthetic-gallery {
       display: none;
     }
+  }
+
+  /* Ensure side galleries maintain consistent width */
+  .w-1\/6 {
+    min-width: 16.666667%;
+    max-width: 16.666667%;
+    flex-shrink: 0;
   }
 
   /* Add some CSS custom properties for the rotations */
