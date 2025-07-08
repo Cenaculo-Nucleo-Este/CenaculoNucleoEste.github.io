@@ -1266,7 +1266,7 @@
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://www.facebook.com/media/set/?set=a.278945482228919&type=3&rdid=QqfFK4EWVEOODREy&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1CCyDdo4vF",
       "hino": "",
-      "scale": 1.15,
+      "scale": 1.0,
       "translateY": 0,
       "leftSidePictures": [
         "pics/ii/l1.jpg",
@@ -1281,13 +1281,28 @@
         "pics/ii/r4.jpg"
       ],
       "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Romeu Alves",
+              "image": "pics/ii/ep/romeu.png",
+              "agrupamento": "680 Santão"
+            },
+            {
+              "name": "Helena Alves",
+              "image": "pics/ii/ep/helena.png",
+              "agrupamento": "1155 Lordelo"
+            }
+          ]
+        }
       }
     },
     {
       "number": "I",
       "year": "2010/2011",
       "lema": "",
-      "image": "pics/i/i.jpg",
+      "image": "pics/i/i.png",
       "carta": "",
       "instagram": "https://www.instagram.com/cenaculo_nucleo_este/",
       "picturesLink": "https://www.facebook.com/media/set/?set=a.111216222286257&type=3&rdid=EYtDl0Hct7crR7Vz&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1AcBsrS5om",
@@ -1307,6 +1322,21 @@
         "pics/i/r4.jpg"
       ],
       "ep": {
+        "coordination": {
+          "name": "Coordenação",
+          "members": [
+            {
+              "name": "Renato Gomes",
+              "image": "pics/i/ep/renato.png",
+              "agrupamento": "512 Paredes"
+            },
+            {
+              "name": "Joel Ferreira",
+              "image": "pics/i/ep/joel.png",
+              "agrupamento": "680 Santão"
+            }
+          ]
+        }
       }
     }
   ]
