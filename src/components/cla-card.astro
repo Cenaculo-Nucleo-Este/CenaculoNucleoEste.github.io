@@ -195,7 +195,7 @@ const imageUrl = convertGoogleDriveUrl(image);
     class="profile-pic clickable-image"
     data-image-src={imageUrl}
     data-title={name}
-    data-description={`${agrupamento} - ${description || ""}`}
+    data-description={`${agrupamento} ${description ? `- ${description}` : ""}`}
   >
     <img src={imageUrl} alt={name} class="profile-image" />
     <div class="image-overlay-click">
