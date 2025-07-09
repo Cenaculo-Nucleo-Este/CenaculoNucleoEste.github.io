@@ -82,8 +82,128 @@ const serializedClaList = JSON.stringify(cla_list);
       let activeMarker = null;
       let map;
       let markers = [];
+      let isProcessingClick = false; // Prevent rapid clicking issues
       
-
+      // Function to convert image URL (same logic as in ClaCard component)
+      function convertImageUrl(url) {
+        if (!url) {
+          // Return a default symbol image if no image is provided
+          const symbolImages = [
+            `${baseUrl}simbologia/fogo.png`,
+            `${baseUrl}simbologia/evangelho.png`,
+            `${baseUrl}simbologia/pao.png`,
+            `${baseUrl}simbologia/tenda.png`,
+            `${baseUrl}simbologia/mochila.png`,
+            `${baseUrl}simbologia/vara-bifurcada.png`
+          ];
+          const randomIndex = Math.floor(Math.random() * symbolImages.length);
+          return symbolImages[randomIndex];
+        }
+        
+        // Check if it's a local file path
+        if (url.startsWith('clas/') || (!url.startsWith('http') && (url.includes('.jpg') || url.includes('.jpeg') || url.includes('.png') || url.includes('.webp')))) {
+          return `${baseUrl}${url}`;
+        }
+        
+        // Handle Google Drive URLs
+        let fileId = '';
+        if (!url.startsWith('http')) {
+          fileId = url;
+        } else if (url.includes('drive.google.com') && url.includes('drive-viewer/')) {
+          const match = url.match(/drive-viewer\/([A-Za-z0-9_-]+)/);
+          if (match && match[1]) {
+            fileId = match[1];
+          }
+        } else if (url.includes('drive.google.com') && url.includes('/file/d/')) {
+          const match = url.match(/\/file\/d\/([A-Za-z0-9_-]+)/);
+          if (match && match[1]) {
+            fileId = match[1];
+          }
+        }
+        
+        if (fileId) {
+          return `https://drive.google.com/thumbnail?id=${fileId}&sz=w400-h400`;
+        }
+        
+        return url;
+      }
+      
+      // Function to create custom marker with clan image
+      function createCustomMarker(cla, isActive = false) {
+        const size = isActive ? 50 : 40;
+        const imageUrl = convertImageUrl(cla.image);
+        
+        // Create the marker HTML
+        const markerHtml = `
+          <div class="custom-marker ${isActive ? 'active' : ''}" style="
+            position: relative;
+            width: ${size}px;
+            height: ${size + 10}px;
+            cursor: pointer;
+          ">
+            <!-- Pointer/tail -->
+            <div style="
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0;
+              height: 0;
+              border-left: 8px solid transparent;
+              border-right: 8px solid transparent;
+              border-top: 15px solid ${isActive ? '#ff6b35' : '#e63946'};
+              z-index: 2;
+            "></div>
+            
+            <!-- Main marker body -->
+            <div style="
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: ${size}px;
+              height: ${size}px;
+              border-radius: 50%;
+              border: 3px solid ${isActive ? '#ff6b35' : '#e63946'};
+              background: white;
+              padding: 3px;
+              box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+              z-index: 3;
+            ">
+              <img src="${imageUrl}" alt="${cla.name}" style="
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center center;
+              " />
+            </div>
+            
+            <!-- Glow effect for active marker -->
+            ${isActive ? `
+              <div style="
+                position: absolute;
+                top: -5px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: ${size + 10}px;
+                height: ${size + 10}px;
+                border-radius: 50%;
+                background: radial-gradient(circle, rgba(255,107,53,0.3) 0%, rgba(255,107,53,0) 70%);
+                z-index: 1;
+              "></div>
+            ` : ''}
+          </div>
+        `;
+        
+        return L.divIcon({
+          html: markerHtml,
+          className: 'custom-marker-icon',
+          iconSize: [size, size + 15],
+          iconAnchor: [size / 2, size + 15],
+          popupAnchor: [0, -(size + 15)]
+        });
+      }
       
       function initMap() {
         // Default center (Portugal)
@@ -98,36 +218,22 @@ const serializedClaList = JSON.stringify(cla_list);
           maxZoom: 19
         }).addTo(map);
         
-        // Create custom marker icons
-        const defaultIcon = L.icon({
-          iconUrl: `${baseUrl}map-marker.svg`,
-          iconSize: [36, 48],
-          iconAnchor: [18, 48],
-          popupAnchor: [0, -48]
-        });
-        
-        const activeIcon = L.icon({
-          iconUrl: `${baseUrl}map-marker-active.svg`,
-          iconSize: [40, 53],
-          iconAnchor: [20, 53],
-          popupAnchor: [0, -53]
-        });
-        
         // Add markers for each clan that has coordinates
         const validCoordinates = [];
         
         clas.forEach(cla => {
           if (cla.coordinates) {
-            // Create marker
+            // Create marker with custom icon
             const marker = L.marker([cla.coordinates.latitude, cla.coordinates.longitude], {
               title: `${cla.name} - ${cla.agrupamento}`,
-              icon: defaultIcon
+              icon: createCustomMarker(cla, false)
             }).addTo(map);
             
             // Store marker reference
             markers.push({
               marker,
-              name: cla.name
+              name: cla.name,
+              cla: cla // Store the full clan object for easy access
             });
             
             // Create popup content
@@ -176,51 +282,6 @@ const serializedClaList = JSON.stringify(cla_list);
             image.style.height = '100%';
             image.style.objectFit = 'cover';
             image.style.objectPosition = 'center center';
-            
-            // Function to convert image URL (same logic as in ClaCard component)
-            function convertImageUrl(url) {
-              if (!url) {
-                // Return a default symbol image if no image is provided
-                const symbolImages = [
-                  `${baseUrl}simbologia/fogo.png`,
-                  `${baseUrl}simbologia/evangelho.png`,
-                  `${baseUrl}simbologia/pao.png`,
-                  `${baseUrl}simbologia/tenda.png`,
-                  `${baseUrl}simbologia/mochila.png`,
-                  `${baseUrl}simbologia/vara-bifurcada.png`
-                ];
-                const randomIndex = Math.floor(Math.random() * symbolImages.length);
-                return symbolImages[randomIndex];
-              }
-              
-              // Check if it's a local file path
-              if (url.startsWith('clas/') || (!url.startsWith('http') && (url.includes('.jpg') || url.includes('.jpeg') || url.includes('.png') || url.includes('.webp')))) {
-                return `${baseUrl}${url}`;
-              }
-              
-              // Handle Google Drive URLs
-              let fileId = '';
-              if (!url.startsWith('http')) {
-                fileId = url;
-              } else if (url.includes('drive.google.com') && url.includes('drive-viewer/')) {
-                const match = url.match(/drive-viewer\/([A-Za-z0-9_-]+)/);
-                if (match && match[1]) {
-                  fileId = match[1];
-                }
-              } else if (url.includes('drive.google.com') && url.includes('/file/d/')) {
-                const match = url.match(/\/file\/d\/([A-Za-z0-9_-]+)/);
-                if (match && match[1]) {
-                  fileId = match[1];
-                }
-              }
-              
-              if (fileId) {
-                return `https://drive.google.com/thumbnail?id=${fileId}&sz=w400-h400`;
-              }
-              
-              return url;
-            }
-            
             image.src = convertImageUrl(cla.image);
             image.alt = cla.name;
             imageContainer.appendChild(image);
@@ -260,38 +321,140 @@ const serializedClaList = JSON.stringify(cla_list);
             // Add popup to marker
             marker.bindPopup(popup);
             
-            // Add marker events
-            marker.on('click', function() {
-              // Reset previous active marker
-              if (activeMarker) {
-                activeMarker.setIcon(defaultIcon);
+            // Store original state and pre-create icons to prevent timing issues
+            marker.originalIcon = createCustomMarker(cla, false);
+            marker.activeIcon = createCustomMarker(cla, true);
+            marker.hoverIcon = null;
+            marker.isClicking = false; // Flag to prevent hover interference during clicks
+            marker.isHovering = false; // Track hover state
+            marker.hoverTimeout = null; // For debouncing hover events
+            
+            // Add marker events with proper event handling
+            marker.on('click', function(e) {
+              // Prevent rapid clicking and event bubbling
+              if (isProcessingClick) return;
+              e.originalEvent.stopPropagation();
+              
+              isProcessingClick = true;
+              marker.isClicking = true;
+              
+              // Reset previous active marker immediately
+              if (activeMarker && activeMarker !== marker) {
+                const prevMarkerData = markers.find(m => m.marker === activeMarker);
+                if (prevMarkerData) {
+                  prevMarkerData.marker.isClicking = false;
+                  activeMarker.setIcon(prevMarkerData.marker.originalIcon);
+                }
               }
               
-              // Set this marker as active
-              marker.setIcon(activeIcon);
+              // Set this marker as active immediately
+              marker.setIcon(marker.activeIcon);
               activeMarker = marker;
               
-              // On desktop, automatically scroll to the clan card
+              // Allow interactions again after a short delay
+              setTimeout(() => {
+                marker.isClicking = false;
+                isProcessingClick = false;
+              }, 150);
+              
+              // On desktop, automatically scroll to the clan card (non-blocking)
               if (window.innerWidth >= 1024) {
-                scrollToClanCard(cla.name);
+                requestAnimationFrame(() => {
+                  scrollToClanCard(cla.name);
+                });
               }
             });
             
+
+            
             marker.on('mouseover', function() {
-              if (marker !== activeMarker) {
-                marker.setIcon(L.icon({
-                  iconUrl: `${baseUrl}map-marker.svg`,
-                  iconSize: [40, 53],
-                  iconAnchor: [20, 53],
-                  popupAnchor: [0, -53]
-                }));
+              // Clear any pending mouseout
+              if (marker.hoverTimeout) {
+                clearTimeout(marker.hoverTimeout);
+                marker.hoverTimeout = null;
+              }
+              
+              // Only show hover effect if not clicking, not active, and not already hovering
+              if (!marker.isClicking && marker !== activeMarker && !marker.isHovering) {
+                marker.isHovering = true;
+                
+                // Create hover icon only once with same size to prevent displacement
+                if (!marker.hoverIcon) {
+                  const hoverSize = 40; // Same size as original to prevent mouse displacement
+                  const imageUrl = convertImageUrl(cla.image);
+                  const hoverHtml = `
+                    <div class="custom-marker hover" style="
+                      position: relative;
+                      width: ${hoverSize}px;
+                      height: ${hoverSize + 10}px;
+                      cursor: pointer;
+                    ">
+                      <div style="
+                        position: absolute;
+                        bottom: 0;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        width: 0;
+                        height: 0;
+                        border-left: 8px solid transparent;
+                        border-right: 8px solid transparent;
+                        border-top: 15px solid #e63946;
+                        z-index: 2;
+                      "></div>
+                      <div style="
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translateX(-50%) scale(1.1);
+                        transform-origin: center center;
+                        width: ${hoverSize}px;
+                        height: ${hoverSize}px;
+                        border-radius: 50%;
+                        border: 4px solid #e63946;
+                        background: white;
+                        padding: 2px;
+                        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+                        z-index: 3;
+                      ">
+                        <img src="${imageUrl}" alt="${cla.name}" style="
+                          width: 100%;
+                          height: 100%;
+                          border-radius: 50%;
+                          object-fit: cover;
+                          object-position: center center;
+                        " />
+                      </div>
+                    </div>
+                  `;
+                  
+                  marker.hoverIcon = L.divIcon({
+                    html: hoverHtml,
+                    className: 'custom-marker-icon',
+                    iconSize: [hoverSize, hoverSize + 15],
+                    iconAnchor: [hoverSize / 2, hoverSize + 15],
+                    popupAnchor: [0, -(hoverSize + 15)]
+                  });
+                }
+                
+                // Small delay to prevent rapid switching
+                setTimeout(() => {
+                  if (marker.isHovering && !marker.isClicking && marker !== activeMarker) {
+                    marker.setIcon(marker.hoverIcon);
+                  }
+                }, 50);
               }
             });
             
             marker.on('mouseout', function() {
-              if (marker !== activeMarker) {
-                marker.setIcon(defaultIcon);
-              }
+              // Debounce mouseout to prevent flickering
+              marker.hoverTimeout = setTimeout(() => {
+                marker.isHovering = false;
+                // Only reset hover effect if not clicking and not active
+                if (!marker.isClicking && marker !== activeMarker) {
+                  marker.setIcon(marker.originalIcon);
+                }
+                marker.hoverTimeout = null;
+              }, 100);
             });
             
             // Store coordinates for bounds calculation
@@ -312,17 +475,53 @@ const serializedClaList = JSON.stringify(cla_list);
       
       // Function to scroll to clan card
       function scrollToClanCard(claName) {
-        const claCards = document.querySelectorAll('.card');
-        claCards.forEach(card => {
-          const nameElement = card.querySelector('.name');
-          if (nameElement && nameElement.textContent === claName) {
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            card.classList.add('highlight-card');
-            setTimeout(() => {
-              card.classList.remove('highlight-card');
-            }, 2000);
+        // Try multiple selectors to find the clan card
+        const possibleSelectors = [
+          '.card',
+          '[data-clan-name]',
+          '.cla-card',
+          '[data-cla-name]'
+        ];
+        
+        let foundCard = null;
+        
+        for (const selector of possibleSelectors) {
+          const cards = document.querySelectorAll(selector);
+          cards.forEach(card => {
+            // Try different ways to find the clan name
+            const nameElement = card.querySelector('.name') || 
+                               card.querySelector('h2') || 
+                               card.querySelector('h3') || 
+                               card.querySelector('[data-name]');
+            
+            const cardName = nameElement ? nameElement.textContent.trim() : 
+                           card.getAttribute('data-clan-name') || 
+                           card.getAttribute('data-cla-name');
+            
+            if (cardName === claName) {
+              foundCard = card;
+              return;
+            }
+          });
+          
+          if (foundCard) break;
+        }
+        
+        if (foundCard) {
+          // Use a shorter highlight duration to reduce interference
+          foundCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          foundCard.classList.add('highlight-card');
+          setTimeout(() => {
+            foundCard.classList.remove('highlight-card');
+          }, 1000); // Reduced from 2000ms to 1000ms
+        } else {
+          console.log('Card not found for clan:', claName);
+          // Fallback: scroll to the cards container
+          const container = document.getElementById('cla-cards-container');
+          if (container) {
+            container.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
-        });
+        }
       }
       
       // Initialize the map
@@ -347,57 +546,131 @@ const serializedClaList = JSON.stringify(cla_list);
       // Function to highlight marker on hover
       function highlightMarker(claName, highlight) {
         const markerData = markers.find(m => m.name === claName);
-        if (markerData && markerData.marker !== activeMarker) {
+        if (markerData && markerData.marker !== activeMarker && !markerData.marker.isClicking) {
           if (highlight) {
-            markerData.marker.setIcon(L.icon({
-              iconUrl: `${baseUrl}map-marker.svg`,
-              iconSize: [50, 63],
-              iconAnchor: [20, 53],
-              popupAnchor: [0, -53]
-            }));
+            // Clear any pending hover timeout
+            if (markerData.marker.hoverTimeout) {
+              clearTimeout(markerData.marker.hoverTimeout);
+              markerData.marker.hoverTimeout = null;
+            }
+            
+            markerData.marker.isHovering = true;
+            
+            // Use pre-created hover icon if available, otherwise create it with consistent sizing
+            if (!markerData.marker.hoverIcon) {
+              const hoverSize = 40; // Same size as original to prevent displacement
+              const imageUrl = convertImageUrl(markerData.cla.image);
+              const hoverHtml = `
+                <div class="custom-marker hover" style="
+                  position: relative;
+                  width: ${hoverSize}px;
+                  height: ${hoverSize + 10}px;
+                  cursor: pointer;
+                ">
+                  <div style="
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 0;
+                    height: 0;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                    border-top: 15px solid #e63946;
+                    z-index: 2;
+                  "></div>
+                                      <div style="
+                      position: absolute;
+                      top: 0;
+                      left: 50%;
+                      transform: translateX(-50%) scale(1.1);
+                      transform-origin: center center;
+                      width: ${hoverSize}px;
+                      height: ${hoverSize}px;
+                      border-radius: 50%;
+                      border: 4px solid #e63946;
+                      background: white;
+                      padding: 2px;
+                      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+                      z-index: 3;
+                    ">
+                    <img src="${imageUrl}" alt="${markerData.cla.name}" style="
+                      width: 100%;
+                      height: 100%;
+                      border-radius: 50%;
+                      object-fit: cover;
+                      object-position: center center;
+                    " />
+                  </div>
+                </div>
+              `;
+              
+              markerData.marker.hoverIcon = L.divIcon({
+                html: hoverHtml,
+                className: 'custom-marker-icon',
+                iconSize: [hoverSize, hoverSize + 15],
+                iconAnchor: [hoverSize / 2, hoverSize + 15],
+                popupAnchor: [0, -(hoverSize + 15)]
+              });
+            }
+            
+            // Small delay to prevent rapid switching
+            setTimeout(() => {
+              if (markerData.marker.isHovering && !markerData.marker.isClicking && markerData.marker !== activeMarker) {
+                markerData.marker.setIcon(markerData.marker.hoverIcon);
+              }
+            }, 50);
           } else {
-            markerData.marker.setIcon(L.icon({
-              iconUrl: `${baseUrl}map-marker.svg`,
-              iconSize: [36, 48],
-              iconAnchor: [18, 48],
-              popupAnchor: [0, -48]
-            }));
+            // Debounce mouseout
+            markerData.marker.hoverTimeout = setTimeout(() => {
+              markerData.marker.isHovering = false;
+              if (!markerData.marker.isClicking && markerData.marker !== activeMarker) {
+                markerData.marker.setIcon(markerData.marker.originalIcon);
+              }
+              markerData.marker.hoverTimeout = null;
+            }, 100);
           }
         }
       }
 
       // Function to select marker and activate it
       function selectMarker(claName) {
+        if (isProcessingClick) return;
+        
         const markerData = markers.find(m => m.name === claName);
         if (markerData) {
+          isProcessingClick = true;
+          // Mark this marker as clicking to prevent hover interference
+          markerData.marker.isClicking = true;
+          
           // Reset previous active marker
-          if (activeMarker) {
-            activeMarker.setIcon(L.icon({
-              iconUrl: `${baseUrl}map-marker.svg`,
-              iconSize: [36, 48],
-              iconAnchor: [18, 48],
-              popupAnchor: [0, -48]
-            }));
+          if (activeMarker && activeMarker !== markerData.marker) {
+            const prevMarkerData = markers.find(m => m.marker === activeMarker);
+            if (prevMarkerData) {
+              prevMarkerData.marker.isClicking = false;
+              activeMarker.setIcon(prevMarkerData.marker.originalIcon);
+            }
           }
 
-          // Set this marker as active
-          const activeIcon = L.icon({
-            iconUrl: `${baseUrl}map-marker-active.svg`,
-            iconSize: [40, 53],
-            iconAnchor: [20, 53],
-            popupAnchor: [0, -53]
-          });
-          
-          markerData.marker.setIcon(activeIcon);
+          // Set this marker as active using pre-created icon
+          markerData.marker.setIcon(markerData.marker.activeIcon);
           activeMarker = markerData.marker;
+
+          // Allow interactions again after a short delay
+          setTimeout(() => {
+            markerData.marker.isClicking = false;
+            isProcessingClick = false;
+          }, 150);
 
           // Center map on marker and open popup
           map.setView(markerData.marker.getLatLng(), Math.max(map.getZoom(), 12));
           markerData.marker.openPopup();
 
-          // On desktop, scroll to the clan card if we're selecting from map
+          // On desktop, scroll to the clan card if we're selecting from map (non-blocking)
           if (window.innerWidth >= 1024) {
-            scrollToClanCard(claName);
+            requestAnimationFrame(() => {
+              scrollToClanCard(claName);
+            });
           }
         }
       }
@@ -431,5 +704,23 @@ const serializedClaList = JSON.stringify(cla_list);
     .view-clan-btn:hover {
       background-color: var(--color-secondary) !important;
     }
+    
+    /* Custom marker styles */
+    .custom-marker-icon {
+      background: none !important;
+      border: none !important;
+    }
+
+    .custom-marker img {
+      transition: all 0.3s ease;
+    }
+
+    .custom-marker.active img {
+      transform: scale(1.1);
+    }
+
+    .custom-marker.hover img {
+      transform: scale(1.05);
+    }
   </style>
-</Layout> 
+</Layout>
