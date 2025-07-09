@@ -1150,6 +1150,16 @@
               "agrupamento": "1341 Freamunde"
             }
           ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/vii/ep/pardal.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
         }
       }
     },
@@ -1191,6 +1201,16 @@
               "agrupamento": "680 Santão"
             }
           ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Pardal",
+              "image": "pics/vi/ep/pardal.png",
+              "agrupamento": "1039 Vilela"
+            }
+          ]
         }
       }
     },
@@ -1222,6 +1242,16 @@
               "name": "Joana",
               "image": "",
               "agrupamento": "512 Paredes"
+            }
+          ]
+        },
+        "observadores": {
+          "name": "Observadores",
+          "members": [
+            {
+              "name": "Chefe Mónica",
+              "image": "pics/vi/ep/monica.png",
+              "agrupamento": "765 Seroa"
             }
           ]
         }

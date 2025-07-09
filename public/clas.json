@@ -114,14 +114,17 @@
   ],
   "Margaride": [
     {
-      "name": "Cla X",
+      "name": "Cla 75",
       "agrupamento": "694 Margaride",
       "description": null,
-      "image": null,
+      "image": "clas/margaride.jpeg",
       "instagram": null,
-      "facebook": null,
+      "facebook": "https://www.facebook.com/share/16iuBBNrwD/",
       "email": "geral.694@escutismo.pt",
-      "coordinates": null
+      "coordinates": {
+        "latitude": 41.371577,
+        "longitude": -8.201232
+      }
     }
   ],
   "Seroa": [
