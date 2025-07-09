@@ -3,6 +3,7 @@ import Layout from "~/components/Layout.astro";
 import Objetivos from "~/components/este.astro";
 import Intro from "~/components/intro.astro";
 import Splash from "~/components/splash.astro";
+import Sazuli from "~/components/sazuli.jsx";
 
 const description = "Cenáculo Núcleo Este";
 ---
@@ -11,6 +12,7 @@ const description = "Cenáculo Núcleo Este";
   <div class="relative -mt-20">
     <Splash />
     <div class="space-y-24 px-8 py-32">
+      <Sazuli client:load />
       <Intro />
       <Objetivos />
     </div>
