@@ -71,6 +71,7 @@ export interface Ciclo {
   hino: string | null;
   letra: string | null;
   site: string | null;
+  musica_forum: string | null;
   leftSidePictures: string[] | null;
   rightSidePictures: string[] | null;
   scale: number | null;
