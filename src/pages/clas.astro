@@ -129,8 +129,16 @@ const serializedClaList = JSON.stringify(cla_list);
       }
       
       // Function to create custom marker with clan image
-      function createCustomMarker(cla, isActive = false) {
-        const size = isActive ? 50 : 40;
+      function createCustomMarker(cla, isActive = false, zoomLevel = 7) {
+        // Calculate size based on zoom level
+        const baseSize = isActive ? 50 : 40;
+        const minSize = isActive ? 30 : 25;
+        const maxSize = isActive ? 80 : 65;
+        
+        // Scale factor based on zoom (zoom 1 = smallest, zoom 18+ = largest)
+        const zoomFactor = Math.max(0.5, Math.min(2.5, (zoomLevel - 1) / 17 * 2 + 0.5));
+        const size = Math.max(minSize, Math.min(maxSize, baseSize * zoomFactor));
+        
         const imageUrl = convertImageUrl(cla.image);
         
         // Create the marker HTML
@@ -149,9 +157,9 @@ const serializedClaList = JSON.stringify(cla_list);
               transform: translateX(-50%);
               width: 0;
               height: 0;
-              border-left: 8px solid transparent;
-              border-right: 8px solid transparent;
-              border-top: 15px solid ${isActive ? '#ff6b35' : '#e63946'};
+              border-left: ${Math.max(6, size * 0.15)}px solid transparent;
+              border-right: ${Math.max(6, size * 0.15)}px solid transparent;
+              border-top: ${Math.max(10, size * 0.3)}px solid ${isActive ? '#ff6b35' : '#e63946'};
               z-index: 2;
             "></div>
             
@@ -164,10 +172,10 @@ const serializedClaList = JSON.stringify(cla_list);
               width: ${size}px;
               height: ${size}px;
               border-radius: 50%;
-              border: 3px solid ${isActive ? '#ff6b35' : '#e63946'};
+              border: ${Math.max(2, size * 0.06)}px solid ${isActive ? '#ff6b35' : '#e63946'};
               background: white;
-              padding: 3px;
-              box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+              padding: ${Math.max(2, size * 0.06)}px;
+              box-shadow: 0 ${Math.max(2, size * 0.08)}px ${Math.max(4, size * 0.16)}px rgba(0,0,0,0.3);
               z-index: 3;
             ">
               <img src="${imageUrl}" alt="${cla.name}" style="
@@ -205,6 +213,97 @@ const serializedClaList = JSON.stringify(cla_list);
         });
       }
       
+      // Function to create hover marker with zoom-based sizing
+      function createHoverMarker(cla, zoomLevel = 7) {
+        const baseSize = 40;
+        const minSize = 25;
+        const maxSize = 65;
+        
+        const zoomFactor = Math.max(0.5, Math.min(2.5, (zoomLevel - 1) / 17 * 2 + 0.5));
+        const size = Math.max(minSize, Math.min(maxSize, baseSize * zoomFactor));
+        
+        const imageUrl = convertImageUrl(cla.image);
+        const hoverHtml = `
+          <div class="custom-marker hover" style="
+            position: relative;
+            width: ${size}px;
+            height: ${size + 10}px;
+            cursor: pointer;
+          ">
+            <div style="
+              position: absolute;
+              bottom: 0;
+              left: 50%;
+              transform: translateX(-50%);
+              width: 0;
+              height: 0;
+              border-left: ${Math.max(6, size * 0.15)}px solid transparent;
+              border-right: ${Math.max(6, size * 0.15)}px solid transparent;
+              border-top: ${Math.max(10, size * 0.3)}px solid #e63946;
+              z-index: 2;
+            "></div>
+            <div style="
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translateX(-50%) scale(1.1);
+              transform-origin: center center;
+              width: ${size}px;
+              height: ${size}px;
+              border-radius: 50%;
+              border: ${Math.max(3, size * 0.08)}px solid #e63946;
+              background: white;
+              padding: ${Math.max(2, size * 0.05)}px;
+              box-shadow: 0 ${Math.max(4, size * 0.16)}px ${Math.max(8, size * 0.32)}px rgba(0,0,0,0.5);
+              z-index: 3;
+            ">
+              <img src="${imageUrl}" alt="${cla.name}" style="
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                object-fit: cover;
+                object-position: center center;
+              " />
+            </div>
+          </div>
+        `;
+        
+        return L.divIcon({
+          html: hoverHtml,
+          className: 'custom-marker-icon',
+          iconSize: [size, size + 15],
+          iconAnchor: [size / 2, size + 15],
+          popupAnchor: [0, -(size + 15)]
+        });
+      }
+      
+      // Function to update all markers based on zoom level
+      function updateMarkersForZoom(zoomLevel) {
+        markers.forEach(markerData => {
+          const cla = markerData.cla;
+          const marker = markerData.marker;
+          
+          // Create new icons with current zoom level
+          const newOriginalIcon = createCustomMarker(cla, false, zoomLevel);
+          const newActiveIcon = createCustomMarker(cla, true, zoomLevel);
+          const newHoverIcon = createHoverMarker(cla, zoomLevel);
+          
+          // Update stored icons
+          marker.originalIcon = newOriginalIcon;
+          marker.activeIcon = newActiveIcon;
+          marker.hoverIcon = newHoverIcon;
+          
+          // Update the marker's current icon based on its state
+          if (marker === activeMarker) {
+            marker.setIcon(newActiveIcon);
+          } else if (marker.isHovering) {
+            marker.setIcon(newHoverIcon);
+          } else {
+            marker.setIcon(newOriginalIcon);
+          }
+        });
+      }
+      
       function initMap() {
         // Default center (Portugal)
         const defaultCenter = [39.5, -8.0];
@@ -226,7 +325,7 @@ const serializedClaList = JSON.stringify(cla_list);
             // Create marker with custom icon
             const marker = L.marker([cla.coordinates.latitude, cla.coordinates.longitude], {
               title: `${cla.name} - ${cla.agrupamento}`,
-              icon: createCustomMarker(cla, false)
+              icon: createCustomMarker(cla, false, map.getZoom())
             }).addTo(map);
             
             // Store marker reference
@@ -322,9 +421,9 @@ const serializedClaList = JSON.stringify(cla_list);
             marker.bindPopup(popup);
             
             // Store original state and pre-create icons to prevent timing issues
-            marker.originalIcon = createCustomMarker(cla, false);
-            marker.activeIcon = createCustomMarker(cla, true);
-            marker.hoverIcon = null;
+            marker.originalIcon = createCustomMarker(cla, false, map.getZoom());
+            marker.activeIcon = createCustomMarker(cla, true, map.getZoom());
+            marker.hoverIcon = createHoverMarker(cla, map.getZoom());
             marker.isClicking = false; // Flag to prevent hover interference during clicks
             marker.isHovering = false; // Track hover state
             marker.hoverTimeout = null; // For debouncing hover events
@@ -378,64 +477,6 @@ const serializedClaList = JSON.stringify(cla_list);
               if (!marker.isClicking && marker !== activeMarker && !marker.isHovering) {
                 marker.isHovering = true;
                 
-                // Create hover icon only once with same size to prevent displacement
-                if (!marker.hoverIcon) {
-                  const hoverSize = 40; // Same size as original to prevent mouse displacement
-                  const imageUrl = convertImageUrl(cla.image);
-                  const hoverHtml = `
-                    <div class="custom-marker hover" style="
-                      position: relative;
-                      width: ${hoverSize}px;
-                      height: ${hoverSize + 10}px;
-                      cursor: pointer;
-                    ">
-                      <div style="
-                        position: absolute;
-                        bottom: 0;
-                        left: 50%;
-                        transform: translateX(-50%);
-                        width: 0;
-                        height: 0;
-                        border-left: 8px solid transparent;
-                        border-right: 8px solid transparent;
-                        border-top: 15px solid #e63946;
-                        z-index: 2;
-                      "></div>
-                      <div style="
-                        position: absolute;
-                        top: 0;
-                        left: 50%;
-                        transform: translateX(-50%) scale(1.1);
-                        transform-origin: center center;
-                        width: ${hoverSize}px;
-                        height: ${hoverSize}px;
-                        border-radius: 50%;
-                        border: 4px solid #e63946;
-                        background: white;
-                        padding: 2px;
-                        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-                        z-index: 3;
-                      ">
-                        <img src="${imageUrl}" alt="${cla.name}" style="
-                          width: 100%;
-                          height: 100%;
-                          border-radius: 50%;
-                          object-fit: cover;
-                          object-position: center center;
-                        " />
-                      </div>
-                    </div>
-                  `;
-                  
-                  marker.hoverIcon = L.divIcon({
-                    html: hoverHtml,
-                    className: 'custom-marker-icon',
-                    iconSize: [hoverSize, hoverSize + 15],
-                    iconAnchor: [hoverSize / 2, hoverSize + 15],
-                    popupAnchor: [0, -(hoverSize + 15)]
-                  });
-                }
-                
                 // Small delay to prevent rapid switching
                 setTimeout(() => {
                   if (marker.isHovering && !marker.isClicking && marker !== activeMarker) {
@@ -471,6 +512,11 @@ const serializedClaList = JSON.stringify(cla_list);
             map.setZoom(15);
           }
         }
+        
+        // Add zoom event listener to update markers
+        map.on('zoomend', function() {
+          updateMarkersForZoom(map.getZoom());
+        });
       }
       
       // Function to scroll to clan card
@@ -555,64 +601,6 @@ const serializedClaList = JSON.stringify(cla_list);
             }
             
             markerData.marker.isHovering = true;
-            
-            // Use pre-created hover icon if available, otherwise create it with consistent sizing
-            if (!markerData.marker.hoverIcon) {
-              const hoverSize = 40; // Same size as original to prevent displacement
-              const imageUrl = convertImageUrl(markerData.cla.image);
-              const hoverHtml = `
-                <div class="custom-marker hover" style="
-                  position: relative;
-                  width: ${hoverSize}px;
-                  height: ${hoverSize + 10}px;
-                  cursor: pointer;
-                ">
-                  <div style="
-                    position: absolute;
-                    bottom: 0;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 0;
-                    height: 0;
-                    border-left: 8px solid transparent;
-                    border-right: 8px solid transparent;
-                    border-top: 15px solid #e63946;
-                    z-index: 2;
-                  "></div>
-                                      <div style="
-                      position: absolute;
-                      top: 0;
-                      left: 50%;
-                      transform: translateX(-50%) scale(1.1);
-                      transform-origin: center center;
-                      width: ${hoverSize}px;
-                      height: ${hoverSize}px;
-                      border-radius: 50%;
-                      border: 4px solid #e63946;
-                      background: white;
-                      padding: 2px;
-                      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-                      z-index: 3;
-                    ">
-                    <img src="${imageUrl}" alt="${markerData.cla.name}" style="
-                      width: 100%;
-                      height: 100%;
-                      border-radius: 50%;
-                      object-fit: cover;
-                      object-position: center center;
-                    " />
-                  </div>
-                </div>
-              `;
-              
-              markerData.marker.hoverIcon = L.divIcon({
-                html: hoverHtml,
-                className: 'custom-marker-icon',
-                iconSize: [hoverSize, hoverSize + 15],
-                iconAnchor: [hoverSize / 2, hoverSize + 15],
-                popupAnchor: [0, -(hoverSize + 15)]
-              });
-            }
             
             // Small delay to prevent rapid switching
             setTimeout(() => {
