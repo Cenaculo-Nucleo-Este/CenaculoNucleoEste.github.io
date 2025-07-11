@@ -1,0 +1,38 @@
+---
+import ContentSection from "~/components/content-section.astro";
+import CompatibilityList from "./compatibility-list.astro";
+import type { CompatibilityItem } from "~/types";
+
+const departamentos: Array<CompatibilityItem> = [
+  {
+    title: "Fórum",
+    url: `${import.meta.env.BASE_URL}departamentos`,
+    icon: "users",
+  },
+  {
+    title: "Logística",
+    url: `${import.meta.env.BASE_URL}departamentos`,
+    icon: "cash",
+  },
+  {
+    title: "Comunicação",
+    url: `${import.meta.env.BASE_URL}departamentos`,
+    icon: "megaphone",
+  },
+  {
+    title: "Animação",
+    url: `${import.meta.env.BASE_URL}departamentos`,
+    icon: "rock-on",
+  },
+];
+---
+
+<ContentSection title="Como se faz Cenáculo?" id="como">
+  <Fragment slot="lead">
+    O <span class="text-primary">Cenáculo</span> é feito por <span class="text-primary">4 Departamentos</span> mais a <span class="text-primary">Coordenação</span>.
+    Cada departamento é responsável por organizar partes do Cenáculo e tem <span class="text-primary">responsabilidades únicas</span>.
+    Isto e uma pitada de <span class="text-primary">magia</span>, <span class="text-primary">amor</span>, muito <span class="text-primary">trabalho</span> e <span class="text-primary">esforço</span>,
+    e faz-se <span class="text-primary">Cenáculo</span>.
+  </Fragment>
+  <CompatibilityList items={departamentos} title="Departamentos" url={`${import.meta.env.BASE_URL}departamentos`} direction="responsive" />
+</ContentSection>
