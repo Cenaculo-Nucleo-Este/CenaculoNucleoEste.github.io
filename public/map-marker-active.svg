@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="36px" height="48px" viewBox="0 0 36 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>Map Marker Active</title>
-    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <path d="M18,0 C27.9411255,0 36,8.0588745 36,18 C36,23.0367661 33.6506024,27.5269119 29.8571429,30.5 L18,48 L6.14285714,30.5 C2.34939759,27.5269119 0,23.0367661 0,18 C0,8.0588745 8.0588745,0 18,0 Z" fill="#0066CC"></path>
-        <circle fill="#FFFFFF" cx="18" cy="18" r="8"></circle>
-    </g>
-</svg> 
