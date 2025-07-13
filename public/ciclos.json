@@ -862,7 +862,7 @@
             {
               "name": "Francisco",
               "image": "pics/ix/ep/francisco.png",
-              "agrupamento": "1341 Freamunde"
+              "agrupamento": "1258 Castelo de Paiva"  
             }
           ]
         },
@@ -1163,7 +1163,7 @@
             {
               "name": "Luis Leal",
               "image": "pics/vii/ep/luis.png",
-              "agrupamento": "1341 Freamunde"
+              "agrupamento": "912 Irivo"
             },
             {
               "name": "Helena Coelho",
@@ -1227,9 +1227,9 @@
           "name": "Embaixadora",
           "members": [
             {
-              "name": "",
+              "name": "Ana Gonçalves",
               "image": "pics/vi/ep/embaixadora.png",
-              "agrupamento": ""
+              "agrupamento": "1189 Corim"
             }
           ]
         },
